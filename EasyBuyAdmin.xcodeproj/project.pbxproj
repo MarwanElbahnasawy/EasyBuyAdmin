@@ -14,6 +14,10 @@
 		17D5C0C22A2BE0F500BAC8BC /* EasyBuyAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0C12A2BE0F500BAC8BC /* EasyBuyAdminTests.swift */; };
 		17D5C0CC2A2BE0F500BAC8BC /* EasyBuyAdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0CB2A2BE0F500BAC8BC /* EasyBuyAdminUITests.swift */; };
 		17D5C0CE2A2BE0F500BAC8BC /* EasyBuyAdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0CD2A2BE0F500BAC8BC /* EasyBuyAdminUITestsLaunchTests.swift */; };
+		17D5C0EA2A2BE6C400BAC8BC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0E92A2BE6C400BAC8BC /* Kingfisher */; };
+		17D5C0ED2A2BE6D400BAC8BC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EC2A2BE6D400BAC8BC /* Lottie */; };
+		17D5C0F02A2BE6E500BAC8BC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EF2A2BE6E500BAC8BC /* Alamofire */; };
+		17D5C0F32A2BE70100BAC8BC /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0F22A2BE70100BAC8BC /* Apollo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D5C0F02A2BE6E500BAC8BC /* Alamofire in Frameworks */,
+				17D5C0F32A2BE70100BAC8BC /* Apollo in Frameworks */,
+				17D5C0EA2A2BE6C400BAC8BC /* Kingfisher in Frameworks */,
+				17D5C0ED2A2BE6D400BAC8BC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +104,7 @@
 			children = (
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
-				17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */,
-				17D5C0B62A2BE0F400BAC8BC /* Preview Content */,
+				17D5C0E62A2BE6A300BAC8BC /* App */,
 			);
 			path = EasyBuyAdmin;
 			sourceTree = "<group>";
@@ -127,6 +134,23 @@
 			path = EasyBuyAdminUITests;
 			sourceTree = "<group>";
 		};
+		17D5C0E62A2BE6A300BAC8BC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				17D5C0E72A2BE6AD00BAC8BC /* Assets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		17D5C0E72A2BE6AD00BAC8BC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */,
+				17D5C0B62A2BE0F400BAC8BC /* Preview Content */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +167,12 @@
 			dependencies = (
 			);
 			name = EasyBuyAdmin;
+			packageProductDependencies = (
+				17D5C0E92A2BE6C400BAC8BC /* Kingfisher */,
+				17D5C0EC2A2BE6D400BAC8BC /* Lottie */,
+				17D5C0EF2A2BE6E500BAC8BC /* Alamofire */,
+				17D5C0F22A2BE70100BAC8BC /* Apollo */,
+			);
 			productName = EasyBuyAdmin;
 			productReference = 17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +245,12 @@
 				Base,
 			);
 			mainGroup = 17D5C0A42A2BE0F200BAC8BC;
+			packageReferences = (
+				17D5C0E82A2BE6C400BAC8BC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				17D5C0EB2A2BE6D400BAC8BC /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				17D5C0EE2A2BE6E500BAC8BC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 17D5C0AE2A2BE0F200BAC8BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EasyBuyAdmin/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"EasyBuyAdmin/App/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = CV64V222GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -445,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EasyBuyAdmin/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"EasyBuyAdmin/App/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = CV64V222GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -583,6 +619,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17D5C0E82A2BE6C400BAC8BC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.7.0;
+			};
+		};
+		17D5C0EB2A2BE6D400BAC8BC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.0;
+			};
+		};
+		17D5C0EE2A2BE6E500BAC8BC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.7.1;
+			};
+		};
+		17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.53.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17D5C0E92A2BE6C400BAC8BC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D5C0E82A2BE6C400BAC8BC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		17D5C0EC2A2BE6D400BAC8BC /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D5C0EB2A2BE6D400BAC8BC /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		17D5C0EF2A2BE6E500BAC8BC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D5C0EE2A2BE6E500BAC8BC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		17D5C0F22A2BE70100BAC8BC /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 17D5C0A52A2BE0F200BAC8BC /* Project object */;
 }
