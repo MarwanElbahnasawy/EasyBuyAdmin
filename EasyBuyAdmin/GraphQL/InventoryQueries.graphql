@@ -1,0 +1,27 @@
+query getAllInventoryItems {
+  inventoryItems(first: 10, reverse: true) {
+    edges {
+      node {
+        id
+        variant{
+            title
+        }
+        unitCost{
+            amount
+        }
+      }
+    }
+  }
+}
+
+query getInventoryItemByID($id: ID!) {
+  inventoryItem(id: $id) {
+    id
+    variant{
+        title
+    }
+    unitCost{
+        amount
+    }
+  }
+}

@@ -1,0 +1,48 @@
+mutation productCreate($input: ProductInput!) {
+  productCreate(input: $input) {
+      product{
+          handle
+          id
+      }
+    shop {
+      name
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation productUpdate($input: ProductInput!) {
+  productUpdate(input: $input) {
+    product {
+      id
+      title
+      productType
+      vendor
+      descriptionHtml
+      images(first: 1){
+          edges{
+              node{
+                  url
+              }
+          }
+      }
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation productDelete($input: ProductDeleteInput!) {
+  productDelete(input: $input) {
+    deletedProductId
+    userErrors {
+      field
+      message
+    }
+  }
+}

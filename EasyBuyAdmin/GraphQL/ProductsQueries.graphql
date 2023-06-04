@@ -1,0 +1,49 @@
+query getAllProducts {
+    products(first: 10, reverse: true) {
+    edges {
+      node {
+        title
+        vendor
+        productType
+        description
+        id
+        status
+        images(first: 1){
+            edges{
+                node{
+                    url
+                }
+            }
+        }
+        collections(first: 5){
+            edges {
+            node {
+              title
+            }
+          }
+        }
+        tags
+      }
+    }
+  }
+}
+
+query getProductById($id: ID!) {
+  product(id: $id) {
+    title
+    handle
+    description
+    descriptionHtml
+    productType
+    id
+    vendor
+    status
+    images(first: 1) {
+      edges {
+        node {
+          url
+        }
+      }
+    }
+  }
+}

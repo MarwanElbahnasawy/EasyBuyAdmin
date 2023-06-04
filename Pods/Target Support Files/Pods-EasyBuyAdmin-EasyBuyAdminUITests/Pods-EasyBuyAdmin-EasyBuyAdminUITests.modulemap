@@ -1,0 +1,6 @@
+framework module Pods_EasyBuyAdmin_EasyBuyAdminUITests {
+  umbrella header "Pods-EasyBuyAdmin-EasyBuyAdminUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

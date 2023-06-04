@@ -20,6 +20,7 @@
 		1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */; };
 		1704AFAA2A2CC01200481A64 /* InventoryMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */; };
 		1704AFAC2A2CC10200481A64 /* admin_schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1704AFAB2A2CC10200481A64 /* admin_schema.json */; };
+		174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */; };
 		17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */; };
 		17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */; };
 		17D5C0B52A2BE0F400BAC8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */; };
@@ -30,7 +31,9 @@
 		17D5C0EA2A2BE6C400BAC8BC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0E92A2BE6C400BAC8BC /* Kingfisher */; };
 		17D5C0ED2A2BE6D400BAC8BC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EC2A2BE6D400BAC8BC /* Lottie */; };
 		17D5C0F02A2BE6E500BAC8BC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EF2A2BE6E500BAC8BC /* Alamofire */; };
-		17D5C0F32A2BE70100BAC8BC /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0F22A2BE70100BAC8BC /* Apollo */; };
+		31C23585F28F5F3AA1E089D1 /* Pods_EasyBuyAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */; };
+		3C71CD040B9A0994A122C726 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */; };
+		E1366E3A16CB04374069421E /* Pods_EasyBuyAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C06626AF143AB2561DFE628 /* Pods_EasyBuyAdmin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryQueries.graphql; sourceTree = "<group>"; };
 		1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryMutations.graphql; sourceTree = "<group>"; };
 		1704AFAB2A2CC10200481A64 /* admin_schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_schema.json; sourceTree = "<group>"; };
+		174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuyAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminApp.swift; sourceTree = "<group>"; };
 		17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 		17D5C0C72A2BE0F500BAC8BC /* EasyBuyAdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyBuyAdminUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0CB2A2BE0F500BAC8BC /* EasyBuyAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminUITests.swift; sourceTree = "<group>"; };
 		17D5C0CD2A2BE0F500BAC8BC /* EasyBuyAdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60D9FA02FB9A96B091FE02EB /* Pods-EasyBuyAdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdminTests.release.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdminTests/Pods-EasyBuyAdminTests.release.xcconfig"; sourceTree = "<group>"; };
+		7C06626AF143AB2561DFE628 /* Pods_EasyBuyAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8599D02B7830B11AB6B4B1C6 /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdmin-EasyBuyAdminUITests.release.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdmin-EasyBuyAdminUITests/Pods-EasyBuyAdmin-EasyBuyAdminUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9F5DB0E1885EFED0B7F41EE8 /* Pods-EasyBuyAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdmin.release.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdmin/Pods-EasyBuyAdmin.release.xcconfig"; sourceTree = "<group>"; };
+		B169F3C0D7F0ED82EEA79F25 /* Pods-EasyBuyAdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdminTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdminTests/Pods-EasyBuyAdminTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5E0F5F145F32174436D2FC1 /* Pods-EasyBuyAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdmin.debug.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdmin/Pods-EasyBuyAdmin.debug.xcconfig"; sourceTree = "<group>"; };
+		D644F5D830AC761F7486432A /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdmin-EasyBuyAdminUITests.debug.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdmin-EasyBuyAdminUITests/Pods-EasyBuyAdmin-EasyBuyAdminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +95,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D5C0F02A2BE6E500BAC8BC /* Alamofire in Frameworks */,
-				17D5C0F32A2BE70100BAC8BC /* Apollo in Frameworks */,
 				17D5C0EA2A2BE6C400BAC8BC /* Kingfisher in Frameworks */,
 				17D5C0ED2A2BE6D400BAC8BC /* Lottie in Frameworks */,
+				E1366E3A16CB04374069421E /* Pods_EasyBuyAdmin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C23585F28F5F3AA1E089D1 /* Pods_EasyBuyAdminTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +113,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C71CD040B9A0994A122C726 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035812B785D9A3B3C651492E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C06626AF143AB2561DFE628 /* Pods_EasyBuyAdmin.framework */,
+				4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */,
+				5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1704AF872A2C8ED000481A64 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +215,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		174BB99B2A2CE23700C61AC8 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF9F2A2CA43A00481A64 /* ProductsQueries.graphql */,
+				1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */,
+				1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */,
+				1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */,
+				1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */,
+				1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */,
+				1704AFAB2A2CC10200481A64 /* admin_schema.json */,
+				174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 		17D5C0A42A2BE0F200BAC8BC = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +237,8 @@
 				17D5C0C02A2BE0F500BAC8BC /* EasyBuyAdminTests */,
 				17D5C0CA2A2BE0F500BAC8BC /* EasyBuyAdminUITests */,
 				17D5C0AE2A2BE0F200BAC8BC /* Products */,
+				88B292E7970AF34EE396EC22 /* Pods */,
+				035812B785D9A3B3C651492E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,14 +258,8 @@
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
 				17D5C0E62A2BE6A300BAC8BC /* App */,
+				174BB99B2A2CE23700C61AC8 /* GraphQL */,
 				1704AF872A2C8ED000481A64 /* Presentation */,
-				1704AF9F2A2CA43A00481A64 /* ProductsQueries.graphql */,
-				1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */,
-				1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */,
-				1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */,
-				1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */,
-				1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */,
-				1704AFAB2A2CC10200481A64 /* admin_schema.json */,
 			);
 			path = EasyBuyAdmin;
 			sourceTree = "<group>";
@@ -270,6 +306,19 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		88B292E7970AF34EE396EC22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5E0F5F145F32174436D2FC1 /* Pods-EasyBuyAdmin.debug.xcconfig */,
+				9F5DB0E1885EFED0B7F41EE8 /* Pods-EasyBuyAdmin.release.xcconfig */,
+				D644F5D830AC761F7486432A /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.debug.xcconfig */,
+				8599D02B7830B11AB6B4B1C6 /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.release.xcconfig */,
+				B169F3C0D7F0ED82EEA79F25 /* Pods-EasyBuyAdminTests.debug.xcconfig */,
+				60D9FA02FB9A96B091FE02EB /* Pods-EasyBuyAdminTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,9 +326,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17D5C0D12A2BE0F500BAC8BC /* Build configuration list for PBXNativeTarget "EasyBuyAdmin" */;
 			buildPhases = (
+				AA40498A619F7C2D03E05DF8 /* [CP] Check Pods Manifest.lock */,
 				17D5C0A92A2BE0F200BAC8BC /* Sources */,
 				17D5C0AA2A2BE0F200BAC8BC /* Frameworks */,
 				17D5C0AB2A2BE0F200BAC8BC /* Resources */,
+				175E26D42A2CDCDB00A545FE /* ShellScript */,
+				20DBA974BE64F3C169AE45F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,7 +342,6 @@
 				17D5C0E92A2BE6C400BAC8BC /* Kingfisher */,
 				17D5C0EC2A2BE6D400BAC8BC /* Lottie */,
 				17D5C0EF2A2BE6E500BAC8BC /* Alamofire */,
-				17D5C0F22A2BE70100BAC8BC /* Apollo */,
 			);
 			productName = EasyBuyAdmin;
 			productReference = 17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */;
@@ -300,6 +351,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17D5C0D42A2BE0F500BAC8BC /* Build configuration list for PBXNativeTarget "EasyBuyAdminTests" */;
 			buildPhases = (
+				E4DFFA04F9788976231C3CBC /* [CP] Check Pods Manifest.lock */,
 				17D5C0B92A2BE0F500BAC8BC /* Sources */,
 				17D5C0BA2A2BE0F500BAC8BC /* Frameworks */,
 				17D5C0BB2A2BE0F500BAC8BC /* Resources */,
@@ -318,9 +370,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17D5C0D72A2BE0F500BAC8BC /* Build configuration list for PBXNativeTarget "EasyBuyAdminUITests" */;
 			buildPhases = (
+				96097FAAFFD2145BE17F1848 /* [CP] Check Pods Manifest.lock */,
 				17D5C0C32A2BE0F500BAC8BC /* Sources */,
 				17D5C0C42A2BE0F500BAC8BC /* Frameworks */,
 				17D5C0C52A2BE0F500BAC8BC /* Resources */,
+				64CADF9C48495E41647494A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,7 +422,6 @@
 				17D5C0E82A2BE6C400BAC8BC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				17D5C0EB2A2BE6D400BAC8BC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				17D5C0EE2A2BE6E500BAC8BC /* XCRemoteSwiftPackageReference "Alamofire" */,
-				17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 17D5C0AE2A2BE0F200BAC8BC /* Products */;
 			projectDirPath = "";
@@ -408,12 +461,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		175E26D42A2CDCDB00A545FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"admin_schema.json\" GraphQLAPI.swift\n";
+		};
+		20DBA974BE64F3C169AE45F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin/Pods-EasyBuyAdmin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin/Pods-EasyBuyAdmin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin/Pods-EasyBuyAdmin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64CADF9C48495E41647494A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin-EasyBuyAdminUITests/Pods-EasyBuyAdmin-EasyBuyAdminUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin-EasyBuyAdminUITests/Pods-EasyBuyAdmin-EasyBuyAdminUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyBuyAdmin-EasyBuyAdminUITests/Pods-EasyBuyAdmin-EasyBuyAdminUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96097FAAFFD2145BE17F1848 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyBuyAdmin-EasyBuyAdminUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA40498A619F7C2D03E05DF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyBuyAdmin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4DFFA04F9788976231C3CBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyBuyAdminTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		17D5C0A92A2BE0F200BAC8BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */,
+				174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */,
 				1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */,
 				1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */,
 				1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */,
@@ -579,6 +753,7 @@
 		};
 		17D5C0D22A2BE0F500BAC8BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5E0F5F145F32174436D2FC1 /* Pods-EasyBuyAdmin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -593,6 +768,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,6 +784,7 @@
 		};
 		17D5C0D32A2BE0F500BAC8BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F5DB0E1885EFED0B7F41EE8 /* Pods-EasyBuyAdmin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -622,6 +799,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +815,7 @@
 		};
 		17D5C0D52A2BE0F500BAC8BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B169F3C0D7F0ED82EEA79F25 /* Pods-EasyBuyAdminTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -657,6 +836,7 @@
 		};
 		17D5C0D62A2BE0F500BAC8BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D9FA02FB9A96B091FE02EB /* Pods-EasyBuyAdminTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -677,6 +857,7 @@
 		};
 		17D5C0D82A2BE0F500BAC8BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D644F5D830AC761F7486432A /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -695,6 +876,7 @@
 		};
 		17D5C0D92A2BE0F500BAC8BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8599D02B7830B11AB6B4B1C6 /* Pods-EasyBuyAdmin-EasyBuyAdminUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -777,14 +959,6 @@
 				version = 5.7.1;
 			};
 		};
-		17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.53.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -802,11 +976,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17D5C0EE2A2BE6E500BAC8BC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		17D5C0F22A2BE70100BAC8BC /* Apollo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 17D5C0F12A2BE70100BAC8BC /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = Apollo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
