@@ -1,0 +1,26 @@
+//
+//  InventoryMutations.swift
+//  EasyBuyAdmin
+//
+//  Created by Marwan Elbahnasawy on 04/06/2023.
+//
+
+// Updating Inventory item by ID
+
+mutation inventoryItemUpdate($id: ID!, $input: InventoryItemUpdateInput!) {
+  inventoryItemUpdate(id: $id, input: $input) {
+    inventoryItem {
+      id
+      variant{
+          title
+      }
+      unitCost{
+          amount
+      }
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
