@@ -17,6 +17,7 @@
 		1704AFA22A2CA9A500481A64 /* ProductsMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */; };
 		1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */; };
 		1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */; };
+		1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */; };
 		17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */; };
 		17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */; };
 		17D5C0B52A2BE0F400BAC8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductsMutations.graphql; sourceTree = "<group>"; };
 		1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiscountCodesQueries.graphql; sourceTree = "<group>"; };
 		1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiscountCodesMutations.graphql; sourceTree = "<group>"; };
+		1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryQueries.graphql; sourceTree = "<group>"; };
 		17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuyAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminApp.swift; sourceTree = "<group>"; };
 		17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */,
 				1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */,
 				1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */,
+				1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */,
 			);
 			path = EasyBuyAdmin;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				1704AFA02A2CA43A00481A64 /* ProductsQueries.graphql in Sources */,
 				1704AFA22A2CA9A500481A64 /* ProductsMutations.graphql in Sources */,
 				17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */,
+				1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */,
 				1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */,
 				1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */,
 			);

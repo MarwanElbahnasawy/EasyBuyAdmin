@@ -1,0 +1,38 @@
+//
+//  InventoryQueries.swift
+//  EasyBuyAdmin
+//
+//  Created by Marwan Elbahnasawy on 04/06/2023.
+//
+
+// Getting all inventory items
+
+query getAllInventoryItems {
+  inventoryItems(first: 10, reverse: true) {
+    edges {
+      node {
+        id
+        variant{
+            title
+        }
+        unitCost{
+            amount
+        }
+      }
+    }
+  }
+}
+
+// Getting an inventory item by ID
+
+query getInventoryItemByID($id: ID!) {
+  inventoryItem(id: $id) {
+    id
+    variant{
+        title
+    }
+    unitCost{
+        amount
+    }
+  }
+}
