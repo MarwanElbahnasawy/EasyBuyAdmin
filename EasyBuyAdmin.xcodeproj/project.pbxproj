@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF912A2C902B00481A64 /* ProductsView.swift */; };
+		1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF932A2C903800481A64 /* ProductsViewModel.swift */; };
+		1704AF962A2C904400481A64 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF952A2C904400481A64 /* InventoryView.swift */; };
+		1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF972A2C904E00481A64 /* InventoryViewModel.swift */; };
+		1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF992A2C906000481A64 /* DiscountCodesViewModel.swift */; };
+		1704AF9C2A2C907D00481A64 /* DiscountCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF9B2A2C907D00481A64 /* DiscountCodesView.swift */; };
 		17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */; };
 		17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */; };
 		17D5C0B52A2BE0F400BAC8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1704AF912A2C902B00481A64 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		1704AF932A2C903800481A64 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		1704AF952A2C904400481A64 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		1704AF972A2C904E00481A64 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		1704AF992A2C906000481A64 /* DiscountCodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesViewModel.swift; sourceTree = "<group>"; };
+		1704AF9B2A2C907D00481A64 /* DiscountCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesView.swift; sourceTree = "<group>"; };
 		17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuyAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminApp.swift; sourceTree = "<group>"; };
 		17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +91,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1704AF872A2C8ED000481A64 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF882A2C8EDB00481A64 /* Products */,
+				1704AF8A2A2C8EFD00481A64 /* Inventory */,
+				1704AF892A2C8EF400481A64 /* Discount Codes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1704AF882A2C8EDB00481A64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF902A2C8F6B00481A64 /* Views */,
+				1704AF8D2A2C8F5E00481A64 /* ViewModels */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		1704AF892A2C8EF400481A64 /* Discount Codes */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF8E2A2C8F6100481A64 /* Views */,
+				1704AF8B2A2C8F5500481A64 /* ViewModels */,
+			);
+			path = "Discount Codes";
+			sourceTree = "<group>";
+		};
+		1704AF8A2A2C8EFD00481A64 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF8F2A2C8F6700481A64 /* Views */,
+				1704AF8C2A2C8F5B00481A64 /* ViewModels */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		1704AF8B2A2C8F5500481A64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF992A2C906000481A64 /* DiscountCodesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1704AF8C2A2C8F5B00481A64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF972A2C904E00481A64 /* InventoryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1704AF8D2A2C8F5E00481A64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF932A2C903800481A64 /* ProductsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1704AF8E2A2C8F6100481A64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF9B2A2C907D00481A64 /* DiscountCodesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1704AF8F2A2C8F6700481A64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF952A2C904400481A64 /* InventoryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1704AF902A2C8F6B00481A64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1704AF912A2C902B00481A64 /* ProductsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		17D5C0A42A2BE0F200BAC8BC = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +202,7 @@
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
 				17D5C0E62A2BE6A300BAC8BC /* App */,
+				1704AF872A2C8ED000481A64 /* Presentation */,
 			);
 			path = EasyBuyAdmin;
 			sourceTree = "<group>";
@@ -294,7 +392,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */,
+				1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */,
+				1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */,
+				1704AF962A2C904400481A64 /* InventoryView.swift in Sources */,
+				1704AF9C2A2C907D00481A64 /* DiscountCodesView.swift in Sources */,
 				17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */,
+				1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */,
+				1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
