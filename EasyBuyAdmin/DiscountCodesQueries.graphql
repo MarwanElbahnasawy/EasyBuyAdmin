@@ -5,6 +5,8 @@
 //  Created by Marwan Elbahnasawy on 04/06/2023.
 //
 
+// Getting all basic discount codes
+
 query getAllDiscountCodes {
     codeDiscountNodes(first: 10, reverse: true) {
         nodes {

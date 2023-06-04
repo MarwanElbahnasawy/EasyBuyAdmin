@@ -5,6 +5,8 @@
 //  Created by Marwan Elbahnasawy on 04/06/2023.
 //
 
+// Getting all products
+
 query getAllProducts {
     products(first: 10, reverse: true) {
     edges {
@@ -34,6 +36,8 @@ query getAllProducts {
     }
   }
 }
+
+// Getting a product by ID
 
 query getProductById($id: ID!) {
   product(id: $id) {

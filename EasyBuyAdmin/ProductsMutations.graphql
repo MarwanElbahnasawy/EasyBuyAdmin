@@ -23,7 +23,7 @@ mutation productCreate($input: ProductInput!) {
   }
 }
 
-// Updating a product by id
+// Updating a product
 
 mutation productUpdate($input: ProductInput!) {
   productUpdate(input: $input) {
@@ -48,7 +48,7 @@ mutation productUpdate($input: ProductInput!) {
   }
 }
 
-// Deleting a product by id
+// Deleting a product
 
 mutation productDelete($input: ProductDeleteInput!) {
   productDelete(input: $input) {
