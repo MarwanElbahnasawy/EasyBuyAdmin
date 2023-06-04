@@ -1,0 +1,61 @@
+//
+//  ProductsMutations.swift
+//  EasyBuyAdmin
+//
+//  Created by Marwan Elbahnasawy on 04/06/2023.
+//
+
+// Creating a product
+
+mutation productCreate($input: ProductInput!) {
+  productCreate(input: $input) {
+      product{
+          handle
+          id
+      }
+    shop {
+      name
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+// Updating a product by id
+
+mutation productUpdate($input: ProductInput!) {
+  productUpdate(input: $input) {
+    product {
+      id
+      title
+      productType
+      vendor
+      descriptionHtml
+      images(first: 1){
+          edges{
+              node{
+                  url
+              }
+          }
+      }
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+// Deleting a product by id
+
+mutation productDelete($input: ProductDeleteInput!) {
+  productDelete(input: $input) {
+    deletedProductId
+    userErrors {
+      field
+      message
+    }
+  }
+}
