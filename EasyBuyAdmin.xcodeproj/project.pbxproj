@@ -21,6 +21,14 @@
 		1704AFAA2A2CC01200481A64 /* InventoryMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */; };
 		1704AFAC2A2CC10200481A64 /* admin_schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1704AFAB2A2CC10200481A64 /* admin_schema.json */; };
 		174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */; };
+		174BB99F2A2CE8A000C61AC8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB99E2A2CE8A000C61AC8 /* NetworkManager.swift */; };
+		174BB9A22A2D06FD00C61AC8 /* ProductsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9A12A2D06FD00C61AC8 /* ProductsModels.swift */; };
+		174BB9A52A2D1E3600C61AC8 /* NetworkManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9A42A2D1E3600C61AC8 /* NetworkManaging.swift */; };
+		174BB9A82A2D1EA700C61AC8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9A72A2D1EA700C61AC8 /* Constants.swift */; };
+		174BB9AA2A2D1ED500C61AC8 /* TokenInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9A92A2D1ED500C61AC8 /* TokenInterceptor.swift */; };
+		174BB9AC2A2D1EF200C61AC8 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9AB2A2D1EF100C61AC8 /* NetworkInterceptorProvider.swift */; };
+		174BB9AE2A2D23DB00C61AC8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9AD2A2D23DB00C61AC8 /* ProductCell.swift */; };
+		174BB9B02A2D299E00C61AC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174BB9AF2A2D299E00C61AC8 /* Extensions.swift */; };
 		17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */; };
 		17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */; };
 		17D5C0B52A2BE0F400BAC8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */; };
@@ -68,6 +76,14 @@
 		1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryMutations.graphql; sourceTree = "<group>"; };
 		1704AFAB2A2CC10200481A64 /* admin_schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_schema.json; sourceTree = "<group>"; };
 		174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
+		174BB99E2A2CE8A000C61AC8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		174BB9A12A2D06FD00C61AC8 /* ProductsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModels.swift; sourceTree = "<group>"; };
+		174BB9A42A2D1E3600C61AC8 /* NetworkManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManaging.swift; sourceTree = "<group>"; };
+		174BB9A72A2D1EA700C61AC8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		174BB9A92A2D1ED500C61AC8 /* TokenInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInterceptor.swift; sourceTree = "<group>"; };
+		174BB9AB2A2D1EF100C61AC8 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
+		174BB9AD2A2D23DB00C61AC8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		174BB9AF2A2D299E00C61AC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		17D5C0AD2A2BE0F200BAC8BC /* EasyBuyAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuyAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminApp.swift; sourceTree = "<group>"; };
 		17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -211,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				1704AF912A2C902B00481A64 /* ProductsView.swift */,
+				174BB9AD2A2D23DB00C61AC8 /* ProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +245,51 @@
 				174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		174BB99C2A2CE88200C61AC8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				174BB9A02A2D06F200C61AC8 /* Models */,
+				174BB99D2A2CE89200C61AC8 /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		174BB99D2A2CE89200C61AC8 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				174BB99E2A2CE8A000C61AC8 /* NetworkManager.swift */,
+				174BB9A92A2D1ED500C61AC8 /* TokenInterceptor.swift */,
+				174BB9AB2A2D1EF100C61AC8 /* NetworkInterceptorProvider.swift */,
+				174BB9A32A2D1E2500C61AC8 /* Protocols */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		174BB9A02A2D06F200C61AC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				174BB9A12A2D06FD00C61AC8 /* ProductsModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		174BB9A32A2D1E2500C61AC8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				174BB9A42A2D1E3600C61AC8 /* NetworkManaging.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		174BB9A62A2D1E9800C61AC8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				174BB9A72A2D1EA700C61AC8 /* Constants.swift */,
+				174BB9AF2A2D299E00C61AC8 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		17D5C0A42A2BE0F200BAC8BC = {
@@ -258,6 +320,7 @@
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
 				17D5C0E62A2BE6A300BAC8BC /* App */,
+				174BB99C2A2CE88200C61AC8 /* Data */,
 				174BB99B2A2CE23700C61AC8 /* GraphQL */,
 				1704AF872A2C8ED000481A64 /* Presentation */,
 			);
@@ -293,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				17D5C0E72A2BE6AD00BAC8BC /* Assets */,
+				174BB9A62A2D1E9800C61AC8 /* Utils */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -477,7 +541,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"admin_schema.json\" GraphQLAPI.swift\n";
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./GraphQL/*.graphql --localSchemaFile=\"GraphQL/admin_schema.json\" GraphQL/GraphQLAPI.swift\n";
 		};
 		20DBA974BE64F3C169AE45F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -586,12 +650,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174BB9B02A2D299E00C61AC8 /* Extensions.swift in Sources */,
 				17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */,
+				174BB9AE2A2D23DB00C61AC8 /* ProductCell.swift in Sources */,
+				174BB9A82A2D1EA700C61AC8 /* Constants.swift in Sources */,
 				174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */,
 				1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */,
+				174BB9A22A2D06FD00C61AC8 /* ProductsModels.swift in Sources */,
 				1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */,
+				174BB99F2A2CE8A000C61AC8 /* NetworkManager.swift in Sources */,
 				1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */,
 				1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */,
+				174BB9AC2A2D1EF200C61AC8 /* NetworkInterceptorProvider.swift in Sources */,
 				1704AF962A2C904400481A64 /* InventoryView.swift in Sources */,
 				1704AF9C2A2C907D00481A64 /* DiscountCodesView.swift in Sources */,
 				1704AFAA2A2CC01200481A64 /* InventoryMutations.graphql in Sources */,
@@ -600,6 +670,8 @@
 				17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */,
 				1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */,
 				1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */,
+				174BB9AA2A2D1ED500C61AC8 /* TokenInterceptor.swift in Sources */,
+				174BB9A52A2D1E3600C61AC8 /* NetworkManaging.swift in Sources */,
 				1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

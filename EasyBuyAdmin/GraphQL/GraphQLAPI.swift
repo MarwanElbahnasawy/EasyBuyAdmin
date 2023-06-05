@@ -6163,7 +6163,7 @@ public final class GetAllProductsQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query getAllProducts {
-      products(first: 10, reverse: true) {
+      products(first: 60, reverse: true) {
         __typename
         edges {
           __typename
@@ -6174,7 +6174,17 @@ public final class GetAllProductsQuery: GraphQLQuery {
             productType
             description
             id
-            status
+            priceRangeV2 {
+              __typename
+              minVariantPrice {
+                __typename
+                amount
+              }
+              maxVariantPrice {
+                __typename
+                amount
+              }
+            }
             images(first: 1) {
               __typename
               edges {
@@ -6212,7 +6222,7 @@ public final class GetAllProductsQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("products", arguments: ["first": 10, "reverse": true], type: .nonNull(.object(Product.selections))),
+        GraphQLField("products", arguments: ["first": 60, "reverse": true], type: .nonNull(.object(Product.selections))),
       ]
     }
 
@@ -6325,7 +6335,7 @@ public final class GetAllProductsQuery: GraphQLQuery {
               GraphQLField("productType", type: .nonNull(.scalar(String.self))),
               GraphQLField("description", type: .nonNull(.scalar(String.self))),
               GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-              GraphQLField("status", type: .nonNull(.scalar(ProductStatus.self))),
+              GraphQLField("priceRangeV2", type: .nonNull(.object(PriceRangeV2.selections))),
               GraphQLField("images", arguments: ["first": 1], type: .nonNull(.object(Image.selections))),
               GraphQLField("collections", arguments: ["first": 5], type: .nonNull(.object(Collection.selections))),
               GraphQLField("tags", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
@@ -6338,8 +6348,8 @@ public final class GetAllProductsQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(title: String, vendor: String, productType: String, description: String, id: GraphQLID, status: ProductStatus, images: Image, collections: Collection, tags: [String]) {
-            self.init(unsafeResultMap: ["__typename": "Product", "title": title, "vendor": vendor, "productType": productType, "description": description, "id": id, "status": status, "images": images.resultMap, "collections": collections.resultMap, "tags": tags])
+          public init(title: String, vendor: String, productType: String, description: String, id: GraphQLID, priceRangeV2: PriceRangeV2, images: Image, collections: Collection, tags: [String]) {
+            self.init(unsafeResultMap: ["__typename": "Product", "title": title, "vendor": vendor, "productType": productType, "description": description, "id": id, "priceRangeV2": priceRangeV2.resultMap, "images": images.resultMap, "collections": collections.resultMap, "tags": tags])
           }
 
           public var __typename: String {
@@ -6401,13 +6411,13 @@ public final class GetAllProductsQuery: GraphQLQuery {
             }
           }
 
-          /// The product status. This controls visibility across all channels.
-          public var status: ProductStatus {
+          /// The price range of the product with prices formatted as decimals.
+          public var priceRangeV2: PriceRangeV2 {
             get {
-              return resultMap["status"]! as! ProductStatus
+              return PriceRangeV2(unsafeResultMap: resultMap["priceRangeV2"]! as! ResultMap)
             }
             set {
-              resultMap.updateValue(newValue, forKey: "status")
+              resultMap.updateValue(newValue.resultMap, forKey: "priceRangeV2")
             }
           }
 
@@ -6441,6 +6451,137 @@ public final class GetAllProductsQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "tags")
+            }
+          }
+
+          public struct PriceRangeV2: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["ProductPriceRangeV2"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("minVariantPrice", type: .nonNull(.object(MinVariantPrice.selections))),
+                GraphQLField("maxVariantPrice", type: .nonNull(.object(MaxVariantPrice.selections))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(minVariantPrice: MinVariantPrice, maxVariantPrice: MaxVariantPrice) {
+              self.init(unsafeResultMap: ["__typename": "ProductPriceRangeV2", "minVariantPrice": minVariantPrice.resultMap, "maxVariantPrice": maxVariantPrice.resultMap])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// The lowest variant's price.
+            public var minVariantPrice: MinVariantPrice {
+              get {
+                return MinVariantPrice(unsafeResultMap: resultMap["minVariantPrice"]! as! ResultMap)
+              }
+              set {
+                resultMap.updateValue(newValue.resultMap, forKey: "minVariantPrice")
+              }
+            }
+
+            /// The highest variant's price.
+            public var maxVariantPrice: MaxVariantPrice {
+              get {
+                return MaxVariantPrice(unsafeResultMap: resultMap["maxVariantPrice"]! as! ResultMap)
+              }
+              set {
+                resultMap.updateValue(newValue.resultMap, forKey: "maxVariantPrice")
+              }
+            }
+
+            public struct MinVariantPrice: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["MoneyV2"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("amount", type: .nonNull(.scalar(String.self))),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(amount: String) {
+                self.init(unsafeResultMap: ["__typename": "MoneyV2", "amount": amount])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              /// Decimal money amount.
+              public var amount: String {
+                get {
+                  return resultMap["amount"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "amount")
+                }
+              }
+            }
+
+            public struct MaxVariantPrice: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["MoneyV2"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("amount", type: .nonNull(.scalar(String.self))),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(amount: String) {
+                self.init(unsafeResultMap: ["__typename": "MoneyV2", "amount": amount])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              /// Decimal money amount.
+              public var amount: String {
+                get {
+                  return resultMap["amount"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "amount")
+                }
+              }
             }
           }
 

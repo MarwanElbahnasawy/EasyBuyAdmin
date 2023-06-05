@@ -1,5 +1,5 @@
 query getAllProducts {
-    products(first: 10, reverse: true) {
+    products(first: 60, reverse: true) {
     edges {
       node {
         title
@@ -7,7 +7,14 @@ query getAllProducts {
         productType
         description
         id
-        status
+        priceRangeV2{
+            minVariantPrice{
+                amount
+            }
+            maxVariantPrice{
+                amount
+            }
+        }
         images(first: 1){
             edges{
                 node{
