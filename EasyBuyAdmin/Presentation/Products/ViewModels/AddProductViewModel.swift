@@ -47,10 +47,11 @@ class AddProductViewModel: ObservableObject {
     }
     
     
-    private func createProduct(productInput: ProductInput, selectedCollectionIndex: Int, completion: @escaping (Result<String, Swift.Error>) -> Void) {
+    private func createProduct(productInput: ProductInput, selectedCollectionIndex: Int, completion: @escaping (Result<String, Error>) -> Void) {
         NetworkManager.shared.performGraphQLRequest(mutation: ProductCreateMutation(input: productInput), responseModel: DataClassProductCreation.self) { result in
             switch result {
             case .success:
+                NetworkManager.shared.service.store.clearCache()
                 completion(.success("Product created successfully"))
             case .failure(let error):
                 completion(.failure(error))

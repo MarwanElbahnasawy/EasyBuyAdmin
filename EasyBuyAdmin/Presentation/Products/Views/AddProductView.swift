@@ -19,7 +19,7 @@ struct AddProductView: View {
     @State private var selectedCollectionIndex = 0
     @State private var tags = Array(repeating: "", count: 4)
     @State private var showDisabledAlert = false
-    
+    @State private var currentAlert: AlertType = .disabledAlert
     
     private var isFormValid: Bool {
         !title.isEmpty &&
@@ -81,14 +81,15 @@ struct AddProductView: View {
                     Spacer()
                     Button {
                         addProductViewModel.addProduct(title: title,
-                                             description: description,
-                                             productTypeIndex: productTypeIndex,
-                                             vendor: vendor,
-                                             tags: tags,
-                                             price: price,
-                                             selectedCollectionIndex: selectedCollectionIndex,
-                                             collections: addProductViewModel.collections,
-                                             productImageURLString: productImageURL) {
+                                                       description: description,
+                                                       productTypeIndex: productTypeIndex,
+                                                       vendor: vendor,
+                                                       tags: tags,
+                                                       price: price,
+                                                       selectedCollectionIndex: selectedCollectionIndex,
+                                                       collections: addProductViewModel.collections,
+                                                       productImageURLString: productImageURL) {
+                            currentAlert = .successAlert
                             showAlert = true
                         }
                     } label: {
@@ -107,17 +108,24 @@ struct AddProductView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(12)
                         .onTapGesture {
-                            showDisabledAlert = true
+                            currentAlert = .disabledAlert
+                            showAlert = true
                         }
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
             .alert(isPresented: $showAlert) {
-                Alert(title: Text(addProductViewModel.alertTitle), message: Text(addProductViewModel.alertMessage), dismissButton: .default(Text("OK")))
-            }
-            .alert(isPresented: $showDisabledAlert) {
-                Alert(title: Text("Error"), message: Text("Please fill in the required fields."), dismissButton: .default(Text("OK")))
+                switch currentAlert {
+                case .disabledAlert:
+                    return Alert(title: Text("Error"), message: Text("Please fill in the required fields correctly."), dismissButton: .default(Text("OK")))
+                case .successAlert:
+                    return Alert(title: Text(addProductViewModel.alertTitle), message: Text(addProductViewModel.alertMessage), dismissButton: .default(Text("OK")))
+                }
             }
         }
     }
+}
+
+enum AlertType {
+    case disabledAlert, successAlert
 }

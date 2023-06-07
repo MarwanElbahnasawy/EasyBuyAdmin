@@ -42,6 +42,8 @@
 		17D5C0EA2A2BE6C400BAC8BC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0E92A2BE6C400BAC8BC /* Kingfisher */; };
 		17D5C0ED2A2BE6D400BAC8BC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EC2A2BE6D400BAC8BC /* Lottie */; };
 		17D5C0F02A2BE6E500BAC8BC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5C0EF2A2BE6E500BAC8BC /* Alamofire */; };
+		17F983C92A311F96005BECC0 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F983C82A311F96005BECC0 /* ProductCellViewModel.swift */; };
+		17F983CB2A3120D4005BECC0 /* ProductDeletionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */; };
 		31C23585F28F5F3AA1E089D1 /* Pods_EasyBuyAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */; };
 		3C71CD040B9A0994A122C726 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */; };
 		E1366E3A16CB04374069421E /* Pods_EasyBuyAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C06626AF143AB2561DFE628 /* Pods_EasyBuyAdmin.framework */; };
@@ -100,6 +102,8 @@
 		17D5C0C72A2BE0F500BAC8BC /* EasyBuyAdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyBuyAdminUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D5C0CB2A2BE0F500BAC8BC /* EasyBuyAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminUITests.swift; sourceTree = "<group>"; };
 		17D5C0CD2A2BE0F500BAC8BC /* EasyBuyAdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyBuyAdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		17F983C82A311F96005BECC0 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
+		17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDeletionModels.swift; sourceTree = "<group>"; };
 		4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D9FA02FB9A96B091FE02EB /* Pods-EasyBuyAdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuyAdminTests.release.xcconfig"; path = "Target Support Files/Pods-EasyBuyAdminTests/Pods-EasyBuyAdminTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				1704AF932A2C903800481A64 /* ProductsViewModel.swift */,
+				17F983C82A311F96005BECC0 /* ProductCellViewModel.swift */,
 				17D3D94D2A2E7F1B00565FD8 /* AddProductViewModel.swift */,
 			);
 			path = ViewModels;
@@ -280,6 +285,7 @@
 			children = (
 				174BB9A12A2D06FD00C61AC8 /* ProductsModels.swift */,
 				17D3D94F2A2E867A00565FD8 /* ProductCreationModels.swift */,
+				17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */,
 				174BB99F2A2CE8A000C61AC8 /* NetworkManager.swift in Sources */,
 				1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */,
+				17F983C92A311F96005BECC0 /* ProductCellViewModel.swift in Sources */,
 				1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */,
 				174BB9AC2A2D1EF200C61AC8 /* NetworkInterceptorProvider.swift in Sources */,
 				17D3D94C2A2E630200565FD8 /* AddProductView.swift in Sources */,
@@ -681,6 +688,7 @@
 				17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */,
 				1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */,
 				1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */,
+				17F983CB2A3120D4005BECC0 /* ProductDeletionModels.swift in Sources */,
 				17D3D9502A2E867A00565FD8 /* ProductCreationModels.swift in Sources */,
 				174BB9AA2A2D1ED500C61AC8 /* TokenInterceptor.swift in Sources */,
 				174BB9A52A2D1E3600C61AC8 /* NetworkManaging.swift in Sources */,
