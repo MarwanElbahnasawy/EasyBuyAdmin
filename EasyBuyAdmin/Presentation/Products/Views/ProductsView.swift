@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProductsView: View {
-    @ObservedObject private var productsViewModel = ProductsViewModel()
+    @StateObject private var productsViewModel = ProductsViewModel()
+    @State private var isAddProductViewActive = false
     
     var body: some View {
         NavigationView {
@@ -30,14 +31,18 @@ struct ProductsView: View {
             .onAppear {
                 productsViewModel.fetchAllProducts()
             }
+            .navigationBarItems(trailing: Button(action: {
+                isAddProductViewActive = true
+            }) {
+                Image(systemName: "plus")
+            }
+            )
+            .background(
+                NavigationLink(destination: AddProductView(), isActive: $isAddProductViewActive) {
+                    EmptyView()
+                }
+            )
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-}
-
-
-struct ProductsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductsView()
     }
 }

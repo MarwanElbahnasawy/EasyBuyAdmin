@@ -3,6 +3,14 @@ mutation productCreate($input: ProductInput!) {
       product{
           handle
           id
+          priceRangeV2{
+              minVariantPrice{
+                  amount
+              }
+              maxVariantPrice{
+                  amount
+              }
+          }
       }
     shop {
       name

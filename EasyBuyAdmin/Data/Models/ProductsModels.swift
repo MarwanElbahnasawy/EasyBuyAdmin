@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - ProductsRoot
-struct ProductsRoot: Codable {
+// MARK: - ProductsRoot (Not the response model returned)
+struct AllProductsRoot: Codable {
     let data: DataClassProducts?
     let extensions: Extensions?
 }
 
-// MARK: - DataClass
+// MARK: - DataClass (The response model returned)
 struct DataClassProducts: Codable {
     let products: Products?
 }
@@ -101,4 +101,27 @@ struct Cost: Codable {
 // MARK: - ThrottleStatus
 struct ThrottleStatus: Codable {
     let maximumAvailable, currentlyAvailable, restoreRate: Int?
+}
+
+// MARK: - PurpleNode extension in order to create a product
+extension PurpleNode {
+    init(title: String,
+         vendor: String,
+         productType: ProductType,
+         description: String,
+         tags: [String],
+         price: String,
+         selectedCollectionIndex: Int,
+         collections: [String: String]) {
+        self.title = title
+        self.vendor = vendor
+        self.productType = productType
+        self.description = description
+        self.id = nil
+        self.priceRangeV2 = PriceRangeV2(minVariantPrice: VariantPrice(amount: price),
+                                         maxVariantPrice: VariantPrice(amount: price))
+        self.images = nil
+        self.collections = Collections(edges: [CollectionsEdge(node: FluffyNode(title: Array(collections.keys)[selectedCollectionIndex]))])
+        self.tags = tags
+    }
 }

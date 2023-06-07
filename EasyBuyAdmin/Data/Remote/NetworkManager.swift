@@ -32,9 +32,11 @@ final class NetworkManager: NetworkManaging {
             switch result {
             case .success(let apolloResponse):
                 do {
-                    let data = try JSONSerialization.data(withJSONObject: apolloResponse.data!.jsonObject, options: .fragmentsAllowed)
-                    let decodedData = try JSONDecoder().decode(responseModel, from: data)
-                    completion(.success(decodedData))
+                    if let dataObject = apolloResponse.data?.jsonObject {
+                        let data = try JSONSerialization.data(withJSONObject: dataObject, options: .fragmentsAllowed)
+                        let decodedData = try JSONDecoder().decode(responseModel, from: data)
+                        completion(.success(decodedData))
+                    }
                 } catch (let error) {
                     print("Error decoding data: \(error)")
                     completion(.failure(error))
@@ -51,9 +53,11 @@ final class NetworkManager: NetworkManaging {
             switch result {
             case .success(let apolloResponse):
                 do {
-                    let data = try JSONSerialization.data(withJSONObject: apolloResponse.data!.jsonObject, options: .fragmentsAllowed)
-                    let decode = try JSONDecoder().decode(responseModel, from: data)
-                    completion(.success(decode))
+                    if let dataObject = apolloResponse.data?.jsonObject {
+                        let data = try JSONSerialization.data(withJSONObject: dataObject, options: .fragmentsAllowed)
+                        let decode = try JSONDecoder().decode(responseModel, from: data)
+                        completion(.success(decode))
+                    }
                 } catch (let error) {
                     print(error)
                 }
