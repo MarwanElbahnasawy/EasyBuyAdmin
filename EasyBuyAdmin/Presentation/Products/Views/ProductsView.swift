@@ -16,14 +16,16 @@ struct ProductsView: View {
         NavigationView {
             GeometryReader { geometry in
                 let screenWidth = geometry.size.width
-                let imageSide = screenWidth * 0.4
+                let imageSide = screenWidth * 0.44
                 let horizontalPadding = screenWidth * 0.04
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
                         ForEach(productsViewModel.products, id: \.id) { product in
-                            ProductCell(product: product, imageSide: imageSide) {
-                                productsViewModel.fetchAllProducts()
-                                isProductDeleted = true
+                            NavigationLink(destination: ProductFormView(product: product)) {
+                                ProductCell(product: product, imageSide: imageSide) {
+                                    productsViewModel.fetchAllProducts()
+                                    isProductDeleted = true
+                                }
                             }
                         }
                     }
@@ -48,7 +50,7 @@ struct ProductsView: View {
             }
             )
             .background(
-                NavigationLink(destination: AddProductView(), isActive: $isAddProductViewActive) {
+                NavigationLink(destination: ProductFormView(), isActive: $isAddProductViewActive) {
                     EmptyView()
                 }
             )

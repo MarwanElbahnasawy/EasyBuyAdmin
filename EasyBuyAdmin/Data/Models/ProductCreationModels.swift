@@ -25,21 +25,4 @@ struct ProductCreate: Codable {
     let userErrors: [UserError]?
 }
 
-// MARK: - Error
-struct UserError: Codable {
-    let message: String?
-    let locations: [Location]?
-    let extensions: Extensions?
-}
-
-// MARK: - Location
-struct Location: Codable {
-    let line, column: Int?
-}
-
-// MARK: - Shop
-struct Shop: Codable {
-    let name: String?
-}
-
 
