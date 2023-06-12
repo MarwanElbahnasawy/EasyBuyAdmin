@@ -23,7 +23,7 @@ struct ProductFormView: View {
     private var isFormValid: Bool {
         !productFormViewModel.title.isEmpty &&
         productFormViewModel.isValidPrice(productFormViewModel.price) &&
-        productFormViewModel.isValidImageURL(productFormViewModel.productImageURL)
+        productFormViewModel.isValidImageURL(productFormViewModel.productImageURLString)
     }
     
     var body: some View {
@@ -56,7 +56,7 @@ struct ProductFormView: View {
                     TextField("Price($)*", text: $productFormViewModel.price)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
-                    TextField("Product Image URL(jpg / jpeg / png)*", text: $productFormViewModel.productImageURL)
+                    TextField("Product Image URL(jpg / jpeg / png)*", text: $productFormViewModel.productImageURLString)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 HStack {

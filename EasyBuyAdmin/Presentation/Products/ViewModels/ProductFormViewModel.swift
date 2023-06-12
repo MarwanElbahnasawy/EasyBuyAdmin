@@ -17,7 +17,7 @@ class ProductFormViewModel: ObservableObject {
     @Published var productTypeIndex: Int = 0
     @Published var description: String = ""
     @Published var price: String = ""
-    @Published var productImageURL: String = ""
+    @Published var productImageURLString: String = ""
     @Published var selectedCollectionTitle = "Home page"
     @Published var tags = Array(repeating: "", count: 4)
     @Published var currentAlert: AlertType = .disabledAlert
@@ -56,7 +56,7 @@ class ProductFormViewModel: ObservableObject {
             productTypeIndex = productTypes.firstIndex(of: product.productType?.rawValue ?? "ACCESSORIES") ?? 0
             description = product.description ?? "No description"
             price = product.priceRangeV2?.maxVariantPrice?.amount ?? "0"
-            productImageURL = product.images?.edges?[0].node?.url ?? ""
+            productImageURLString = product.images?.edges?[0].node?.url ?? "https://t4.ftcdn.net/jpg/03/00/32/13/360_F_300321387_gPEMsHdZPAWO2HfqfwEXUfy5MwPvq8AM.jpg"
             if let collectionEdges = product.collections?.edges {
                 for (index,edge) in collectionEdges.enumerated() {
                     if let collectionTitle = edge.node?.title, ["MEN", "WOMEN", "KID"].contains(collectionTitle) || index == collectionEdges.count - 1 {
@@ -77,13 +77,13 @@ class ProductFormViewModel: ObservableObject {
                     self.tags[i] = tags[i]
                 }
             }
+            isProductBeingUpdated = true
         }
-        isProductBeingUpdated = true
     }
     
     func addProduct(completion: @escaping () -> Void) {
         
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: [ImageInput.init(src: productImageURL)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: [ImageInput.init(src: productImageURLString)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
         
         createProduct(productInput: newProductInput) { result in
             switch result {
@@ -112,7 +112,7 @@ class ProductFormViewModel: ObservableObject {
     
     func updateProduct(id: String, completion: @escaping () -> Void) {
         
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: productID!,  images: [ImageInput.init(src: productImageURL)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: productID!,  images: [ImageInput.init(src: productImageURLString)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
         
         updateProduct(productInput: newProductInput) { result in
             switch result {
