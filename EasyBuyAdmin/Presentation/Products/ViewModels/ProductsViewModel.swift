@@ -12,7 +12,7 @@ class ProductsViewModel: ObservableObject {
     @Published var products = [PurpleNode]()
     
     func fetchAllProducts() {
-        NetworkManager.shared.queryGraphQLRequest(query: GetAllProductsQuery(), responseModel: DataClassProducts.self) { result in
+        NetworkManager.shared.queryGraphQLRequest(query: GetAllProductsQuery(), responseModel: DataClassGetAllProducts.self) { result in
             switch result {
             case .success(let data):
                 if let productEdges = data.products?.edges {

@@ -3866,7 +3866,7 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query getAllDiscountCodes {
-      codeDiscountNodes(first: 10, reverse: true) {
+      codeDiscountNodes(first: 40, reverse: true) {
         __typename
         nodes {
           __typename
@@ -3920,7 +3920,7 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("codeDiscountNodes", arguments: ["first": 10, "reverse": true], type: .nonNull(.object(CodeDiscountNode.selections))),
+        GraphQLField("codeDiscountNodes", arguments: ["first": 40, "reverse": true], type: .nonNull(.object(CodeDiscountNode.selections))),
       ]
     }
 

@@ -12,3 +12,10 @@ struct NetworkConstants {
     static let keyAccessToken = "X-Shopify-Access-Token"
     static let valueAccessToken = "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"
 }
+
+enum DiscountCodeImages: String {
+    case men
+    case women
+    case kid
+    case allproducts
+}

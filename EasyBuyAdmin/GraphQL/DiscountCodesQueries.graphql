@@ -1,5 +1,5 @@
 query getAllDiscountCodes {
-    codeDiscountNodes(first: 10, reverse: true) {
+    codeDiscountNodes(first: 40, reverse: true) {
         nodes {
             id
             codeDiscount {
