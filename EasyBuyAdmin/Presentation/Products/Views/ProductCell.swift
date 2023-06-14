@@ -45,7 +45,7 @@ struct ProductContentView: View {
                     Image(systemName: "minus.circle.fill")
                         .offset(x: 0.35 * imageSide, y: -(0.35 * imageSide))
                         .onTapGesture {
-                            productCellViewModel.deleteProduct(id: product.id ?? "") { result in
+                            productCellViewModel.deleteProduct(productID: product.id ?? "") { result in
                                 switch result {
                                 case .success:
                                     didDelete()

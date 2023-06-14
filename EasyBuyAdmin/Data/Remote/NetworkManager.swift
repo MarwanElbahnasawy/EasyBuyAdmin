@@ -15,7 +15,7 @@ final class NetworkManager: NetworkManaging {
         let store = ApolloStore()
         let client = URLSessionClient()
         let provider = NetworkInterceptorProvider(store: store, client: client)
-        let url = URL(string: NetworkConstants.baseUrl)!
+        let url = URL(string: Constants.baseUrl)!
 
         let requestChainTransport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: url)
 

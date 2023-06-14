@@ -19,18 +19,18 @@ struct DiscountCodeCell: View {
 struct DiscountCodeContentView: View {
     let discountCode: CodeDiscount
     let cellWidth: CGFloat
-    private var imageName: String {
+    private var discountCategoryTitle: String {
         if let shortSummary = discountCode.shortSummary {
-            let shortSummaryLowerCased = shortSummary.lowercased()
-            if shortSummaryLowerCased.contains(DiscountCodeImages.women.rawValue) {
-                return DiscountCodeImages.women.rawValue
-            } else if shortSummaryLowerCased.contains(DiscountCodeImages.men.rawValue) {
-                return DiscountCodeImages.men.rawValue
-            } else if shortSummaryLowerCased.contains(DiscountCodeImages.kid.rawValue) {
-                return DiscountCodeImages.kid.rawValue
+            let shortSummaryUpperCased = shortSummary.uppercased()
+            if shortSummaryUpperCased.contains(DiscountCodeCategories.WOMEN.rawValue) {
+                return DiscountCodeCategories.WOMEN.rawValue
+            } else if shortSummaryUpperCased.contains(DiscountCodeCategories.MEN.rawValue) {
+                return DiscountCodeCategories.MEN.rawValue
+            } else if shortSummaryUpperCased.contains(DiscountCodeCategories.KID.rawValue) {
+                return DiscountCodeCategories.KID.rawValue
             }
         }
-        return DiscountCodeImages.allproducts.rawValue
+        return DiscountCodeCategories.ALL_PRODUCTS.rawValue
     }
     
     var body: some View {
@@ -40,7 +40,7 @@ struct DiscountCodeContentView: View {
                     .fill(Color.white)
                     .frame(width: cellWidth, height: cellWidth * 0.4)
                     .cornerRadius(16)
-                Image(imageName)
+                Image(discountCategoryTitle)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipped()

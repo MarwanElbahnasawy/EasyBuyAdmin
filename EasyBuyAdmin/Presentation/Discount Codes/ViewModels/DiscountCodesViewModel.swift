@@ -8,16 +8,15 @@
 import Foundation
 
 class DiscountCodesViewModel: ObservableObject {
-    @Published var discountCodes = [CodeDiscount]()
+    @Published var discountCodeNodes = [CodeDiscountNodesNode]()
     
     func fetchAllDiscountCodes() {
         NetworkManager.shared.queryGraphQLRequest(query: GetAllDiscountCodesQuery(), responseModel: DataClassGetAllDiscountCodes.self) { result in
             switch result {
             case .success(let data):
                 if let codeDiscountNodes = data.codeDiscountNodes?.nodes {
-                    let discountCodes = codeDiscountNodes.compactMap { $0.codeDiscount }
                     DispatchQueue.main.async {
-                        self.discountCodes = discountCodes
+                        self.discountCodeNodes = codeDiscountNodes
                     }
                 }
             case .failure(let error):

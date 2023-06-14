@@ -10,6 +10,7 @@ import SwiftUI
 struct DiscountCodesView: View {
     
     @StateObject private var discountsViewModel = DiscountCodesViewModel()
+    @State private var isAddDiscountCodeButtonClicked = false
     
     var body: some View {
         NavigationView {
@@ -19,12 +20,13 @@ struct DiscountCodesView: View {
                 let horizontalPadding = screenWidth * 0.05
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible())]) {
-                        ForEach(discountsViewModel.discountCodes, id: \.codes?.nodes?.first?.id) { discountCode in
-                            DiscountCodeCell(discountCode: discountCode, cellWidth: cellWidth)
+                        ForEach(discountsViewModel.discountCodeNodes, id: \.id) { discountCodeNode in
+                            NavigationLink(destination: DiscountCodeFormView(discountCode: discountCodeNode.codeDiscount, discountCodeID: discountCodeNode.id)) {
+                                DiscountCodeCell(discountCode: discountCodeNode.codeDiscount!, cellWidth: cellWidth)
+                            }
                         }
                     }
                     .padding(.horizontal, horizontalPadding)
-                    
                 }
                 .background(Color(hex: "f7f7f7"))
                 .refreshable {
@@ -36,9 +38,15 @@ struct DiscountCodesView: View {
                 discountsViewModel.fetchAllDiscountCodes()
             }
             .navigationBarItems(trailing: Button(action: {
+                isAddDiscountCodeButtonClicked = true
             }) {
                 Image(systemName: "plus")
             }
+            )
+            .background(
+                NavigationLink(destination: DiscountCodeFormView(), isActive: $isAddDiscountCodeButtonClicked) {
+                    EmptyView()
+                }
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())

@@ -20,7 +20,7 @@ struct NetworkInterceptorProvider: InterceptorProvider {
     func interceptors<Operation: GraphQLOperation>(for operation: Operation) -> [ApolloInterceptor] {
         return [
             CacheReadInterceptor(store: self.store),
-            TokenInterceptor(token: NetworkConstants.valueAccessToken),
+            TokenInterceptor(token: Constants.valueAccessToken),
             NetworkFetchInterceptor(client: self.client),
             ResponseCodeInterceptor(),
             JSONResponseParsingInterceptor(cacheKeyForObject: self.store.cacheKeyForObject),

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductsView: View {
     @StateObject private var productsViewModel = ProductsViewModel()
-    @State private var isAddProductViewActive = false
+    @State private var isAddProductButtonClicked = false
     @State private var isProductDeleted = false
     
     var body: some View {
@@ -44,13 +44,13 @@ struct ProductsView: View {
                 productsViewModel.fetchAllProducts()
             }
             .navigationBarItems(trailing: Button(action: {
-                isAddProductViewActive = true
+                isAddProductButtonClicked = true
             }) {
                 Image(systemName: "plus")
             }
             )
             .background(
-                NavigationLink(destination: ProductFormView(), isActive: $isAddProductViewActive) {
+                NavigationLink(destination: ProductFormView(), isActive: $isAddProductButtonClicked) {
                     EmptyView()
                 }
             )

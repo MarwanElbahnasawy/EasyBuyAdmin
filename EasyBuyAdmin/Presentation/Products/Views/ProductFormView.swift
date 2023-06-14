@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProductFormView: View {
-    @Environment(\.presentationMode) var presentationMode
     @StateObject private var productFormViewModel = ProductFormViewModel()
     @State private var showAlert = false
     
@@ -72,9 +71,9 @@ struct ProductFormView: View {
                 HStack {
                     Text("Collection:")
                     Picker("Collection", selection: $productFormViewModel.selectedCollectionTitle) {
-                        ForEach(0..<productFormViewModel.collections.keys.count) { index in
-                            Text(Array(productFormViewModel.collections.keys)[index])
-                                .tag(Array(productFormViewModel.collections.keys)[index])
+                        ForEach(0..<Constants.collections.keys.count) { index in
+                            Text(Array(Constants.collections.keys)[index])
+                                .tag(Array(Constants.collections.keys)[index])
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
@@ -101,7 +100,7 @@ struct ProductFormView: View {
                     if !productFormViewModel.isProductBeingUpdated {
                         Button {
                             productFormViewModel.addProduct() {
-                                productFormViewModel.currentAlert = .addingOrUpdatingProductAlert
+                                productFormViewModel.currentAlert = .addingOrUpdatingAlert
                                 showAlert = true
                             }
                         } label: {
@@ -114,8 +113,8 @@ struct ProductFormView: View {
                         .disabled(!isFormValid)
                     } else {
                         Button {
-                            productFormViewModel.updateProduct(id: product!.id!) {
-                                productFormViewModel.currentAlert = .addingOrUpdatingProductAlert
+                            productFormViewModel.updateProduct(productID: product!.id!) {
+                                productFormViewModel.currentAlert = .addingOrUpdatingAlert
                                 showAlert = true
                             }
                         } label: {
@@ -159,7 +158,7 @@ struct ProductFormView: View {
                 switch productFormViewModel.currentAlert {
                 case .disabledAlert:
                     return Alert(title: Text("Error"), message: Text("Please fill in the required fields correctly."), dismissButton: .default(Text("OK")))
-                case .addingOrUpdatingProductAlert:
+                case .addingOrUpdatingAlert:
                     return Alert(title: Text(productFormViewModel.alertTitle), message: Text(productFormViewModel.alertMessage), dismissButton: .default(Text("OK")))
                 }
             }

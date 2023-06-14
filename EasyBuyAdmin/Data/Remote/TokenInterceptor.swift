@@ -26,7 +26,7 @@ class TokenInterceptor: ApolloInterceptor {
         response: HTTPResponse<Operation>?,
         completion: @escaping (Result<GraphQLResult<Operation.Data>, Error>) -> Void) {
 
-        request.addHeader(name: NetworkConstants.keyAccessToken, value: token)
+        request.addHeader(name: Constants.keyAccessToken, value: token)
         chain.proceedAsync(request: request, response: response, completion: completion)
     }
 

@@ -8,8 +8,8 @@
 import Foundation
 
 class ProductCellViewModel: ObservableObject {
-    func deleteProduct(id: String, completion: @escaping (Result<String, Error>) -> Void) {
-        NetworkManager.shared.performGraphQLRequest(mutation: ProductDeleteMutation(input: ProductDeleteInput(id: id)), responseModel: DataClassProductDeletion.self) { result in
+    func deleteProduct(productID: String, completion: @escaping (Result<String, Error>) -> Void) {
+        NetworkManager.shared.performGraphQLRequest(mutation: ProductDeleteMutation(input: ProductDeleteInput(id: productID)), responseModel: DataClassProductDeletion.self) { result in
             switch result{
             case .success:
                 NetworkManager.shared.service.store.clearCache()
