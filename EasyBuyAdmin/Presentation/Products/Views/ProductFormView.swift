@@ -11,10 +11,10 @@ struct ProductFormView: View {
     @StateObject private var productFormViewModel = ProductFormViewModel()
     @State private var showAlert = false
     
-    private let product: PurpleNode?
+    private let product: ProductNode?
     private let width70percent = UIScreen.main.bounds.width * 0.7
     
-    init(product: PurpleNode? = nil) {
+    init(product: ProductNode? = nil) {
         self.product = product
         _productFormViewModel = StateObject(wrappedValue: ProductFormViewModel(product: product))
     }

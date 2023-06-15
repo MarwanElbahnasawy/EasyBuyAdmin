@@ -5,16 +5,8 @@ query getAllDiscountCodes {
             codeDiscount {
                 ... on DiscountCodeBasic {
                     title
-                    summary
                     shortSummary
-                    codeCount
-                    usageLimit
-                    status
                     startsAt
-                    endsAt
-                    usageLimit
-                    asyncUsageCount
-                    appliesOncePerCustomer
                     customerGets{
                         items{
                             __typename
@@ -23,7 +15,7 @@ query getAllDiscountCodes {
                             __typename
                         }
                     }
-                    codes(first: 2){
+                    codes(first: 1){
                         nodes{
                             code
                             id

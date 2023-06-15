@@ -1,0 +1,46 @@
+mutation collectionCreate($input: CollectionInput!) {
+  collectionCreate(input: $input) {
+    collection {
+        id
+        title
+        handle
+        description
+        image {
+            url
+        }
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation collectionUpdate($input: CollectionInput!) {
+  collectionUpdate(input: $input) {
+    collection {
+        id
+        title
+        handle
+        description
+        image {
+            url
+        }
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation collectionDelete($input: CollectionDeleteInput!) {
+  collectionDelete(input: $input) {
+    deletedCollectionId
+    userErrors {
+      field
+      message
+    }
+  }
+}
+

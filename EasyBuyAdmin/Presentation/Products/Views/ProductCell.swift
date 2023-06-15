@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductCell: View {
-    let product: PurpleNode
+    let product: ProductNode
     let imageSide: CGFloat
     var didDelete: () -> ()
     
@@ -19,7 +19,7 @@ struct ProductCell: View {
 
 struct ProductContentView: View {
     @StateObject private var productCellViewModel = ProductCellViewModel()
-    let product: PurpleNode
+    let product: ProductNode
     let imageSide: CGFloat
     var didDelete: () -> ()
     

@@ -20,7 +20,7 @@ struct DataClassProductCreation: Codable {
 
 // MARK: - ProductCreate
 struct ProductCreate: Codable {
-    let product: PurpleNode?
+    let product: ProductNode?
     let shop: Shop?
     let userErrors: [UserError]?
 }

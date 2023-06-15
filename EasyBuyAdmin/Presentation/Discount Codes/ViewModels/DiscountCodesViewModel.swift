@@ -8,7 +8,7 @@
 import Foundation
 
 class DiscountCodesViewModel: ObservableObject {
-    @Published var discountCodeNodes = [CodeDiscountNodesNode]()
+    @Published var discountCodeNodes = [CodeDiscountNode]()
     
     func fetchAllDiscountCodes() {
         NetworkManager.shared.queryGraphQLRequest(query: GetAllDiscountCodesQuery(), responseModel: DataClassGetAllDiscountCodes.self) { result in

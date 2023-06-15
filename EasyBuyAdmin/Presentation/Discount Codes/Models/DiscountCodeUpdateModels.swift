@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - DiscountCodeUpdateRoot
+// MARK: - DiscountCodeUpdateRoot (Not the response model returned)
 struct DiscountCodeUpdateRoot: Codable {
     let data: DataClassDiscountCodeUpdate?
     let extensions: Extensions?
 }
 
-// MARK: - DataClassDiscountCodeUpdate
+// MARK: - DataClassDiscountCodeUpdate (The response model returned)
 struct DataClassDiscountCodeUpdate: Codable {
     let discountCodeBasicUpdate: DiscountCodeBasicUpdate?
 }
@@ -22,9 +22,4 @@ struct DataClassDiscountCodeUpdate: Codable {
 struct DiscountCodeBasicUpdate: Codable {
     let codeDiscountNode: CodeDiscountNode?
     let userErrors: [UserError]?
-}
-
-// MARK: - CodeDiscountNode
-struct CodeDiscountNode: Codable {
-    let id: String?
 }

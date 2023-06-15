@@ -1,0 +1,26 @@
+query getAllCollections {
+  collections(first: 50, reverse: true) {
+    edges {
+      node {
+        id
+        title
+        description
+        image {
+            url
+        }
+      }
+    }
+  }
+}
+
+query getCollectionIdFromHandle($handle: String!) {
+  collectionByHandle(handle: $handle) {
+        id
+        title
+        handle
+        description
+        image {
+            url
+        }
+  }
+}

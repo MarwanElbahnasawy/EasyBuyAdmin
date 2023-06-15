@@ -44,11 +44,11 @@ struct Products: Codable {
 
 // MARK: - ProductsEdge
 struct ProductsEdge: Codable {
-    let node: PurpleNode?
+    let node: ProductNode?
 }
 
 // MARK: - PurpleNode
-struct PurpleNode: Codable {
+struct ProductNode: Codable {
     let title, vendor: String?
     let productType: ProductType?
     let description, id: String?
@@ -65,12 +65,13 @@ struct Collections: Codable {
 
 // MARK: - CollectionsEdge
 struct CollectionsEdge: Codable {
-    let node: FluffyNode?
+    let node: CollectionNode?
 }
 
-// MARK: - FluffyNode
-struct FluffyNode: Codable {
-    let title: String?
+// MARK: - CollectionNode
+struct CollectionNode: Codable {
+    let title, id, handle, description: String?
+    let image: CollectionImage?
 }
 
 // MARK: - Images
@@ -122,8 +123,13 @@ struct ThrottleStatus: Codable {
     let maximumAvailable, currentlyAvailable, restoreRate: Int?
 }
 
-// MARK: - PurpleNode extension in order to create a product
-extension PurpleNode {
+// MARK: - CollectionImage
+struct CollectionImage: Codable {
+    let url: String?
+}
+
+// MARK: - ProductNode extension in order to create a product
+extension ProductNode {
     init(title: String,
          vendor: String,
          productType: ProductType,
@@ -140,7 +146,7 @@ extension PurpleNode {
         self.priceRangeV2 = PriceRangeV2(minVariantPrice: VariantPrice(amount: price),
                                          maxVariantPrice: VariantPrice(amount: price))
         self.images = nil
-        self.collections = Collections(edges: [CollectionsEdge(node: FluffyNode(title: Array(collections.keys)[selectedCollectionIndex]))])
+        self.collections = Collections(edges: [CollectionsEdge(node: CollectionNode(title: Array(collections.keys)[selectedCollectionIndex], id: nil, handle: nil, description: nil, image: nil))])
         self.tags = tags
     }
 }

@@ -13,7 +13,7 @@ struct ProductDeletionRoot: Codable {
     let extensions: Extensions?
 }
 
-// MARK: - DataClass (The response model returned)
+// MARK: - DataClassProductDeletion (The response model returned)
 struct DataClassProductDeletion: Codable {
     let productDelete: ProductDelete?
 }

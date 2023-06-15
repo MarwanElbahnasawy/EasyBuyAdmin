@@ -4,6 +4,718 @@
 import Apollo
 import Foundation
 
+/// The input fields required to create a collection.
+public struct CollectionInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - descriptionHtml: The description of the collection, in HTML format.
+  ///   - handle: A unique human-friendly string for the collection. Automatically generated from the collection's title.
+  ///   - id: Specifies the collection to update or create a new collection if absent. Required for updating a collection.
+  ///   - image: The image associated with the collection.
+  ///   - products: Initial list of collection products. Only valid with `collectionCreate` and without rules.
+  ///   - ruleSet: The rules used to assign products to the collection.
+  ///   - templateSuffix: The theme template used when viewing the collection in a store.
+  ///   - sortOrder: The order in which the collection's products are sorted.
+  ///   - title: The title of the collection. Required for creating a new collection.
+  ///   - metafields: The metafields to associate with the collection.
+  ///   - seo: SEO information for the collection.
+  ///   - redirectNewHandle: Indicates whether a redirect is required after a new handle has been provided.
+  /// If true, then the old handle is redirected to the new one automatically.
+  public init(descriptionHtml: Swift.Optional<String?> = nil, handle: Swift.Optional<String?> = nil, id: Swift.Optional<GraphQLID?> = nil, image: Swift.Optional<ImageInput?> = nil, products: Swift.Optional<[GraphQLID]?> = nil, ruleSet: Swift.Optional<CollectionRuleSetInput?> = nil, templateSuffix: Swift.Optional<String?> = nil, sortOrder: Swift.Optional<CollectionSortOrder?> = nil, title: Swift.Optional<String?> = nil, metafields: Swift.Optional<[MetafieldInput]?> = nil, seo: Swift.Optional<SEOInput?> = nil, redirectNewHandle: Swift.Optional<Bool?> = nil) {
+    graphQLMap = ["descriptionHtml": descriptionHtml, "handle": handle, "id": id, "image": image, "products": products, "ruleSet": ruleSet, "templateSuffix": templateSuffix, "sortOrder": sortOrder, "title": title, "metafields": metafields, "seo": seo, "redirectNewHandle": redirectNewHandle]
+  }
+
+  /// The description of the collection, in HTML format.
+  public var descriptionHtml: Swift.Optional<String?> {
+    get {
+      return graphQLMap["descriptionHtml"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "descriptionHtml")
+    }
+  }
+
+  /// A unique human-friendly string for the collection. Automatically generated from the collection's title.
+  public var handle: Swift.Optional<String?> {
+    get {
+      return graphQLMap["handle"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "handle")
+    }
+  }
+
+  /// Specifies the collection to update or create a new collection if absent. Required for updating a collection.
+  public var id: Swift.Optional<GraphQLID?> {
+    get {
+      return graphQLMap["id"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// The image associated with the collection.
+  public var image: Swift.Optional<ImageInput?> {
+    get {
+      return graphQLMap["image"] as? Swift.Optional<ImageInput?> ?? Swift.Optional<ImageInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "image")
+    }
+  }
+
+  /// Initial list of collection products. Only valid with `collectionCreate` and without rules.
+  public var products: Swift.Optional<[GraphQLID]?> {
+    get {
+      return graphQLMap["products"] as? Swift.Optional<[GraphQLID]?> ?? Swift.Optional<[GraphQLID]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "products")
+    }
+  }
+
+  /// The rules used to assign products to the collection.
+  public var ruleSet: Swift.Optional<CollectionRuleSetInput?> {
+    get {
+      return graphQLMap["ruleSet"] as? Swift.Optional<CollectionRuleSetInput?> ?? Swift.Optional<CollectionRuleSetInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ruleSet")
+    }
+  }
+
+  /// The theme template used when viewing the collection in a store.
+  public var templateSuffix: Swift.Optional<String?> {
+    get {
+      return graphQLMap["templateSuffix"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "templateSuffix")
+    }
+  }
+
+  /// The order in which the collection's products are sorted.
+  public var sortOrder: Swift.Optional<CollectionSortOrder?> {
+    get {
+      return graphQLMap["sortOrder"] as? Swift.Optional<CollectionSortOrder?> ?? Swift.Optional<CollectionSortOrder?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "sortOrder")
+    }
+  }
+
+  /// The title of the collection. Required for creating a new collection.
+  public var title: Swift.Optional<String?> {
+    get {
+      return graphQLMap["title"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  /// The metafields to associate with the collection.
+  public var metafields: Swift.Optional<[MetafieldInput]?> {
+    get {
+      return graphQLMap["metafields"] as? Swift.Optional<[MetafieldInput]?> ?? Swift.Optional<[MetafieldInput]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "metafields")
+    }
+  }
+
+  /// SEO information for the collection.
+  public var seo: Swift.Optional<SEOInput?> {
+    get {
+      return graphQLMap["seo"] as? Swift.Optional<SEOInput?> ?? Swift.Optional<SEOInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "seo")
+    }
+  }
+
+  /// Indicates whether a redirect is required after a new handle has been provided.
+  /// If true, then the old handle is redirected to the new one automatically.
+  public var redirectNewHandle: Swift.Optional<Bool?> {
+    get {
+      return graphQLMap["redirectNewHandle"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "redirectNewHandle")
+    }
+  }
+}
+
+/// The input fields for an image.
+public struct ImageInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - id: A globally-unique ID.
+  ///   - altText: A word or phrase to share the nature or contents of an image.
+  ///   - src: The URL of the image. May be a staged upload URL.
+  public init(id: Swift.Optional<GraphQLID?> = nil, altText: Swift.Optional<String?> = nil, src: Swift.Optional<String?> = nil) {
+    graphQLMap = ["id": id, "altText": altText, "src": src]
+  }
+
+  /// A globally-unique ID.
+  public var id: Swift.Optional<GraphQLID?> {
+    get {
+      return graphQLMap["id"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// A word or phrase to share the nature or contents of an image.
+  public var altText: Swift.Optional<String?> {
+    get {
+      return graphQLMap["altText"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "altText")
+    }
+  }
+
+  /// The URL of the image. May be a staged upload URL.
+  public var src: Swift.Optional<String?> {
+    get {
+      return graphQLMap["src"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "src")
+    }
+  }
+}
+
+/// The input fields for a rule set of the collection.
+public struct CollectionRuleSetInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - appliedDisjunctively: Whether products must match any or all of the rules to be included in the collection.
+  /// If true, then products must match at least one of the rules to be included in the collection.
+  /// If false, then products must match all of the rules to be included in the collection.
+  ///   - rules: The rules used to assign products to the collection.
+  public init(appliedDisjunctively: Bool, rules: Swift.Optional<[CollectionRuleInput]?> = nil) {
+    graphQLMap = ["appliedDisjunctively": appliedDisjunctively, "rules": rules]
+  }
+
+  /// Whether products must match any or all of the rules to be included in the collection.
+  /// If true, then products must match at least one of the rules to be included in the collection.
+  /// If false, then products must match all of the rules to be included in the collection.
+  public var appliedDisjunctively: Bool {
+    get {
+      return graphQLMap["appliedDisjunctively"] as! Bool
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "appliedDisjunctively")
+    }
+  }
+
+  /// The rules used to assign products to the collection.
+  public var rules: Swift.Optional<[CollectionRuleInput]?> {
+    get {
+      return graphQLMap["rules"] as? Swift.Optional<[CollectionRuleInput]?> ?? Swift.Optional<[CollectionRuleInput]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "rules")
+    }
+  }
+}
+
+/// The input fields for a rule to associate with a collection.
+public struct CollectionRuleInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - column: The attribute that the rule focuses on. For example, `title` or `product_type`.
+  ///   - relation: The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
+  ///   - condition: The value that the operator is applied to. For example, `Hats`.
+  ///   - conditionObjectId: The object ID that points to additional attributes for the collection rule.
+  /// This is only required when using metafield definition rules.
+  public init(column: CollectionRuleColumn, relation: CollectionRuleRelation, condition: String, conditionObjectId: Swift.Optional<GraphQLID?> = nil) {
+    graphQLMap = ["column": column, "relation": relation, "condition": condition, "conditionObjectId": conditionObjectId]
+  }
+
+  /// The attribute that the rule focuses on. For example, `title` or `product_type`.
+  public var column: CollectionRuleColumn {
+    get {
+      return graphQLMap["column"] as! CollectionRuleColumn
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "column")
+    }
+  }
+
+  /// The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
+  public var relation: CollectionRuleRelation {
+    get {
+      return graphQLMap["relation"] as! CollectionRuleRelation
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "relation")
+    }
+  }
+
+  /// The value that the operator is applied to. For example, `Hats`.
+  public var condition: String {
+    get {
+      return graphQLMap["condition"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "condition")
+    }
+  }
+
+  /// The object ID that points to additional attributes for the collection rule.
+  /// This is only required when using metafield definition rules.
+  public var conditionObjectId: Swift.Optional<GraphQLID?> {
+    get {
+      return graphQLMap["conditionObjectId"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "conditionObjectId")
+    }
+  }
+}
+
+/// Specifies the attribute of a product being used to populate the smart collection.
+public enum CollectionRuleColumn: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  /// The [`tag`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-product-producttype) attribute.
+  case tag
+  /// The [`title`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-product-title) attribute.
+  case title
+  /// The [`type`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-product-producttype) attribute.
+  case type
+  /// The [`product_taxonomy_node_id`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-product-productcategory) attribute.
+  case productTaxonomyNodeId
+  /// The [`vendor`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-product-vendor) attribute.
+  case vendor
+  /// The [`variant_price`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-productvariant-price) attribute.
+  case variantPrice
+  /// An attribute evaluated based on the `compare_at_price` attribute of the product's variants.
+  /// With `is_set` relation, the rule matches products with at least one variant with `compare_at_price` set.
+  /// With `is_not_set` relation, the rule matches matches products with at least one variant with `compare_at_price` not set.
+  case isPriceReduced
+  /// The [`variant_compare_at_price`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-productvariant-compareatprice) attribute.
+  case variantCompareAtPrice
+  /// The [`variant_weight`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-productvariant-weight) attribute.
+  case variantWeight
+  /// The [`variant_inventory`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-productvariant-inventoryquantity) attribute.
+  case variantInventory
+  /// The [`variant_title`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-productvariant-title) attribute.
+  case variantTitle
+  /// This category includes metafield definitions that have the `useAsCollectionCondition` flag set to true.
+  case productMetafieldDefinition
+  /// This category includes metafield definitions that have the `useAsCollectionCondition` flag set to true.
+  case variantMetafieldDefinition
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "TAG": self = .tag
+      case "TITLE": self = .title
+      case "TYPE": self = .type
+      case "PRODUCT_TAXONOMY_NODE_ID": self = .productTaxonomyNodeId
+      case "VENDOR": self = .vendor
+      case "VARIANT_PRICE": self = .variantPrice
+      case "IS_PRICE_REDUCED": self = .isPriceReduced
+      case "VARIANT_COMPARE_AT_PRICE": self = .variantCompareAtPrice
+      case "VARIANT_WEIGHT": self = .variantWeight
+      case "VARIANT_INVENTORY": self = .variantInventory
+      case "VARIANT_TITLE": self = .variantTitle
+      case "PRODUCT_METAFIELD_DEFINITION": self = .productMetafieldDefinition
+      case "VARIANT_METAFIELD_DEFINITION": self = .variantMetafieldDefinition
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .tag: return "TAG"
+      case .title: return "TITLE"
+      case .type: return "TYPE"
+      case .productTaxonomyNodeId: return "PRODUCT_TAXONOMY_NODE_ID"
+      case .vendor: return "VENDOR"
+      case .variantPrice: return "VARIANT_PRICE"
+      case .isPriceReduced: return "IS_PRICE_REDUCED"
+      case .variantCompareAtPrice: return "VARIANT_COMPARE_AT_PRICE"
+      case .variantWeight: return "VARIANT_WEIGHT"
+      case .variantInventory: return "VARIANT_INVENTORY"
+      case .variantTitle: return "VARIANT_TITLE"
+      case .productMetafieldDefinition: return "PRODUCT_METAFIELD_DEFINITION"
+      case .variantMetafieldDefinition: return "VARIANT_METAFIELD_DEFINITION"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: CollectionRuleColumn, rhs: CollectionRuleColumn) -> Bool {
+    switch (lhs, rhs) {
+      case (.tag, .tag): return true
+      case (.title, .title): return true
+      case (.type, .type): return true
+      case (.productTaxonomyNodeId, .productTaxonomyNodeId): return true
+      case (.vendor, .vendor): return true
+      case (.variantPrice, .variantPrice): return true
+      case (.isPriceReduced, .isPriceReduced): return true
+      case (.variantCompareAtPrice, .variantCompareAtPrice): return true
+      case (.variantWeight, .variantWeight): return true
+      case (.variantInventory, .variantInventory): return true
+      case (.variantTitle, .variantTitle): return true
+      case (.productMetafieldDefinition, .productMetafieldDefinition): return true
+      case (.variantMetafieldDefinition, .variantMetafieldDefinition): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [CollectionRuleColumn] {
+    return [
+      .tag,
+      .title,
+      .type,
+      .productTaxonomyNodeId,
+      .vendor,
+      .variantPrice,
+      .isPriceReduced,
+      .variantCompareAtPrice,
+      .variantWeight,
+      .variantInventory,
+      .variantTitle,
+      .productMetafieldDefinition,
+      .variantMetafieldDefinition,
+    ]
+  }
+}
+
+/// Specifies the relationship between the `column` and the `condition`.
+public enum CollectionRuleRelation: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  /// The attribute contains the condition.
+  case contains
+  /// The attribute ends with the condition.
+  case endsWith
+  /// The attribute is equal to the condition.
+  case equals
+  /// The attribute is greater than the condition.
+  case greaterThan
+  /// The attribute is not set (equal to `null`).
+  case isNotSet
+  /// The attribute is set (not equal to `null`).
+  case isSet
+  /// The attribute is less than the condition.
+  case lessThan
+  /// The attribute does not contain the condition.
+  case notContains
+  /// The attribute does not equal the condition.
+  case notEquals
+  /// The attribute starts with the condition.
+  case startsWith
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "CONTAINS": self = .contains
+      case "ENDS_WITH": self = .endsWith
+      case "EQUALS": self = .equals
+      case "GREATER_THAN": self = .greaterThan
+      case "IS_NOT_SET": self = .isNotSet
+      case "IS_SET": self = .isSet
+      case "LESS_THAN": self = .lessThan
+      case "NOT_CONTAINS": self = .notContains
+      case "NOT_EQUALS": self = .notEquals
+      case "STARTS_WITH": self = .startsWith
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .contains: return "CONTAINS"
+      case .endsWith: return "ENDS_WITH"
+      case .equals: return "EQUALS"
+      case .greaterThan: return "GREATER_THAN"
+      case .isNotSet: return "IS_NOT_SET"
+      case .isSet: return "IS_SET"
+      case .lessThan: return "LESS_THAN"
+      case .notContains: return "NOT_CONTAINS"
+      case .notEquals: return "NOT_EQUALS"
+      case .startsWith: return "STARTS_WITH"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: CollectionRuleRelation, rhs: CollectionRuleRelation) -> Bool {
+    switch (lhs, rhs) {
+      case (.contains, .contains): return true
+      case (.endsWith, .endsWith): return true
+      case (.equals, .equals): return true
+      case (.greaterThan, .greaterThan): return true
+      case (.isNotSet, .isNotSet): return true
+      case (.isSet, .isSet): return true
+      case (.lessThan, .lessThan): return true
+      case (.notContains, .notContains): return true
+      case (.notEquals, .notEquals): return true
+      case (.startsWith, .startsWith): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [CollectionRuleRelation] {
+    return [
+      .contains,
+      .endsWith,
+      .equals,
+      .greaterThan,
+      .isNotSet,
+      .isSet,
+      .lessThan,
+      .notContains,
+      .notEquals,
+      .startsWith,
+    ]
+  }
+}
+
+/// Specifies the sort order for the products in the collection.
+public enum CollectionSortOrder: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  /// Alphabetically, in ascending order (A - Z).
+  case alphaAsc
+  /// Alphabetically, in descending order (Z - A).
+  case alphaDesc
+  /// By best-selling products.
+  case bestSelling
+  /// By date created, in ascending order (oldest - newest).
+  case created
+  /// By date created, in descending order (newest - oldest).
+  case createdDesc
+  /// In the order set manually by the merchant.
+  case manual
+  /// By price, in ascending order (lowest - highest).
+  case priceAsc
+  /// By price, in descending order (highest - lowest).
+  case priceDesc
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ALPHA_ASC": self = .alphaAsc
+      case "ALPHA_DESC": self = .alphaDesc
+      case "BEST_SELLING": self = .bestSelling
+      case "CREATED": self = .created
+      case "CREATED_DESC": self = .createdDesc
+      case "MANUAL": self = .manual
+      case "PRICE_ASC": self = .priceAsc
+      case "PRICE_DESC": self = .priceDesc
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .alphaAsc: return "ALPHA_ASC"
+      case .alphaDesc: return "ALPHA_DESC"
+      case .bestSelling: return "BEST_SELLING"
+      case .created: return "CREATED"
+      case .createdDesc: return "CREATED_DESC"
+      case .manual: return "MANUAL"
+      case .priceAsc: return "PRICE_ASC"
+      case .priceDesc: return "PRICE_DESC"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: CollectionSortOrder, rhs: CollectionSortOrder) -> Bool {
+    switch (lhs, rhs) {
+      case (.alphaAsc, .alphaAsc): return true
+      case (.alphaDesc, .alphaDesc): return true
+      case (.bestSelling, .bestSelling): return true
+      case (.created, .created): return true
+      case (.createdDesc, .createdDesc): return true
+      case (.manual, .manual): return true
+      case (.priceAsc, .priceAsc): return true
+      case (.priceDesc, .priceDesc): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [CollectionSortOrder] {
+    return [
+      .alphaAsc,
+      .alphaDesc,
+      .bestSelling,
+      .created,
+      .createdDesc,
+      .manual,
+      .priceAsc,
+      .priceDesc,
+    ]
+  }
+}
+
+/// The input fields to use to create or update a metafield through a mutation on the owning resource.
+/// An alternative way to create or update a metafield is by using the
+/// [metafieldsSet](https://shopify.dev/api/admin-graphql/latest/mutations/metafieldsSet) mutation.
+public struct MetafieldInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - id: The unique ID of the metafield.
+  /// 
+  /// Required when updating a metafield, but should not be included when creating as it's created automatically.
+  ///   - namespace: The container for a group of metafields that the metafield is or will be associated with. Used in tandem with
+  /// `key` to lookup a metafield on a resource, preventing conflicts with other metafields with the same `key`.
+  /// 
+  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
+  /// updating, but cannot be updated itself.
+  /// 
+  /// Must be 3-255 characters long and can contain alphanumeric, hyphen, and underscore characters.
+  ///   - key: The unique identifier for a metafield within its namespace.
+  /// 
+  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
+  /// updating, but cannot be updated itself.
+  /// 
+  /// Must be 3-64 characters long and can contain alphanumeric, hyphen, and underscore characters.
+  ///   - value: The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
+  ///   - type: The type of data that is stored in the metafield.
+  /// Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
+  /// 
+  /// Required when creating a metafield, but optional when updating.
+  public init(id: Swift.Optional<GraphQLID?> = nil, namespace: Swift.Optional<String?> = nil, key: Swift.Optional<String?> = nil, value: Swift.Optional<String?> = nil, type: Swift.Optional<String?> = nil) {
+    graphQLMap = ["id": id, "namespace": namespace, "key": key, "value": value, "type": type]
+  }
+
+  /// The unique ID of the metafield.
+  /// 
+  /// Required when updating a metafield, but should not be included when creating as it's created automatically.
+  public var id: Swift.Optional<GraphQLID?> {
+    get {
+      return graphQLMap["id"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  /// The container for a group of metafields that the metafield is or will be associated with. Used in tandem with
+  /// `key` to lookup a metafield on a resource, preventing conflicts with other metafields with the same `key`.
+  /// 
+  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
+  /// updating, but cannot be updated itself.
+  /// 
+  /// Must be 3-255 characters long and can contain alphanumeric, hyphen, and underscore characters.
+  public var namespace: Swift.Optional<String?> {
+    get {
+      return graphQLMap["namespace"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "namespace")
+    }
+  }
+
+  /// The unique identifier for a metafield within its namespace.
+  /// 
+  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
+  /// updating, but cannot be updated itself.
+  /// 
+  /// Must be 3-64 characters long and can contain alphanumeric, hyphen, and underscore characters.
+  public var key: Swift.Optional<String?> {
+    get {
+      return graphQLMap["key"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "key")
+    }
+  }
+
+  /// The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
+  public var value: Swift.Optional<String?> {
+    get {
+      return graphQLMap["value"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "value")
+    }
+  }
+
+  /// The type of data that is stored in the metafield.
+  /// Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
+  /// 
+  /// Required when creating a metafield, but optional when updating.
+  public var type: Swift.Optional<String?> {
+    get {
+      return graphQLMap["type"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "type")
+    }
+  }
+}
+
+/// The input fields for SEO information.
+public struct SEOInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - title: SEO title of the product.
+  ///   - description: SEO description of the product.
+  public init(title: Swift.Optional<String?> = nil, description: Swift.Optional<String?> = nil) {
+    graphQLMap = ["title": title, "description": description]
+  }
+
+  /// SEO title of the product.
+  public var title: Swift.Optional<String?> {
+    get {
+      return graphQLMap["title"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  /// SEO description of the product.
+  public var description: Swift.Optional<String?> {
+    get {
+      return graphQLMap["description"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "description")
+    }
+  }
+}
+
+/// The input fields for specifying the collection to delete.
+public struct CollectionDeleteInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - id: The ID of the collection to be deleted.
+  public init(id: GraphQLID) {
+    graphQLMap = ["id": id]
+  }
+
+  /// The ID of the collection to be deleted.
+  public var id: GraphQLID {
+    get {
+      return graphQLMap["id"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+}
+
 /// The input fields to create or update a basic code discount.
 public struct DiscountCodeBasicInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
@@ -670,1667 +1382,6 @@ public struct DiscountCustomerSegmentsInput: GraphQLMapConvertible {
   }
 }
 
-/// The status of the discount.
-public enum DiscountStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  /// The discount is active.
-  case active
-  /// The discount is expired.
-  case expired
-  /// The discount is scheduled.
-  case scheduled
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "ACTIVE": self = .active
-      case "EXPIRED": self = .expired
-      case "SCHEDULED": self = .scheduled
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .active: return "ACTIVE"
-      case .expired: return "EXPIRED"
-      case .scheduled: return "SCHEDULED"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: DiscountStatus, rhs: DiscountStatus) -> Bool {
-    switch (lhs, rhs) {
-      case (.active, .active): return true
-      case (.expired, .expired): return true
-      case (.scheduled, .scheduled): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [DiscountStatus] {
-    return [
-      .active,
-      .expired,
-      .scheduled,
-    ]
-  }
-}
-
-/// The input fields for an inventory item.
-public struct InventoryItemUpdateInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - cost: Unit cost associated with the inventory item, the currency is the shop's default currency.
-  ///   - tracked: Whether the inventory item is tracked. The value must be true to adjust the item's inventory levels.
-  ///   - countryCodeOfOrigin: The ISO 3166-1 alpha-2 country code of where the item originated from.
-  ///   - provinceCodeOfOrigin: The ISO 3166-2 alpha-2 province/state code of where the item originated from.
-  ///   - harmonizedSystemCode: The harmonized system code of the inventory item. This must be a number between 6 and 13 digits.
-  ///   - countryHarmonizedSystemCodes: List of country-specific harmonized system codes.
-  public init(cost: Swift.Optional<String?> = nil, tracked: Swift.Optional<Bool?> = nil, countryCodeOfOrigin: Swift.Optional<CountryCode?> = nil, provinceCodeOfOrigin: Swift.Optional<String?> = nil, harmonizedSystemCode: Swift.Optional<String?> = nil, countryHarmonizedSystemCodes: Swift.Optional<[CountryHarmonizedSystemCodeInput]?> = nil) {
-    graphQLMap = ["cost": cost, "tracked": tracked, "countryCodeOfOrigin": countryCodeOfOrigin, "provinceCodeOfOrigin": provinceCodeOfOrigin, "harmonizedSystemCode": harmonizedSystemCode, "countryHarmonizedSystemCodes": countryHarmonizedSystemCodes]
-  }
-
-  /// Unit cost associated with the inventory item, the currency is the shop's default currency.
-  public var cost: Swift.Optional<String?> {
-    get {
-      return graphQLMap["cost"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "cost")
-    }
-  }
-
-  /// Whether the inventory item is tracked. The value must be true to adjust the item's inventory levels.
-  public var tracked: Swift.Optional<Bool?> {
-    get {
-      return graphQLMap["tracked"] as? Swift.Optional<Bool?> ?? Swift.Optional<Bool?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "tracked")
-    }
-  }
-
-  /// The ISO 3166-1 alpha-2 country code of where the item originated from.
-  public var countryCodeOfOrigin: Swift.Optional<CountryCode?> {
-    get {
-      return graphQLMap["countryCodeOfOrigin"] as? Swift.Optional<CountryCode?> ?? Swift.Optional<CountryCode?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "countryCodeOfOrigin")
-    }
-  }
-
-  /// The ISO 3166-2 alpha-2 province/state code of where the item originated from.
-  public var provinceCodeOfOrigin: Swift.Optional<String?> {
-    get {
-      return graphQLMap["provinceCodeOfOrigin"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "provinceCodeOfOrigin")
-    }
-  }
-
-  /// The harmonized system code of the inventory item. This must be a number between 6 and 13 digits.
-  public var harmonizedSystemCode: Swift.Optional<String?> {
-    get {
-      return graphQLMap["harmonizedSystemCode"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "harmonizedSystemCode")
-    }
-  }
-
-  /// List of country-specific harmonized system codes.
-  public var countryHarmonizedSystemCodes: Swift.Optional<[CountryHarmonizedSystemCodeInput]?> {
-    get {
-      return graphQLMap["countryHarmonizedSystemCodes"] as? Swift.Optional<[CountryHarmonizedSystemCodeInput]?> ?? Swift.Optional<[CountryHarmonizedSystemCodeInput]?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "countryHarmonizedSystemCodes")
-    }
-  }
-}
-
-/// The code designating a country/region, which generally follows ISO 3166-1 alpha-2 guidelines.
-/// If a territory doesn't have a country code value in the `CountryCode` enum, then it might be considered a subdivision
-/// of another country. For example, the territories associated with Spain are represented by the country code `ES`,
-/// and the territories associated with the United States of America are represented by the country code `US`.
-public enum CountryCode: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  /// Afghanistan.
-  case af
-  /// Åland Islands.
-  case ax
-  /// Albania.
-  case al
-  /// Algeria.
-  case dz
-  /// Andorra.
-  case ad
-  /// Angola.
-  case ao
-  /// Anguilla.
-  case ai
-  /// Antigua & Barbuda.
-  case ag
-  /// Argentina.
-  case ar
-  /// Armenia.
-  case am
-  /// Aruba.
-  case aw
-  /// Ascension Island.
-  case ac
-  /// Australia.
-  case au
-  /// Austria.
-  case at
-  /// Azerbaijan.
-  case az
-  /// Bahamas.
-  case bs
-  /// Bahrain.
-  case bh
-  /// Bangladesh.
-  case bd
-  /// Barbados.
-  case bb
-  /// Belarus.
-  case by
-  /// Belgium.
-  case be
-  /// Belize.
-  case bz
-  /// Benin.
-  case bj
-  /// Bermuda.
-  case bm
-  /// Bhutan.
-  case bt
-  /// Bolivia.
-  case bo
-  /// Bosnia & Herzegovina.
-  case ba
-  /// Botswana.
-  case bw
-  /// Bouvet Island.
-  case bv
-  /// Brazil.
-  case br
-  /// British Indian Ocean Territory.
-  case io
-  /// Brunei.
-  case bn
-  /// Bulgaria.
-  case bg
-  /// Burkina Faso.
-  case bf
-  /// Burundi.
-  case bi
-  /// Cambodia.
-  case kh
-  /// Canada.
-  case ca
-  /// Cape Verde.
-  case cv
-  /// Caribbean Netherlands.
-  case bq
-  /// Cayman Islands.
-  case ky
-  /// Central African Republic.
-  case cf
-  /// Chad.
-  case td
-  /// Chile.
-  case cl
-  /// China.
-  case cn
-  /// Christmas Island.
-  case cx
-  /// Cocos (Keeling) Islands.
-  case cc
-  /// Colombia.
-  case co
-  /// Comoros.
-  case km
-  /// Congo - Brazzaville.
-  case cg
-  /// Congo - Kinshasa.
-  case cd
-  /// Cook Islands.
-  case ck
-  /// Costa Rica.
-  case cr
-  /// Croatia.
-  case hr
-  /// Cuba.
-  case cu
-  /// Curaçao.
-  case cw
-  /// Cyprus.
-  case cy
-  /// Czechia.
-  case cz
-  /// Côte d’Ivoire.
-  case ci
-  /// Denmark.
-  case dk
-  /// Djibouti.
-  case dj
-  /// Dominica.
-  case dm
-  /// Dominican Republic.
-  case `do`
-  /// Ecuador.
-  case ec
-  /// Egypt.
-  case eg
-  /// El Salvador.
-  case sv
-  /// Equatorial Guinea.
-  case gq
-  /// Eritrea.
-  case er
-  /// Estonia.
-  case ee
-  /// Eswatini.
-  case sz
-  /// Ethiopia.
-  case et
-  /// Falkland Islands.
-  case fk
-  /// Faroe Islands.
-  case fo
-  /// Fiji.
-  case fj
-  /// Finland.
-  case fi
-  /// France.
-  case fr
-  /// French Guiana.
-  case gf
-  /// French Polynesia.
-  case pf
-  /// French Southern Territories.
-  case tf
-  /// Gabon.
-  case ga
-  /// Gambia.
-  case gm
-  /// Georgia.
-  case ge
-  /// Germany.
-  case de
-  /// Ghana.
-  case gh
-  /// Gibraltar.
-  case gi
-  /// Greece.
-  case gr
-  /// Greenland.
-  case gl
-  /// Grenada.
-  case gd
-  /// Guadeloupe.
-  case gp
-  /// Guatemala.
-  case gt
-  /// Guernsey.
-  case gg
-  /// Guinea.
-  case gn
-  /// Guinea-Bissau.
-  case gw
-  /// Guyana.
-  case gy
-  /// Haiti.
-  case ht
-  /// Heard & McDonald Islands.
-  case hm
-  /// Vatican City.
-  case va
-  /// Honduras.
-  case hn
-  /// Hong Kong SAR.
-  case hk
-  /// Hungary.
-  case hu
-  /// Iceland.
-  case `is`
-  /// India.
-  case `in`
-  /// Indonesia.
-  case id
-  /// Iran.
-  case ir
-  /// Iraq.
-  case iq
-  /// Ireland.
-  case ie
-  /// Isle of Man.
-  case im
-  /// Israel.
-  case il
-  /// Italy.
-  case it
-  /// Jamaica.
-  case jm
-  /// Japan.
-  case jp
-  /// Jersey.
-  case je
-  /// Jordan.
-  case jo
-  /// Kazakhstan.
-  case kz
-  /// Kenya.
-  case ke
-  /// Kiribati.
-  case ki
-  /// North Korea.
-  case kp
-  /// Kosovo.
-  case xk
-  /// Kuwait.
-  case kw
-  /// Kyrgyzstan.
-  case kg
-  /// Laos.
-  case la
-  /// Latvia.
-  case lv
-  /// Lebanon.
-  case lb
-  /// Lesotho.
-  case ls
-  /// Liberia.
-  case lr
-  /// Libya.
-  case ly
-  /// Liechtenstein.
-  case li
-  /// Lithuania.
-  case lt
-  /// Luxembourg.
-  case lu
-  /// Macao SAR.
-  case mo
-  /// Madagascar.
-  case mg
-  /// Malawi.
-  case mw
-  /// Malaysia.
-  case my
-  /// Maldives.
-  case mv
-  /// Mali.
-  case ml
-  /// Malta.
-  case mt
-  /// Martinique.
-  case mq
-  /// Mauritania.
-  case mr
-  /// Mauritius.
-  case mu
-  /// Mayotte.
-  case yt
-  /// Mexico.
-  case mx
-  /// Moldova.
-  case md
-  /// Monaco.
-  case mc
-  /// Mongolia.
-  case mn
-  /// Montenegro.
-  case me
-  /// Montserrat.
-  case ms
-  /// Morocco.
-  case ma
-  /// Mozambique.
-  case mz
-  /// Myanmar (Burma).
-  case mm
-  /// Namibia.
-  case na
-  /// Nauru.
-  case nr
-  /// Nepal.
-  case np
-  /// Netherlands.
-  case nl
-  /// Netherlands Antilles.
-  case an
-  /// New Caledonia.
-  case nc
-  /// New Zealand.
-  case nz
-  /// Nicaragua.
-  case ni
-  /// Niger.
-  case ne
-  /// Nigeria.
-  case ng
-  /// Niue.
-  case nu
-  /// Norfolk Island.
-  case nf
-  /// North Macedonia.
-  case mk
-  /// Norway.
-  case no
-  /// Oman.
-  case om
-  /// Pakistan.
-  case pk
-  /// Palestinian Territories.
-  case ps
-  /// Panama.
-  case pa
-  /// Papua New Guinea.
-  case pg
-  /// Paraguay.
-  case py
-  /// Peru.
-  case pe
-  /// Philippines.
-  case ph
-  /// Pitcairn Islands.
-  case pn
-  /// Poland.
-  case pl
-  /// Portugal.
-  case pt
-  /// Qatar.
-  case qa
-  /// Cameroon.
-  case cm
-  /// Réunion.
-  case re
-  /// Romania.
-  case ro
-  /// Russia.
-  case ru
-  /// Rwanda.
-  case rw
-  /// St. Barthélemy.
-  case bl
-  /// St. Helena.
-  case sh
-  /// St. Kitts & Nevis.
-  case kn
-  /// St. Lucia.
-  case lc
-  /// St. Martin.
-  case mf
-  /// St. Pierre & Miquelon.
-  case pm
-  /// Samoa.
-  case ws
-  /// San Marino.
-  case sm
-  /// São Tomé & Príncipe.
-  case st
-  /// Saudi Arabia.
-  case sa
-  /// Senegal.
-  case sn
-  /// Serbia.
-  case rs
-  /// Seychelles.
-  case sc
-  /// Sierra Leone.
-  case sl
-  /// Singapore.
-  case sg
-  /// Sint Maarten.
-  case sx
-  /// Slovakia.
-  case sk
-  /// Slovenia.
-  case si
-  /// Solomon Islands.
-  case sb
-  /// Somalia.
-  case so
-  /// South Africa.
-  case za
-  /// South Georgia & South Sandwich Islands.
-  case gs
-  /// South Korea.
-  case kr
-  /// South Sudan.
-  case ss
-  /// Spain.
-  case es
-  /// Sri Lanka.
-  case lk
-  /// St. Vincent & Grenadines.
-  case vc
-  /// Sudan.
-  case sd
-  /// Suriname.
-  case sr
-  /// Svalbard & Jan Mayen.
-  case sj
-  /// Sweden.
-  case se
-  /// Switzerland.
-  case ch
-  /// Syria.
-  case sy
-  /// Taiwan.
-  case tw
-  /// Tajikistan.
-  case tj
-  /// Tanzania.
-  case tz
-  /// Thailand.
-  case th
-  /// Timor-Leste.
-  case tl
-  /// Togo.
-  case tg
-  /// Tokelau.
-  case tk
-  /// Tonga.
-  case to
-  /// Trinidad & Tobago.
-  case tt
-  /// Tristan da Cunha.
-  case ta
-  /// Tunisia.
-  case tn
-  /// Turkey.
-  case tr
-  /// Turkmenistan.
-  case tm
-  /// Turks & Caicos Islands.
-  case tc
-  /// Tuvalu.
-  case tv
-  /// Uganda.
-  case ug
-  /// Ukraine.
-  case ua
-  /// United Arab Emirates.
-  case ae
-  /// United Kingdom.
-  case gb
-  /// United States.
-  case us
-  /// U.S. Outlying Islands.
-  case um
-  /// Uruguay.
-  case uy
-  /// Uzbekistan.
-  case uz
-  /// Vanuatu.
-  case vu
-  /// Venezuela.
-  case ve
-  /// Vietnam.
-  case vn
-  /// British Virgin Islands.
-  case vg
-  /// Wallis & Futuna.
-  case wf
-  /// Western Sahara.
-  case eh
-  /// Yemen.
-  case ye
-  /// Zambia.
-  case zm
-  /// Zimbabwe.
-  case zw
-  /// Unknown Region.
-  case zz
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "AF": self = .af
-      case "AX": self = .ax
-      case "AL": self = .al
-      case "DZ": self = .dz
-      case "AD": self = .ad
-      case "AO": self = .ao
-      case "AI": self = .ai
-      case "AG": self = .ag
-      case "AR": self = .ar
-      case "AM": self = .am
-      case "AW": self = .aw
-      case "AC": self = .ac
-      case "AU": self = .au
-      case "AT": self = .at
-      case "AZ": self = .az
-      case "BS": self = .bs
-      case "BH": self = .bh
-      case "BD": self = .bd
-      case "BB": self = .bb
-      case "BY": self = .by
-      case "BE": self = .be
-      case "BZ": self = .bz
-      case "BJ": self = .bj
-      case "BM": self = .bm
-      case "BT": self = .bt
-      case "BO": self = .bo
-      case "BA": self = .ba
-      case "BW": self = .bw
-      case "BV": self = .bv
-      case "BR": self = .br
-      case "IO": self = .io
-      case "BN": self = .bn
-      case "BG": self = .bg
-      case "BF": self = .bf
-      case "BI": self = .bi
-      case "KH": self = .kh
-      case "CA": self = .ca
-      case "CV": self = .cv
-      case "BQ": self = .bq
-      case "KY": self = .ky
-      case "CF": self = .cf
-      case "TD": self = .td
-      case "CL": self = .cl
-      case "CN": self = .cn
-      case "CX": self = .cx
-      case "CC": self = .cc
-      case "CO": self = .co
-      case "KM": self = .km
-      case "CG": self = .cg
-      case "CD": self = .cd
-      case "CK": self = .ck
-      case "CR": self = .cr
-      case "HR": self = .hr
-      case "CU": self = .cu
-      case "CW": self = .cw
-      case "CY": self = .cy
-      case "CZ": self = .cz
-      case "CI": self = .ci
-      case "DK": self = .dk
-      case "DJ": self = .dj
-      case "DM": self = .dm
-      case "DO": self = .do
-      case "EC": self = .ec
-      case "EG": self = .eg
-      case "SV": self = .sv
-      case "GQ": self = .gq
-      case "ER": self = .er
-      case "EE": self = .ee
-      case "SZ": self = .sz
-      case "ET": self = .et
-      case "FK": self = .fk
-      case "FO": self = .fo
-      case "FJ": self = .fj
-      case "FI": self = .fi
-      case "FR": self = .fr
-      case "GF": self = .gf
-      case "PF": self = .pf
-      case "TF": self = .tf
-      case "GA": self = .ga
-      case "GM": self = .gm
-      case "GE": self = .ge
-      case "DE": self = .de
-      case "GH": self = .gh
-      case "GI": self = .gi
-      case "GR": self = .gr
-      case "GL": self = .gl
-      case "GD": self = .gd
-      case "GP": self = .gp
-      case "GT": self = .gt
-      case "GG": self = .gg
-      case "GN": self = .gn
-      case "GW": self = .gw
-      case "GY": self = .gy
-      case "HT": self = .ht
-      case "HM": self = .hm
-      case "VA": self = .va
-      case "HN": self = .hn
-      case "HK": self = .hk
-      case "HU": self = .hu
-      case "IS": self = .is
-      case "IN": self = .in
-      case "ID": self = .id
-      case "IR": self = .ir
-      case "IQ": self = .iq
-      case "IE": self = .ie
-      case "IM": self = .im
-      case "IL": self = .il
-      case "IT": self = .it
-      case "JM": self = .jm
-      case "JP": self = .jp
-      case "JE": self = .je
-      case "JO": self = .jo
-      case "KZ": self = .kz
-      case "KE": self = .ke
-      case "KI": self = .ki
-      case "KP": self = .kp
-      case "XK": self = .xk
-      case "KW": self = .kw
-      case "KG": self = .kg
-      case "LA": self = .la
-      case "LV": self = .lv
-      case "LB": self = .lb
-      case "LS": self = .ls
-      case "LR": self = .lr
-      case "LY": self = .ly
-      case "LI": self = .li
-      case "LT": self = .lt
-      case "LU": self = .lu
-      case "MO": self = .mo
-      case "MG": self = .mg
-      case "MW": self = .mw
-      case "MY": self = .my
-      case "MV": self = .mv
-      case "ML": self = .ml
-      case "MT": self = .mt
-      case "MQ": self = .mq
-      case "MR": self = .mr
-      case "MU": self = .mu
-      case "YT": self = .yt
-      case "MX": self = .mx
-      case "MD": self = .md
-      case "MC": self = .mc
-      case "MN": self = .mn
-      case "ME": self = .me
-      case "MS": self = .ms
-      case "MA": self = .ma
-      case "MZ": self = .mz
-      case "MM": self = .mm
-      case "NA": self = .na
-      case "NR": self = .nr
-      case "NP": self = .np
-      case "NL": self = .nl
-      case "AN": self = .an
-      case "NC": self = .nc
-      case "NZ": self = .nz
-      case "NI": self = .ni
-      case "NE": self = .ne
-      case "NG": self = .ng
-      case "NU": self = .nu
-      case "NF": self = .nf
-      case "MK": self = .mk
-      case "NO": self = .no
-      case "OM": self = .om
-      case "PK": self = .pk
-      case "PS": self = .ps
-      case "PA": self = .pa
-      case "PG": self = .pg
-      case "PY": self = .py
-      case "PE": self = .pe
-      case "PH": self = .ph
-      case "PN": self = .pn
-      case "PL": self = .pl
-      case "PT": self = .pt
-      case "QA": self = .qa
-      case "CM": self = .cm
-      case "RE": self = .re
-      case "RO": self = .ro
-      case "RU": self = .ru
-      case "RW": self = .rw
-      case "BL": self = .bl
-      case "SH": self = .sh
-      case "KN": self = .kn
-      case "LC": self = .lc
-      case "MF": self = .mf
-      case "PM": self = .pm
-      case "WS": self = .ws
-      case "SM": self = .sm
-      case "ST": self = .st
-      case "SA": self = .sa
-      case "SN": self = .sn
-      case "RS": self = .rs
-      case "SC": self = .sc
-      case "SL": self = .sl
-      case "SG": self = .sg
-      case "SX": self = .sx
-      case "SK": self = .sk
-      case "SI": self = .si
-      case "SB": self = .sb
-      case "SO": self = .so
-      case "ZA": self = .za
-      case "GS": self = .gs
-      case "KR": self = .kr
-      case "SS": self = .ss
-      case "ES": self = .es
-      case "LK": self = .lk
-      case "VC": self = .vc
-      case "SD": self = .sd
-      case "SR": self = .sr
-      case "SJ": self = .sj
-      case "SE": self = .se
-      case "CH": self = .ch
-      case "SY": self = .sy
-      case "TW": self = .tw
-      case "TJ": self = .tj
-      case "TZ": self = .tz
-      case "TH": self = .th
-      case "TL": self = .tl
-      case "TG": self = .tg
-      case "TK": self = .tk
-      case "TO": self = .to
-      case "TT": self = .tt
-      case "TA": self = .ta
-      case "TN": self = .tn
-      case "TR": self = .tr
-      case "TM": self = .tm
-      case "TC": self = .tc
-      case "TV": self = .tv
-      case "UG": self = .ug
-      case "UA": self = .ua
-      case "AE": self = .ae
-      case "GB": self = .gb
-      case "US": self = .us
-      case "UM": self = .um
-      case "UY": self = .uy
-      case "UZ": self = .uz
-      case "VU": self = .vu
-      case "VE": self = .ve
-      case "VN": self = .vn
-      case "VG": self = .vg
-      case "WF": self = .wf
-      case "EH": self = .eh
-      case "YE": self = .ye
-      case "ZM": self = .zm
-      case "ZW": self = .zw
-      case "ZZ": self = .zz
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .af: return "AF"
-      case .ax: return "AX"
-      case .al: return "AL"
-      case .dz: return "DZ"
-      case .ad: return "AD"
-      case .ao: return "AO"
-      case .ai: return "AI"
-      case .ag: return "AG"
-      case .ar: return "AR"
-      case .am: return "AM"
-      case .aw: return "AW"
-      case .ac: return "AC"
-      case .au: return "AU"
-      case .at: return "AT"
-      case .az: return "AZ"
-      case .bs: return "BS"
-      case .bh: return "BH"
-      case .bd: return "BD"
-      case .bb: return "BB"
-      case .by: return "BY"
-      case .be: return "BE"
-      case .bz: return "BZ"
-      case .bj: return "BJ"
-      case .bm: return "BM"
-      case .bt: return "BT"
-      case .bo: return "BO"
-      case .ba: return "BA"
-      case .bw: return "BW"
-      case .bv: return "BV"
-      case .br: return "BR"
-      case .io: return "IO"
-      case .bn: return "BN"
-      case .bg: return "BG"
-      case .bf: return "BF"
-      case .bi: return "BI"
-      case .kh: return "KH"
-      case .ca: return "CA"
-      case .cv: return "CV"
-      case .bq: return "BQ"
-      case .ky: return "KY"
-      case .cf: return "CF"
-      case .td: return "TD"
-      case .cl: return "CL"
-      case .cn: return "CN"
-      case .cx: return "CX"
-      case .cc: return "CC"
-      case .co: return "CO"
-      case .km: return "KM"
-      case .cg: return "CG"
-      case .cd: return "CD"
-      case .ck: return "CK"
-      case .cr: return "CR"
-      case .hr: return "HR"
-      case .cu: return "CU"
-      case .cw: return "CW"
-      case .cy: return "CY"
-      case .cz: return "CZ"
-      case .ci: return "CI"
-      case .dk: return "DK"
-      case .dj: return "DJ"
-      case .dm: return "DM"
-      case .do: return "DO"
-      case .ec: return "EC"
-      case .eg: return "EG"
-      case .sv: return "SV"
-      case .gq: return "GQ"
-      case .er: return "ER"
-      case .ee: return "EE"
-      case .sz: return "SZ"
-      case .et: return "ET"
-      case .fk: return "FK"
-      case .fo: return "FO"
-      case .fj: return "FJ"
-      case .fi: return "FI"
-      case .fr: return "FR"
-      case .gf: return "GF"
-      case .pf: return "PF"
-      case .tf: return "TF"
-      case .ga: return "GA"
-      case .gm: return "GM"
-      case .ge: return "GE"
-      case .de: return "DE"
-      case .gh: return "GH"
-      case .gi: return "GI"
-      case .gr: return "GR"
-      case .gl: return "GL"
-      case .gd: return "GD"
-      case .gp: return "GP"
-      case .gt: return "GT"
-      case .gg: return "GG"
-      case .gn: return "GN"
-      case .gw: return "GW"
-      case .gy: return "GY"
-      case .ht: return "HT"
-      case .hm: return "HM"
-      case .va: return "VA"
-      case .hn: return "HN"
-      case .hk: return "HK"
-      case .hu: return "HU"
-      case .is: return "IS"
-      case .in: return "IN"
-      case .id: return "ID"
-      case .ir: return "IR"
-      case .iq: return "IQ"
-      case .ie: return "IE"
-      case .im: return "IM"
-      case .il: return "IL"
-      case .it: return "IT"
-      case .jm: return "JM"
-      case .jp: return "JP"
-      case .je: return "JE"
-      case .jo: return "JO"
-      case .kz: return "KZ"
-      case .ke: return "KE"
-      case .ki: return "KI"
-      case .kp: return "KP"
-      case .xk: return "XK"
-      case .kw: return "KW"
-      case .kg: return "KG"
-      case .la: return "LA"
-      case .lv: return "LV"
-      case .lb: return "LB"
-      case .ls: return "LS"
-      case .lr: return "LR"
-      case .ly: return "LY"
-      case .li: return "LI"
-      case .lt: return "LT"
-      case .lu: return "LU"
-      case .mo: return "MO"
-      case .mg: return "MG"
-      case .mw: return "MW"
-      case .my: return "MY"
-      case .mv: return "MV"
-      case .ml: return "ML"
-      case .mt: return "MT"
-      case .mq: return "MQ"
-      case .mr: return "MR"
-      case .mu: return "MU"
-      case .yt: return "YT"
-      case .mx: return "MX"
-      case .md: return "MD"
-      case .mc: return "MC"
-      case .mn: return "MN"
-      case .me: return "ME"
-      case .ms: return "MS"
-      case .ma: return "MA"
-      case .mz: return "MZ"
-      case .mm: return "MM"
-      case .na: return "NA"
-      case .nr: return "NR"
-      case .np: return "NP"
-      case .nl: return "NL"
-      case .an: return "AN"
-      case .nc: return "NC"
-      case .nz: return "NZ"
-      case .ni: return "NI"
-      case .ne: return "NE"
-      case .ng: return "NG"
-      case .nu: return "NU"
-      case .nf: return "NF"
-      case .mk: return "MK"
-      case .no: return "NO"
-      case .om: return "OM"
-      case .pk: return "PK"
-      case .ps: return "PS"
-      case .pa: return "PA"
-      case .pg: return "PG"
-      case .py: return "PY"
-      case .pe: return "PE"
-      case .ph: return "PH"
-      case .pn: return "PN"
-      case .pl: return "PL"
-      case .pt: return "PT"
-      case .qa: return "QA"
-      case .cm: return "CM"
-      case .re: return "RE"
-      case .ro: return "RO"
-      case .ru: return "RU"
-      case .rw: return "RW"
-      case .bl: return "BL"
-      case .sh: return "SH"
-      case .kn: return "KN"
-      case .lc: return "LC"
-      case .mf: return "MF"
-      case .pm: return "PM"
-      case .ws: return "WS"
-      case .sm: return "SM"
-      case .st: return "ST"
-      case .sa: return "SA"
-      case .sn: return "SN"
-      case .rs: return "RS"
-      case .sc: return "SC"
-      case .sl: return "SL"
-      case .sg: return "SG"
-      case .sx: return "SX"
-      case .sk: return "SK"
-      case .si: return "SI"
-      case .sb: return "SB"
-      case .so: return "SO"
-      case .za: return "ZA"
-      case .gs: return "GS"
-      case .kr: return "KR"
-      case .ss: return "SS"
-      case .es: return "ES"
-      case .lk: return "LK"
-      case .vc: return "VC"
-      case .sd: return "SD"
-      case .sr: return "SR"
-      case .sj: return "SJ"
-      case .se: return "SE"
-      case .ch: return "CH"
-      case .sy: return "SY"
-      case .tw: return "TW"
-      case .tj: return "TJ"
-      case .tz: return "TZ"
-      case .th: return "TH"
-      case .tl: return "TL"
-      case .tg: return "TG"
-      case .tk: return "TK"
-      case .to: return "TO"
-      case .tt: return "TT"
-      case .ta: return "TA"
-      case .tn: return "TN"
-      case .tr: return "TR"
-      case .tm: return "TM"
-      case .tc: return "TC"
-      case .tv: return "TV"
-      case .ug: return "UG"
-      case .ua: return "UA"
-      case .ae: return "AE"
-      case .gb: return "GB"
-      case .us: return "US"
-      case .um: return "UM"
-      case .uy: return "UY"
-      case .uz: return "UZ"
-      case .vu: return "VU"
-      case .ve: return "VE"
-      case .vn: return "VN"
-      case .vg: return "VG"
-      case .wf: return "WF"
-      case .eh: return "EH"
-      case .ye: return "YE"
-      case .zm: return "ZM"
-      case .zw: return "ZW"
-      case .zz: return "ZZ"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: CountryCode, rhs: CountryCode) -> Bool {
-    switch (lhs, rhs) {
-      case (.af, .af): return true
-      case (.ax, .ax): return true
-      case (.al, .al): return true
-      case (.dz, .dz): return true
-      case (.ad, .ad): return true
-      case (.ao, .ao): return true
-      case (.ai, .ai): return true
-      case (.ag, .ag): return true
-      case (.ar, .ar): return true
-      case (.am, .am): return true
-      case (.aw, .aw): return true
-      case (.ac, .ac): return true
-      case (.au, .au): return true
-      case (.at, .at): return true
-      case (.az, .az): return true
-      case (.bs, .bs): return true
-      case (.bh, .bh): return true
-      case (.bd, .bd): return true
-      case (.bb, .bb): return true
-      case (.by, .by): return true
-      case (.be, .be): return true
-      case (.bz, .bz): return true
-      case (.bj, .bj): return true
-      case (.bm, .bm): return true
-      case (.bt, .bt): return true
-      case (.bo, .bo): return true
-      case (.ba, .ba): return true
-      case (.bw, .bw): return true
-      case (.bv, .bv): return true
-      case (.br, .br): return true
-      case (.io, .io): return true
-      case (.bn, .bn): return true
-      case (.bg, .bg): return true
-      case (.bf, .bf): return true
-      case (.bi, .bi): return true
-      case (.kh, .kh): return true
-      case (.ca, .ca): return true
-      case (.cv, .cv): return true
-      case (.bq, .bq): return true
-      case (.ky, .ky): return true
-      case (.cf, .cf): return true
-      case (.td, .td): return true
-      case (.cl, .cl): return true
-      case (.cn, .cn): return true
-      case (.cx, .cx): return true
-      case (.cc, .cc): return true
-      case (.co, .co): return true
-      case (.km, .km): return true
-      case (.cg, .cg): return true
-      case (.cd, .cd): return true
-      case (.ck, .ck): return true
-      case (.cr, .cr): return true
-      case (.hr, .hr): return true
-      case (.cu, .cu): return true
-      case (.cw, .cw): return true
-      case (.cy, .cy): return true
-      case (.cz, .cz): return true
-      case (.ci, .ci): return true
-      case (.dk, .dk): return true
-      case (.dj, .dj): return true
-      case (.dm, .dm): return true
-      case (.do, .do): return true
-      case (.ec, .ec): return true
-      case (.eg, .eg): return true
-      case (.sv, .sv): return true
-      case (.gq, .gq): return true
-      case (.er, .er): return true
-      case (.ee, .ee): return true
-      case (.sz, .sz): return true
-      case (.et, .et): return true
-      case (.fk, .fk): return true
-      case (.fo, .fo): return true
-      case (.fj, .fj): return true
-      case (.fi, .fi): return true
-      case (.fr, .fr): return true
-      case (.gf, .gf): return true
-      case (.pf, .pf): return true
-      case (.tf, .tf): return true
-      case (.ga, .ga): return true
-      case (.gm, .gm): return true
-      case (.ge, .ge): return true
-      case (.de, .de): return true
-      case (.gh, .gh): return true
-      case (.gi, .gi): return true
-      case (.gr, .gr): return true
-      case (.gl, .gl): return true
-      case (.gd, .gd): return true
-      case (.gp, .gp): return true
-      case (.gt, .gt): return true
-      case (.gg, .gg): return true
-      case (.gn, .gn): return true
-      case (.gw, .gw): return true
-      case (.gy, .gy): return true
-      case (.ht, .ht): return true
-      case (.hm, .hm): return true
-      case (.va, .va): return true
-      case (.hn, .hn): return true
-      case (.hk, .hk): return true
-      case (.hu, .hu): return true
-      case (.is, .is): return true
-      case (.in, .in): return true
-      case (.id, .id): return true
-      case (.ir, .ir): return true
-      case (.iq, .iq): return true
-      case (.ie, .ie): return true
-      case (.im, .im): return true
-      case (.il, .il): return true
-      case (.it, .it): return true
-      case (.jm, .jm): return true
-      case (.jp, .jp): return true
-      case (.je, .je): return true
-      case (.jo, .jo): return true
-      case (.kz, .kz): return true
-      case (.ke, .ke): return true
-      case (.ki, .ki): return true
-      case (.kp, .kp): return true
-      case (.xk, .xk): return true
-      case (.kw, .kw): return true
-      case (.kg, .kg): return true
-      case (.la, .la): return true
-      case (.lv, .lv): return true
-      case (.lb, .lb): return true
-      case (.ls, .ls): return true
-      case (.lr, .lr): return true
-      case (.ly, .ly): return true
-      case (.li, .li): return true
-      case (.lt, .lt): return true
-      case (.lu, .lu): return true
-      case (.mo, .mo): return true
-      case (.mg, .mg): return true
-      case (.mw, .mw): return true
-      case (.my, .my): return true
-      case (.mv, .mv): return true
-      case (.ml, .ml): return true
-      case (.mt, .mt): return true
-      case (.mq, .mq): return true
-      case (.mr, .mr): return true
-      case (.mu, .mu): return true
-      case (.yt, .yt): return true
-      case (.mx, .mx): return true
-      case (.md, .md): return true
-      case (.mc, .mc): return true
-      case (.mn, .mn): return true
-      case (.me, .me): return true
-      case (.ms, .ms): return true
-      case (.ma, .ma): return true
-      case (.mz, .mz): return true
-      case (.mm, .mm): return true
-      case (.na, .na): return true
-      case (.nr, .nr): return true
-      case (.np, .np): return true
-      case (.nl, .nl): return true
-      case (.an, .an): return true
-      case (.nc, .nc): return true
-      case (.nz, .nz): return true
-      case (.ni, .ni): return true
-      case (.ne, .ne): return true
-      case (.ng, .ng): return true
-      case (.nu, .nu): return true
-      case (.nf, .nf): return true
-      case (.mk, .mk): return true
-      case (.no, .no): return true
-      case (.om, .om): return true
-      case (.pk, .pk): return true
-      case (.ps, .ps): return true
-      case (.pa, .pa): return true
-      case (.pg, .pg): return true
-      case (.py, .py): return true
-      case (.pe, .pe): return true
-      case (.ph, .ph): return true
-      case (.pn, .pn): return true
-      case (.pl, .pl): return true
-      case (.pt, .pt): return true
-      case (.qa, .qa): return true
-      case (.cm, .cm): return true
-      case (.re, .re): return true
-      case (.ro, .ro): return true
-      case (.ru, .ru): return true
-      case (.rw, .rw): return true
-      case (.bl, .bl): return true
-      case (.sh, .sh): return true
-      case (.kn, .kn): return true
-      case (.lc, .lc): return true
-      case (.mf, .mf): return true
-      case (.pm, .pm): return true
-      case (.ws, .ws): return true
-      case (.sm, .sm): return true
-      case (.st, .st): return true
-      case (.sa, .sa): return true
-      case (.sn, .sn): return true
-      case (.rs, .rs): return true
-      case (.sc, .sc): return true
-      case (.sl, .sl): return true
-      case (.sg, .sg): return true
-      case (.sx, .sx): return true
-      case (.sk, .sk): return true
-      case (.si, .si): return true
-      case (.sb, .sb): return true
-      case (.so, .so): return true
-      case (.za, .za): return true
-      case (.gs, .gs): return true
-      case (.kr, .kr): return true
-      case (.ss, .ss): return true
-      case (.es, .es): return true
-      case (.lk, .lk): return true
-      case (.vc, .vc): return true
-      case (.sd, .sd): return true
-      case (.sr, .sr): return true
-      case (.sj, .sj): return true
-      case (.se, .se): return true
-      case (.ch, .ch): return true
-      case (.sy, .sy): return true
-      case (.tw, .tw): return true
-      case (.tj, .tj): return true
-      case (.tz, .tz): return true
-      case (.th, .th): return true
-      case (.tl, .tl): return true
-      case (.tg, .tg): return true
-      case (.tk, .tk): return true
-      case (.to, .to): return true
-      case (.tt, .tt): return true
-      case (.ta, .ta): return true
-      case (.tn, .tn): return true
-      case (.tr, .tr): return true
-      case (.tm, .tm): return true
-      case (.tc, .tc): return true
-      case (.tv, .tv): return true
-      case (.ug, .ug): return true
-      case (.ua, .ua): return true
-      case (.ae, .ae): return true
-      case (.gb, .gb): return true
-      case (.us, .us): return true
-      case (.um, .um): return true
-      case (.uy, .uy): return true
-      case (.uz, .uz): return true
-      case (.vu, .vu): return true
-      case (.ve, .ve): return true
-      case (.vn, .vn): return true
-      case (.vg, .vg): return true
-      case (.wf, .wf): return true
-      case (.eh, .eh): return true
-      case (.ye, .ye): return true
-      case (.zm, .zm): return true
-      case (.zw, .zw): return true
-      case (.zz, .zz): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [CountryCode] {
-    return [
-      .af,
-      .ax,
-      .al,
-      .dz,
-      .ad,
-      .ao,
-      .ai,
-      .ag,
-      .ar,
-      .am,
-      .aw,
-      .ac,
-      .au,
-      .at,
-      .az,
-      .bs,
-      .bh,
-      .bd,
-      .bb,
-      .by,
-      .be,
-      .bz,
-      .bj,
-      .bm,
-      .bt,
-      .bo,
-      .ba,
-      .bw,
-      .bv,
-      .br,
-      .io,
-      .bn,
-      .bg,
-      .bf,
-      .bi,
-      .kh,
-      .ca,
-      .cv,
-      .bq,
-      .ky,
-      .cf,
-      .td,
-      .cl,
-      .cn,
-      .cx,
-      .cc,
-      .co,
-      .km,
-      .cg,
-      .cd,
-      .ck,
-      .cr,
-      .hr,
-      .cu,
-      .cw,
-      .cy,
-      .cz,
-      .ci,
-      .dk,
-      .dj,
-      .dm,
-      .do,
-      .ec,
-      .eg,
-      .sv,
-      .gq,
-      .er,
-      .ee,
-      .sz,
-      .et,
-      .fk,
-      .fo,
-      .fj,
-      .fi,
-      .fr,
-      .gf,
-      .pf,
-      .tf,
-      .ga,
-      .gm,
-      .ge,
-      .de,
-      .gh,
-      .gi,
-      .gr,
-      .gl,
-      .gd,
-      .gp,
-      .gt,
-      .gg,
-      .gn,
-      .gw,
-      .gy,
-      .ht,
-      .hm,
-      .va,
-      .hn,
-      .hk,
-      .hu,
-      .is,
-      .in,
-      .id,
-      .ir,
-      .iq,
-      .ie,
-      .im,
-      .il,
-      .it,
-      .jm,
-      .jp,
-      .je,
-      .jo,
-      .kz,
-      .ke,
-      .ki,
-      .kp,
-      .xk,
-      .kw,
-      .kg,
-      .la,
-      .lv,
-      .lb,
-      .ls,
-      .lr,
-      .ly,
-      .li,
-      .lt,
-      .lu,
-      .mo,
-      .mg,
-      .mw,
-      .my,
-      .mv,
-      .ml,
-      .mt,
-      .mq,
-      .mr,
-      .mu,
-      .yt,
-      .mx,
-      .md,
-      .mc,
-      .mn,
-      .me,
-      .ms,
-      .ma,
-      .mz,
-      .mm,
-      .na,
-      .nr,
-      .np,
-      .nl,
-      .an,
-      .nc,
-      .nz,
-      .ni,
-      .ne,
-      .ng,
-      .nu,
-      .nf,
-      .mk,
-      .no,
-      .om,
-      .pk,
-      .ps,
-      .pa,
-      .pg,
-      .py,
-      .pe,
-      .ph,
-      .pn,
-      .pl,
-      .pt,
-      .qa,
-      .cm,
-      .re,
-      .ro,
-      .ru,
-      .rw,
-      .bl,
-      .sh,
-      .kn,
-      .lc,
-      .mf,
-      .pm,
-      .ws,
-      .sm,
-      .st,
-      .sa,
-      .sn,
-      .rs,
-      .sc,
-      .sl,
-      .sg,
-      .sx,
-      .sk,
-      .si,
-      .sb,
-      .so,
-      .za,
-      .gs,
-      .kr,
-      .ss,
-      .es,
-      .lk,
-      .vc,
-      .sd,
-      .sr,
-      .sj,
-      .se,
-      .ch,
-      .sy,
-      .tw,
-      .tj,
-      .tz,
-      .th,
-      .tl,
-      .tg,
-      .tk,
-      .to,
-      .tt,
-      .ta,
-      .tn,
-      .tr,
-      .tm,
-      .tc,
-      .tv,
-      .ug,
-      .ua,
-      .ae,
-      .gb,
-      .us,
-      .um,
-      .uy,
-      .uz,
-      .vu,
-      .ve,
-      .vn,
-      .vg,
-      .wf,
-      .eh,
-      .ye,
-      .zm,
-      .zw,
-      .zz,
-    ]
-  }
-}
-
-/// The input fields required to specify a harmonized system code.
-public struct CountryHarmonizedSystemCodeInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - harmonizedSystemCode: Country specific harmonized system code.
-  ///   - countryCode: The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-  public init(harmonizedSystemCode: String, countryCode: CountryCode) {
-    graphQLMap = ["harmonizedSystemCode": harmonizedSystemCode, "countryCode": countryCode]
-  }
-
-  /// Country specific harmonized system code.
-  public var harmonizedSystemCode: String {
-    get {
-      return graphQLMap["harmonizedSystemCode"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "harmonizedSystemCode")
-    }
-  }
-
-  /// The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-  public var countryCode: CountryCode {
-    get {
-      return graphQLMap["countryCode"] as! CountryCode
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "countryCode")
-    }
-  }
-}
-
 /// The input fields required to create a product.
 public struct ProductInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
@@ -2598,38 +1649,6 @@ public struct ProductInput: GraphQLMapConvertible {
   }
 }
 
-/// The input fields for SEO information.
-public struct SEOInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - title: SEO title of the product.
-  ///   - description: SEO description of the product.
-  public init(title: Swift.Optional<String?> = nil, description: Swift.Optional<String?> = nil) {
-    graphQLMap = ["title": title, "description": description]
-  }
-
-  /// SEO title of the product.
-  public var title: Swift.Optional<String?> {
-    get {
-      return graphQLMap["title"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "title")
-    }
-  }
-
-  /// SEO description of the product.
-  public var description: Swift.Optional<String?> {
-    get {
-      return graphQLMap["description"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "description")
-    }
-  }
-}
-
 /// Provides the fields and values to use when adding a standard product type to a product. The [Shopify product taxonomy](https://help.shopify.com/txt/product_taxonomy/en.txt) contains the full list of available values.
 public struct StandardizedProductTypeInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
@@ -2668,148 +1687,6 @@ public struct ProductCategoryInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "productTaxonomyNodeId")
-    }
-  }
-}
-
-/// The input fields for an image.
-public struct ImageInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - id: A globally-unique ID.
-  ///   - altText: A word or phrase to share the nature or contents of an image.
-  ///   - src: The URL of the image. May be a staged upload URL.
-  public init(id: Swift.Optional<GraphQLID?> = nil, altText: Swift.Optional<String?> = nil, src: Swift.Optional<String?> = nil) {
-    graphQLMap = ["id": id, "altText": altText, "src": src]
-  }
-
-  /// A globally-unique ID.
-  public var id: Swift.Optional<GraphQLID?> {
-    get {
-      return graphQLMap["id"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "id")
-    }
-  }
-
-  /// A word or phrase to share the nature or contents of an image.
-  public var altText: Swift.Optional<String?> {
-    get {
-      return graphQLMap["altText"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "altText")
-    }
-  }
-
-  /// The URL of the image. May be a staged upload URL.
-  public var src: Swift.Optional<String?> {
-    get {
-      return graphQLMap["src"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "src")
-    }
-  }
-}
-
-/// The input fields to use to create or update a metafield through a mutation on the owning resource.
-/// An alternative way to create or update a metafield is by using the
-/// [metafieldsSet](https://shopify.dev/api/admin-graphql/latest/mutations/metafieldsSet) mutation.
-public struct MetafieldInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - id: The unique ID of the metafield.
-  /// 
-  /// Required when updating a metafield, but should not be included when creating as it's created automatically.
-  ///   - namespace: The container for a group of metafields that the metafield is or will be associated with. Used in tandem with
-  /// `key` to lookup a metafield on a resource, preventing conflicts with other metafields with the same `key`.
-  /// 
-  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
-  /// updating, but cannot be updated itself.
-  /// 
-  /// Must be 3-255 characters long and can contain alphanumeric, hyphen, and underscore characters.
-  ///   - key: The unique identifier for a metafield within its namespace.
-  /// 
-  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
-  /// updating, but cannot be updated itself.
-  /// 
-  /// Must be 3-64 characters long and can contain alphanumeric, hyphen, and underscore characters.
-  ///   - value: The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
-  ///   - type: The type of data that is stored in the metafield.
-  /// Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
-  /// 
-  /// Required when creating a metafield, but optional when updating.
-  public init(id: Swift.Optional<GraphQLID?> = nil, namespace: Swift.Optional<String?> = nil, key: Swift.Optional<String?> = nil, value: Swift.Optional<String?> = nil, type: Swift.Optional<String?> = nil) {
-    graphQLMap = ["id": id, "namespace": namespace, "key": key, "value": value, "type": type]
-  }
-
-  /// The unique ID of the metafield.
-  /// 
-  /// Required when updating a metafield, but should not be included when creating as it's created automatically.
-  public var id: Swift.Optional<GraphQLID?> {
-    get {
-      return graphQLMap["id"] as? Swift.Optional<GraphQLID?> ?? Swift.Optional<GraphQLID?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "id")
-    }
-  }
-
-  /// The container for a group of metafields that the metafield is or will be associated with. Used in tandem with
-  /// `key` to lookup a metafield on a resource, preventing conflicts with other metafields with the same `key`.
-  /// 
-  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
-  /// updating, but cannot be updated itself.
-  /// 
-  /// Must be 3-255 characters long and can contain alphanumeric, hyphen, and underscore characters.
-  public var namespace: Swift.Optional<String?> {
-    get {
-      return graphQLMap["namespace"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "namespace")
-    }
-  }
-
-  /// The unique identifier for a metafield within its namespace.
-  /// 
-  /// Required when creating a metafield, but optional when updating. Used to help identify the metafield when
-  /// updating, but cannot be updated itself.
-  /// 
-  /// Must be 3-64 characters long and can contain alphanumeric, hyphen, and underscore characters.
-  public var key: Swift.Optional<String?> {
-    get {
-      return graphQLMap["key"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "key")
-    }
-  }
-
-  /// The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
-  public var value: Swift.Optional<String?> {
-    get {
-      return graphQLMap["value"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "value")
-    }
-  }
-
-  /// The type of data that is stored in the metafield.
-  /// Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
-  /// 
-  /// Required when creating a metafield, but optional when updating.
-  public var type: Swift.Optional<String?> {
-    get {
-      return graphQLMap["type"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "type")
     }
   }
 }
@@ -3283,6 +2160,1235 @@ public struct ProductDeleteInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+}
+
+public final class CollectionCreateMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation collectionCreate($input: CollectionInput!) {
+      collectionCreate(input: $input) {
+        __typename
+        collection {
+          __typename
+          id
+          title
+          handle
+          description
+          image {
+            __typename
+            url
+          }
+        }
+        userErrors {
+          __typename
+          field
+          message
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "collectionCreate"
+
+  public var input: CollectionInput
+
+  public init(input: CollectionInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collectionCreate", arguments: ["input": GraphQLVariable("input")], type: .object(CollectionCreate.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collectionCreate: CollectionCreate? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "collectionCreate": collectionCreate.flatMap { (value: CollectionCreate) -> ResultMap in value.resultMap }])
+    }
+
+    /// Creates a collection.
+    public var collectionCreate: CollectionCreate? {
+      get {
+        return (resultMap["collectionCreate"] as? ResultMap).flatMap { CollectionCreate(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collectionCreate")
+      }
+    }
+
+    public struct CollectionCreate: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CollectionCreatePayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("collection", type: .object(Collection.selections)),
+          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(collection: Collection? = nil, userErrors: [UserError]) {
+        self.init(unsafeResultMap: ["__typename": "CollectionCreatePayload", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The collection that has been created.
+      public var collection: Collection? {
+        get {
+          return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+        }
+      }
+
+      /// The list of errors that occurred from executing the mutation.
+      public var userErrors: [UserError] {
+        get {
+          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
+        }
+      }
+
+      public struct Collection: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Collection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            GraphQLField("handle", type: .nonNull(.scalar(String.self))),
+            GraphQLField("description", type: .nonNull(.scalar(String.self))),
+            GraphQLField("image", type: .object(Image.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, title: String, handle: String, description: String, image: Image? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "handle": handle, "description": description, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// A globally-unique ID.
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        /// The name of the collection. It's displayed in the Shopify admin and is typically displayed in sales channels, such as an online store.
+        public var title: String {
+          get {
+            return resultMap["title"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "title")
+          }
+        }
+
+        /// A unique string that identifies the collection. If a handle isn't specified when a collection is created, it's automatically generated from the collection's original title, and typically includes words from the title separated by hyphens. For example, a collection that was created with the title `Summer Catalog 2022` might have the handle `summer-catalog-2022`.
+        /// 
+        /// If the title is changed, the handle doesn't automatically change.
+        /// 
+        /// The handle can be used in themes by the Liquid templating language to refer to the collection, but using the ID is preferred because it never changes.
+        public var handle: String {
+          get {
+            return resultMap["handle"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "handle")
+          }
+        }
+
+        /// A single-line, text-only description of the collection, stripped of any HTML tags and formatting that were included in the description.
+        public var description: String {
+          get {
+            return resultMap["description"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "description")
+          }
+        }
+
+        /// The image associated with the collection.
+        public var image: Image? {
+          get {
+            return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "image")
+          }
+        }
+
+        public struct Image: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Image"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("url", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(url: String) {
+            self.init(unsafeResultMap: ["__typename": "Image", "url": url])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The location of the image as a URL.
+          /// 
+          /// If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
+          /// 
+          /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
+          /// 
+          /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
+          public var url: String {
+            get {
+              return resultMap["url"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "url")
+            }
+          }
+        }
+      }
+
+      public struct UserError: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserError"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
+            GraphQLField("message", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(field: [String]? = nil, message: String) {
+          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? {
+          get {
+            return resultMap["field"] as? [String]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "field")
+          }
+        }
+
+        /// The error message.
+        public var message: String {
+          get {
+            return resultMap["message"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "message")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CollectionUpdateMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation collectionUpdate($input: CollectionInput!) {
+      collectionUpdate(input: $input) {
+        __typename
+        collection {
+          __typename
+          id
+          title
+          handle
+          description
+          image {
+            __typename
+            url
+          }
+        }
+        userErrors {
+          __typename
+          field
+          message
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "collectionUpdate"
+
+  public var input: CollectionInput
+
+  public init(input: CollectionInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collectionUpdate", arguments: ["input": GraphQLVariable("input")], type: .object(CollectionUpdate.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collectionUpdate: CollectionUpdate? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "collectionUpdate": collectionUpdate.flatMap { (value: CollectionUpdate) -> ResultMap in value.resultMap }])
+    }
+
+    /// Updates a collection.
+    public var collectionUpdate: CollectionUpdate? {
+      get {
+        return (resultMap["collectionUpdate"] as? ResultMap).flatMap { CollectionUpdate(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collectionUpdate")
+      }
+    }
+
+    public struct CollectionUpdate: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CollectionUpdatePayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("collection", type: .object(Collection.selections)),
+          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(collection: Collection? = nil, userErrors: [UserError]) {
+        self.init(unsafeResultMap: ["__typename": "CollectionUpdatePayload", "collection": collection.flatMap { (value: Collection) -> ResultMap in value.resultMap }, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The updated collection.
+      public var collection: Collection? {
+        get {
+          return (resultMap["collection"] as? ResultMap).flatMap { Collection(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "collection")
+        }
+      }
+
+      /// The list of errors that occurred from executing the mutation.
+      public var userErrors: [UserError] {
+        get {
+          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
+        }
+      }
+
+      public struct Collection: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Collection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            GraphQLField("handle", type: .nonNull(.scalar(String.self))),
+            GraphQLField("description", type: .nonNull(.scalar(String.self))),
+            GraphQLField("image", type: .object(Image.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, title: String, handle: String, description: String, image: Image? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "handle": handle, "description": description, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// A globally-unique ID.
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        /// The name of the collection. It's displayed in the Shopify admin and is typically displayed in sales channels, such as an online store.
+        public var title: String {
+          get {
+            return resultMap["title"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "title")
+          }
+        }
+
+        /// A unique string that identifies the collection. If a handle isn't specified when a collection is created, it's automatically generated from the collection's original title, and typically includes words from the title separated by hyphens. For example, a collection that was created with the title `Summer Catalog 2022` might have the handle `summer-catalog-2022`.
+        /// 
+        /// If the title is changed, the handle doesn't automatically change.
+        /// 
+        /// The handle can be used in themes by the Liquid templating language to refer to the collection, but using the ID is preferred because it never changes.
+        public var handle: String {
+          get {
+            return resultMap["handle"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "handle")
+          }
+        }
+
+        /// A single-line, text-only description of the collection, stripped of any HTML tags and formatting that were included in the description.
+        public var description: String {
+          get {
+            return resultMap["description"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "description")
+          }
+        }
+
+        /// The image associated with the collection.
+        public var image: Image? {
+          get {
+            return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "image")
+          }
+        }
+
+        public struct Image: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Image"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("url", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(url: String) {
+            self.init(unsafeResultMap: ["__typename": "Image", "url": url])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The location of the image as a URL.
+          /// 
+          /// If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
+          /// 
+          /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
+          /// 
+          /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
+          public var url: String {
+            get {
+              return resultMap["url"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "url")
+            }
+          }
+        }
+      }
+
+      public struct UserError: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserError"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
+            GraphQLField("message", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(field: [String]? = nil, message: String) {
+          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? {
+          get {
+            return resultMap["field"] as? [String]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "field")
+          }
+        }
+
+        /// The error message.
+        public var message: String {
+          get {
+            return resultMap["message"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "message")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CollectionDeleteMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation collectionDelete($input: CollectionDeleteInput!) {
+      collectionDelete(input: $input) {
+        __typename
+        deletedCollectionId
+        userErrors {
+          __typename
+          field
+          message
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "collectionDelete"
+
+  public var input: CollectionDeleteInput
+
+  public init(input: CollectionDeleteInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collectionDelete", arguments: ["input": GraphQLVariable("input")], type: .object(CollectionDelete.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collectionDelete: CollectionDelete? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "collectionDelete": collectionDelete.flatMap { (value: CollectionDelete) -> ResultMap in value.resultMap }])
+    }
+
+    /// Deletes a collection.
+    public var collectionDelete: CollectionDelete? {
+      get {
+        return (resultMap["collectionDelete"] as? ResultMap).flatMap { CollectionDelete(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collectionDelete")
+      }
+    }
+
+    public struct CollectionDelete: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CollectionDeletePayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("deletedCollectionId", type: .scalar(GraphQLID.self)),
+          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(deletedCollectionId: GraphQLID? = nil, userErrors: [UserError]) {
+        self.init(unsafeResultMap: ["__typename": "CollectionDeletePayload", "deletedCollectionId": deletedCollectionId, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The ID of the collection that was deleted. Returns `null` if the collection doesn't exist.
+      public var deletedCollectionId: GraphQLID? {
+        get {
+          return resultMap["deletedCollectionId"] as? GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "deletedCollectionId")
+        }
+      }
+
+      /// The list of errors that occurred from executing the mutation.
+      public var userErrors: [UserError] {
+        get {
+          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
+        }
+      }
+
+      public struct UserError: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserError"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
+            GraphQLField("message", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(field: [String]? = nil, message: String) {
+          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? {
+          get {
+            return resultMap["field"] as? [String]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "field")
+          }
+        }
+
+        /// The error message.
+        public var message: String {
+          get {
+            return resultMap["message"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "message")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class GetAllCollectionsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query getAllCollections {
+      collections(first: 50, reverse: true) {
+        __typename
+        edges {
+          __typename
+          node {
+            __typename
+            id
+            title
+            description
+            image {
+              __typename
+              url
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "getAllCollections"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["QueryRoot"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collections", arguments: ["first": 50, "reverse": true], type: .nonNull(.object(Collection.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collections: Collection) {
+      self.init(unsafeResultMap: ["__typename": "QueryRoot", "collections": collections.resultMap])
+    }
+
+    /// Returns a list of collections.
+    public var collections: Collection {
+      get {
+        return Collection(unsafeResultMap: resultMap["collections"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "collections")
+      }
+    }
+
+    public struct Collection: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CollectionConnection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("edges", type: .nonNull(.list(.nonNull(.object(Edge.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(edges: [Edge]) {
+        self.init(unsafeResultMap: ["__typename": "CollectionConnection", "edges": edges.map { (value: Edge) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// A list of edges.
+      public var edges: [Edge] {
+        get {
+          return (resultMap["edges"] as! [ResultMap]).map { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Edge) -> ResultMap in value.resultMap }, forKey: "edges")
+        }
+      }
+
+      public struct Edge: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["CollectionEdge"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("node", type: .nonNull(.object(Node.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(node: Node) {
+          self.init(unsafeResultMap: ["__typename": "CollectionEdge", "node": node.resultMap])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The item at the end of CollectionEdge.
+        public var node: Node {
+          get {
+            return Node(unsafeResultMap: resultMap["node"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "node")
+          }
+        }
+
+        public struct Node: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Collection"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+              GraphQLField("title", type: .nonNull(.scalar(String.self))),
+              GraphQLField("description", type: .nonNull(.scalar(String.self))),
+              GraphQLField("image", type: .object(Image.selections)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(id: GraphQLID, title: String, description: String, image: Image? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "description": description, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A globally-unique ID.
+          public var id: GraphQLID {
+            get {
+              return resultMap["id"]! as! GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          /// The name of the collection. It's displayed in the Shopify admin and is typically displayed in sales channels, such as an online store.
+          public var title: String {
+            get {
+              return resultMap["title"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          /// A single-line, text-only description of the collection, stripped of any HTML tags and formatting that were included in the description.
+          public var description: String {
+            get {
+              return resultMap["description"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "description")
+            }
+          }
+
+          /// The image associated with the collection.
+          public var image: Image? {
+            get {
+              return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "image")
+            }
+          }
+
+          public struct Image: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Image"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("url", type: .nonNull(.scalar(String.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(url: String) {
+              self.init(unsafeResultMap: ["__typename": "Image", "url": url])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// The location of the image as a URL.
+            /// 
+            /// If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
+            /// 
+            /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
+            /// 
+            /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
+            public var url: String {
+              get {
+                return resultMap["url"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "url")
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class GetCollectionIdFromHandleQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query getCollectionIdFromHandle($handle: String!) {
+      collectionByHandle(handle: $handle) {
+        __typename
+        id
+        title
+        handle
+        description
+        image {
+          __typename
+          url
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "getCollectionIdFromHandle"
+
+  public var handle: String
+
+  public init(handle: String) {
+    self.handle = handle
+  }
+
+  public var variables: GraphQLMap? {
+    return ["handle": handle]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["QueryRoot"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("collectionByHandle", arguments: ["handle": GraphQLVariable("handle")], type: .object(CollectionByHandle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(collectionByHandle: CollectionByHandle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "QueryRoot", "collectionByHandle": collectionByHandle.flatMap { (value: CollectionByHandle) -> ResultMap in value.resultMap }])
+    }
+
+    /// Return a collection by its handle.
+    public var collectionByHandle: CollectionByHandle? {
+      get {
+        return (resultMap["collectionByHandle"] as? ResultMap).flatMap { CollectionByHandle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "collectionByHandle")
+      }
+    }
+
+    public struct CollectionByHandle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Collection"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("title", type: .nonNull(.scalar(String.self))),
+          GraphQLField("handle", type: .nonNull(.scalar(String.self))),
+          GraphQLField("description", type: .nonNull(.scalar(String.self))),
+          GraphQLField("image", type: .object(Image.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, title: String, handle: String, description: String, image: Image? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Collection", "id": id, "title": title, "handle": handle, "description": description, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// A globally-unique ID.
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      /// The name of the collection. It's displayed in the Shopify admin and is typically displayed in sales channels, such as an online store.
+      public var title: String {
+        get {
+          return resultMap["title"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "title")
+        }
+      }
+
+      /// A unique string that identifies the collection. If a handle isn't specified when a collection is created, it's automatically generated from the collection's original title, and typically includes words from the title separated by hyphens. For example, a collection that was created with the title `Summer Catalog 2022` might have the handle `summer-catalog-2022`.
+      /// 
+      /// If the title is changed, the handle doesn't automatically change.
+      /// 
+      /// The handle can be used in themes by the Liquid templating language to refer to the collection, but using the ID is preferred because it never changes.
+      public var handle: String {
+        get {
+          return resultMap["handle"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "handle")
+        }
+      }
+
+      /// A single-line, text-only description of the collection, stripped of any HTML tags and formatting that were included in the description.
+      public var description: String {
+        get {
+          return resultMap["description"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      /// The image associated with the collection.
+      public var image: Image? {
+        get {
+          return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "image")
+        }
+      }
+
+      public struct Image: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Image"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("url", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(url: String) {
+          self.init(unsafeResultMap: ["__typename": "Image", "url": url])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The location of the image as a URL.
+        /// 
+        /// If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
+        /// 
+        /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
+        /// 
+        /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
+        public var url: String {
+          get {
+            return resultMap["url"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "url")
+          }
+        }
+      }
     }
   }
 }
@@ -3876,16 +3982,8 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
             ... on DiscountCodeBasic {
               __typename
               title
-              summary
               shortSummary
-              codeCount
-              usageLimit
-              status
               startsAt
-              endsAt
-              usageLimit
-              asyncUsageCount
-              appliesOncePerCustomer
               customerGets {
                 __typename
                 items {
@@ -3895,7 +3993,7 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
                   __typename
                 }
               }
-              codes(first: 2) {
+              codes(first: 1) {
                 __typename
                 nodes {
                   __typename
@@ -4067,8 +4165,8 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
             return CodeDiscount(unsafeResultMap: ["__typename": "DiscountCodeFreeShipping"])
           }
 
-          public static func makeDiscountCodeBasic(title: String, summary: String, shortSummary: String, codeCount: Int, usageLimit: Int? = nil, status: DiscountStatus, startsAt: String, endsAt: String? = nil, asyncUsageCount: Int, appliesOncePerCustomer: Bool, customerGets: AsDiscountCodeBasic.CustomerGet, codes: AsDiscountCodeBasic.Code) -> CodeDiscount {
-            return CodeDiscount(unsafeResultMap: ["__typename": "DiscountCodeBasic", "title": title, "summary": summary, "shortSummary": shortSummary, "codeCount": codeCount, "usageLimit": usageLimit, "status": status, "startsAt": startsAt, "endsAt": endsAt, "asyncUsageCount": asyncUsageCount, "appliesOncePerCustomer": appliesOncePerCustomer, "customerGets": customerGets.resultMap, "codes": codes.resultMap])
+          public static func makeDiscountCodeBasic(title: String, shortSummary: String, startsAt: String, customerGets: AsDiscountCodeBasic.CustomerGet, codes: AsDiscountCodeBasic.Code) -> CodeDiscount {
+            return CodeDiscount(unsafeResultMap: ["__typename": "DiscountCodeBasic", "title": title, "shortSummary": shortSummary, "startsAt": startsAt, "customerGets": customerGets.resultMap, "codes": codes.resultMap])
           }
 
           public var __typename: String {
@@ -4099,18 +4197,10 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("title", type: .nonNull(.scalar(String.self))),
-                GraphQLField("summary", type: .nonNull(.scalar(String.self))),
                 GraphQLField("shortSummary", type: .nonNull(.scalar(String.self))),
-                GraphQLField("codeCount", type: .nonNull(.scalar(Int.self))),
-                GraphQLField("usageLimit", type: .scalar(Int.self)),
-                GraphQLField("status", type: .nonNull(.scalar(DiscountStatus.self))),
                 GraphQLField("startsAt", type: .nonNull(.scalar(String.self))),
-                GraphQLField("endsAt", type: .scalar(String.self)),
-                GraphQLField("usageLimit", type: .scalar(Int.self)),
-                GraphQLField("asyncUsageCount", type: .nonNull(.scalar(Int.self))),
-                GraphQLField("appliesOncePerCustomer", type: .nonNull(.scalar(Bool.self))),
                 GraphQLField("customerGets", type: .nonNull(.object(CustomerGet.selections))),
-                GraphQLField("codes", arguments: ["first": 2], type: .nonNull(.object(Code.selections))),
+                GraphQLField("codes", arguments: ["first": 1], type: .nonNull(.object(Code.selections))),
               ]
             }
 
@@ -4120,8 +4210,8 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(title: String, summary: String, shortSummary: String, codeCount: Int, usageLimit: Int? = nil, status: DiscountStatus, startsAt: String, endsAt: String? = nil, asyncUsageCount: Int, appliesOncePerCustomer: Bool, customerGets: CustomerGet, codes: Code) {
-              self.init(unsafeResultMap: ["__typename": "DiscountCodeBasic", "title": title, "summary": summary, "shortSummary": shortSummary, "codeCount": codeCount, "usageLimit": usageLimit, "status": status, "startsAt": startsAt, "endsAt": endsAt, "asyncUsageCount": asyncUsageCount, "appliesOncePerCustomer": appliesOncePerCustomer, "customerGets": customerGets.resultMap, "codes": codes.resultMap])
+            public init(title: String, shortSummary: String, startsAt: String, customerGets: CustomerGet, codes: Code) {
+              self.init(unsafeResultMap: ["__typename": "DiscountCodeBasic", "title": title, "shortSummary": shortSummary, "startsAt": startsAt, "customerGets": customerGets.resultMap, "codes": codes.resultMap])
             }
 
             public var __typename: String {
@@ -4143,16 +4233,6 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
               }
             }
 
-            /// A detailed summary of the discount.
-            public var summary: String {
-              get {
-                return resultMap["summary"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "summary")
-              }
-            }
-
             /// A short summary of the discount.
             public var shortSummary: String {
               get {
@@ -4163,36 +4243,6 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
               }
             }
 
-            /// The number of redeem codes for the discount.
-            public var codeCount: Int {
-              get {
-                return resultMap["codeCount"]! as! Int
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "codeCount")
-              }
-            }
-
-            /// The maximum number of times that the discount can be used.
-            public var usageLimit: Int? {
-              get {
-                return resultMap["usageLimit"] as? Int
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "usageLimit")
-              }
-            }
-
-            /// The status of the discount.
-            public var status: DiscountStatus {
-              get {
-                return resultMap["status"]! as! DiscountStatus
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "status")
-              }
-            }
-
             /// The date and time when the discount starts.
             public var startsAt: String {
               get {
@@ -4200,36 +4250,6 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "startsAt")
-              }
-            }
-
-            /// The date and time when the discount ends. For open-ended discounts, use `null`.
-            public var endsAt: String? {
-              get {
-                return resultMap["endsAt"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "endsAt")
-              }
-            }
-
-            /// The number of times that the discount has been used.
-            public var asyncUsageCount: Int {
-              get {
-                return resultMap["asyncUsageCount"]! as! Int
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "asyncUsageCount")
-              }
-            }
-
-            /// Whether the discount can be applied only once per customer.
-            public var appliesOncePerCustomer: Bool {
-              get {
-                return resultMap["appliesOncePerCustomer"]! as! Bool
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "appliesOncePerCustomer")
               }
             }
 
@@ -4468,812 +4488,6 @@ public final class GetAllDiscountCodesQuery: GraphQLQuery {
                 }
               }
             }
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class InventoryItemUpdateMutation: GraphQLMutation {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    mutation inventoryItemUpdate($id: ID!, $input: InventoryItemUpdateInput!) {
-      inventoryItemUpdate(id: $id, input: $input) {
-        __typename
-        inventoryItem {
-          __typename
-          id
-          variant {
-            __typename
-            title
-          }
-          unitCost {
-            __typename
-            amount
-          }
-        }
-        userErrors {
-          __typename
-          field
-          message
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "inventoryItemUpdate"
-
-  public var id: GraphQLID
-  public var input: InventoryItemUpdateInput
-
-  public init(id: GraphQLID, input: InventoryItemUpdateInput) {
-    self.id = id
-    self.input = input
-  }
-
-  public var variables: GraphQLMap? {
-    return ["id": id, "input": input]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Mutation"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("inventoryItemUpdate", arguments: ["id": GraphQLVariable("id"), "input": GraphQLVariable("input")], type: .object(InventoryItemUpdate.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(inventoryItemUpdate: InventoryItemUpdate? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Mutation", "inventoryItemUpdate": inventoryItemUpdate.flatMap { (value: InventoryItemUpdate) -> ResultMap in value.resultMap }])
-    }
-
-    /// Updates an inventory item.
-    public var inventoryItemUpdate: InventoryItemUpdate? {
-      get {
-        return (resultMap["inventoryItemUpdate"] as? ResultMap).flatMap { InventoryItemUpdate(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "inventoryItemUpdate")
-      }
-    }
-
-    public struct InventoryItemUpdate: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["InventoryItemUpdatePayload"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("inventoryItem", type: .object(InventoryItem.selections)),
-          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(inventoryItem: InventoryItem? = nil, userErrors: [UserError]) {
-        self.init(unsafeResultMap: ["__typename": "InventoryItemUpdatePayload", "inventoryItem": inventoryItem.flatMap { (value: InventoryItem) -> ResultMap in value.resultMap }, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// The inventory item that was updated.
-      public var inventoryItem: InventoryItem? {
-        get {
-          return (resultMap["inventoryItem"] as? ResultMap).flatMap { InventoryItem(unsafeResultMap: $0) }
-        }
-        set {
-          resultMap.updateValue(newValue?.resultMap, forKey: "inventoryItem")
-        }
-      }
-
-      /// The list of errors that occurred from executing the mutation.
-      public var userErrors: [UserError] {
-        get {
-          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
-        }
-        set {
-          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
-        }
-      }
-
-      public struct InventoryItem: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["InventoryItem"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("variant", type: .nonNull(.object(Variant.selections))),
-            GraphQLField("unitCost", type: .object(UnitCost.selections)),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(id: GraphQLID, variant: Variant, unitCost: UnitCost? = nil) {
-          self.init(unsafeResultMap: ["__typename": "InventoryItem", "id": id, "variant": variant.resultMap, "unitCost": unitCost.flatMap { (value: UnitCost) -> ResultMap in value.resultMap }])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// A globally-unique ID.
-        public var id: GraphQLID {
-          get {
-            return resultMap["id"]! as! GraphQLID
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "id")
-          }
-        }
-
-        /// The variant that owns this inventory item.
-        public var variant: Variant {
-          get {
-            return Variant(unsafeResultMap: resultMap["variant"]! as! ResultMap)
-          }
-          set {
-            resultMap.updateValue(newValue.resultMap, forKey: "variant")
-          }
-        }
-
-        /// Unit cost associated with the inventory item. Note: the user must have "View product costs" permission granted in order to access this field once product granular permissions are enabled.
-        public var unitCost: UnitCost? {
-          get {
-            return (resultMap["unitCost"] as? ResultMap).flatMap { UnitCost(unsafeResultMap: $0) }
-          }
-          set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "unitCost")
-          }
-        }
-
-        public struct Variant: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["ProductVariant"]
-
-          public static var selections: [GraphQLSelection] {
-            return [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("title", type: .nonNull(.scalar(String.self))),
-            ]
-          }
-
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public init(title: String) {
-            self.init(unsafeResultMap: ["__typename": "ProductVariant", "title": title])
-          }
-
-          public var __typename: String {
-            get {
-              return resultMap["__typename"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// The title of the product variant.
-          public var title: String {
-            get {
-              return resultMap["title"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "title")
-            }
-          }
-        }
-
-        public struct UnitCost: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["MoneyV2"]
-
-          public static var selections: [GraphQLSelection] {
-            return [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("amount", type: .nonNull(.scalar(String.self))),
-            ]
-          }
-
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public init(amount: String) {
-            self.init(unsafeResultMap: ["__typename": "MoneyV2", "amount": amount])
-          }
-
-          public var __typename: String {
-            get {
-              return resultMap["__typename"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// Decimal money amount.
-          public var amount: String {
-            get {
-              return resultMap["amount"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "amount")
-            }
-          }
-        }
-      }
-
-      public struct UserError: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["UserError"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
-            GraphQLField("message", type: .nonNull(.scalar(String.self))),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(field: [String]? = nil, message: String) {
-          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// The path to the input field that caused the error.
-        public var field: [String]? {
-          get {
-            return resultMap["field"] as? [String]
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "field")
-          }
-        }
-
-        /// The error message.
-        public var message: String {
-          get {
-            return resultMap["message"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "message")
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class GetAllInventoryItemsQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query getAllInventoryItems {
-      inventoryItems(first: 10, reverse: true) {
-        __typename
-        edges {
-          __typename
-          node {
-            __typename
-            id
-            variant {
-              __typename
-              title
-            }
-            unitCost {
-              __typename
-              amount
-            }
-          }
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "getAllInventoryItems"
-
-  public init() {
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["QueryRoot"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("inventoryItems", arguments: ["first": 10, "reverse": true], type: .nonNull(.object(InventoryItem.selections))),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(inventoryItems: InventoryItem) {
-      self.init(unsafeResultMap: ["__typename": "QueryRoot", "inventoryItems": inventoryItems.resultMap])
-    }
-
-    /// Returns a list of inventory items.
-    public var inventoryItems: InventoryItem {
-      get {
-        return InventoryItem(unsafeResultMap: resultMap["inventoryItems"]! as! ResultMap)
-      }
-      set {
-        resultMap.updateValue(newValue.resultMap, forKey: "inventoryItems")
-      }
-    }
-
-    public struct InventoryItem: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["InventoryItemConnection"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("edges", type: .nonNull(.list(.nonNull(.object(Edge.selections))))),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(edges: [Edge]) {
-        self.init(unsafeResultMap: ["__typename": "InventoryItemConnection", "edges": edges.map { (value: Edge) -> ResultMap in value.resultMap }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// A list of edges.
-      public var edges: [Edge] {
-        get {
-          return (resultMap["edges"] as! [ResultMap]).map { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) }
-        }
-        set {
-          resultMap.updateValue(newValue.map { (value: Edge) -> ResultMap in value.resultMap }, forKey: "edges")
-        }
-      }
-
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["InventoryItemEdge"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("node", type: .nonNull(.object(Node.selections))),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(node: Node) {
-          self.init(unsafeResultMap: ["__typename": "InventoryItemEdge", "node": node.resultMap])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// The item at the end of InventoryItemEdge.
-        public var node: Node {
-          get {
-            return Node(unsafeResultMap: resultMap["node"]! as! ResultMap)
-          }
-          set {
-            resultMap.updateValue(newValue.resultMap, forKey: "node")
-          }
-        }
-
-        public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes: [String] = ["InventoryItem"]
-
-          public static var selections: [GraphQLSelection] {
-            return [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-              GraphQLField("variant", type: .nonNull(.object(Variant.selections))),
-              GraphQLField("unitCost", type: .object(UnitCost.selections)),
-            ]
-          }
-
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public init(id: GraphQLID, variant: Variant, unitCost: UnitCost? = nil) {
-            self.init(unsafeResultMap: ["__typename": "InventoryItem", "id": id, "variant": variant.resultMap, "unitCost": unitCost.flatMap { (value: UnitCost) -> ResultMap in value.resultMap }])
-          }
-
-          public var __typename: String {
-            get {
-              return resultMap["__typename"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// A globally-unique ID.
-          public var id: GraphQLID {
-            get {
-              return resultMap["id"]! as! GraphQLID
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "id")
-            }
-          }
-
-          /// The variant that owns this inventory item.
-          public var variant: Variant {
-            get {
-              return Variant(unsafeResultMap: resultMap["variant"]! as! ResultMap)
-            }
-            set {
-              resultMap.updateValue(newValue.resultMap, forKey: "variant")
-            }
-          }
-
-          /// Unit cost associated with the inventory item. Note: the user must have "View product costs" permission granted in order to access this field once product granular permissions are enabled.
-          public var unitCost: UnitCost? {
-            get {
-              return (resultMap["unitCost"] as? ResultMap).flatMap { UnitCost(unsafeResultMap: $0) }
-            }
-            set {
-              resultMap.updateValue(newValue?.resultMap, forKey: "unitCost")
-            }
-          }
-
-          public struct Variant: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["ProductVariant"]
-
-            public static var selections: [GraphQLSelection] {
-              return [
-                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("title", type: .nonNull(.scalar(String.self))),
-              ]
-            }
-
-            public private(set) var resultMap: ResultMap
-
-            public init(unsafeResultMap: ResultMap) {
-              self.resultMap = unsafeResultMap
-            }
-
-            public init(title: String) {
-              self.init(unsafeResultMap: ["__typename": "ProductVariant", "title": title])
-            }
-
-            public var __typename: String {
-              get {
-                return resultMap["__typename"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            /// The title of the product variant.
-            public var title: String {
-              get {
-                return resultMap["title"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "title")
-              }
-            }
-          }
-
-          public struct UnitCost: GraphQLSelectionSet {
-            public static let possibleTypes: [String] = ["MoneyV2"]
-
-            public static var selections: [GraphQLSelection] {
-              return [
-                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("amount", type: .nonNull(.scalar(String.self))),
-              ]
-            }
-
-            public private(set) var resultMap: ResultMap
-
-            public init(unsafeResultMap: ResultMap) {
-              self.resultMap = unsafeResultMap
-            }
-
-            public init(amount: String) {
-              self.init(unsafeResultMap: ["__typename": "MoneyV2", "amount": amount])
-            }
-
-            public var __typename: String {
-              get {
-                return resultMap["__typename"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            /// Decimal money amount.
-            public var amount: String {
-              get {
-                return resultMap["amount"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "amount")
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class GetInventoryItemByIdQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query getInventoryItemByID($id: ID!) {
-      inventoryItem(id: $id) {
-        __typename
-        id
-        variant {
-          __typename
-          title
-        }
-        unitCost {
-          __typename
-          amount
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "getInventoryItemByID"
-
-  public var id: GraphQLID
-
-  public init(id: GraphQLID) {
-    self.id = id
-  }
-
-  public var variables: GraphQLMap? {
-    return ["id": id]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["QueryRoot"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("inventoryItem", arguments: ["id": GraphQLVariable("id")], type: .object(InventoryItem.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(inventoryItem: InventoryItem? = nil) {
-      self.init(unsafeResultMap: ["__typename": "QueryRoot", "inventoryItem": inventoryItem.flatMap { (value: InventoryItem) -> ResultMap in value.resultMap }])
-    }
-
-    /// Returns an `InventoryItem` object by ID.
-    public var inventoryItem: InventoryItem? {
-      get {
-        return (resultMap["inventoryItem"] as? ResultMap).flatMap { InventoryItem(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "inventoryItem")
-      }
-    }
-
-    public struct InventoryItem: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["InventoryItem"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("variant", type: .nonNull(.object(Variant.selections))),
-          GraphQLField("unitCost", type: .object(UnitCost.selections)),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(id: GraphQLID, variant: Variant, unitCost: UnitCost? = nil) {
-        self.init(unsafeResultMap: ["__typename": "InventoryItem", "id": id, "variant": variant.resultMap, "unitCost": unitCost.flatMap { (value: UnitCost) -> ResultMap in value.resultMap }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      /// A globally-unique ID.
-      public var id: GraphQLID {
-        get {
-          return resultMap["id"]! as! GraphQLID
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "id")
-        }
-      }
-
-      /// The variant that owns this inventory item.
-      public var variant: Variant {
-        get {
-          return Variant(unsafeResultMap: resultMap["variant"]! as! ResultMap)
-        }
-        set {
-          resultMap.updateValue(newValue.resultMap, forKey: "variant")
-        }
-      }
-
-      /// Unit cost associated with the inventory item. Note: the user must have "View product costs" permission granted in order to access this field once product granular permissions are enabled.
-      public var unitCost: UnitCost? {
-        get {
-          return (resultMap["unitCost"] as? ResultMap).flatMap { UnitCost(unsafeResultMap: $0) }
-        }
-        set {
-          resultMap.updateValue(newValue?.resultMap, forKey: "unitCost")
-        }
-      }
-
-      public struct Variant: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["ProductVariant"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("title", type: .nonNull(.scalar(String.self))),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(title: String) {
-          self.init(unsafeResultMap: ["__typename": "ProductVariant", "title": title])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// The title of the product variant.
-        public var title: String {
-          get {
-            return resultMap["title"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "title")
-          }
-        }
-      }
-
-      public struct UnitCost: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["MoneyV2"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("amount", type: .nonNull(.scalar(String.self))),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(amount: String) {
-          self.init(unsafeResultMap: ["__typename": "MoneyV2", "amount": amount])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// Decimal money amount.
-        public var amount: String {
-          get {
-            return resultMap["amount"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "amount")
           }
         }
       }

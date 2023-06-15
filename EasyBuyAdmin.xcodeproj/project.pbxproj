@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF912A2C902B00481A64 /* ProductsView.swift */; };
 		1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF932A2C903800481A64 /* ProductsViewModel.swift */; };
-		1704AF962A2C904400481A64 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF952A2C904400481A64 /* InventoryView.swift */; };
-		1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF972A2C904E00481A64 /* InventoryViewModel.swift */; };
+		1704AF962A2C904400481A64 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF952A2C904400481A64 /* CollectionsView.swift */; };
+		1704AF982A2C904E00481A64 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF972A2C904E00481A64 /* CollectionsViewModel.swift */; };
 		1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF992A2C906000481A64 /* DiscountCodesViewModel.swift */; };
 		1704AF9C2A2C907D00481A64 /* DiscountCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF9B2A2C907D00481A64 /* DiscountCodesView.swift */; };
 		1704AFA02A2CA43A00481A64 /* ProductsQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AF9F2A2CA43A00481A64 /* ProductsQueries.graphql */; };
 		1704AFA22A2CA9A500481A64 /* ProductsMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */; };
 		1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */; };
 		1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */; };
-		1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */; };
-		1704AFAA2A2CC01200481A64 /* InventoryMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */; };
+		1704AFA82A2CBDFA00481A64 /* CollectionsQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA72A2CBDFA00481A64 /* CollectionsQueries.graphql */; };
+		1704AFAA2A2CC01200481A64 /* CollectionsMutations.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 1704AFA92A2CC01200481A64 /* CollectionsMutations.graphql */; };
 		1704AFAC2A2CC10200481A64 /* admin_schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1704AFAB2A2CC10200481A64 /* admin_schema.json */; };
 		1720FBD32A38C4C40002C777 /* DiscountCodeUpdateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720FBD22A38C4C40002C777 /* DiscountCodeUpdateModels.swift */; };
 		1720FBD52A38C5FA0002C777 /* AlertTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720FBD42A38C5FA0002C777 /* AlertTypes.swift */; };
@@ -53,6 +53,11 @@
 		17E5DE5A2A3872F200C59B4A /* DiscountCodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5DE592A3872F200C59B4A /* DiscountCodeCellViewModel.swift */; };
 		17E5DE5C2A3899D000C59B4A /* DiscountCodeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5DE5B2A3899D000C59B4A /* DiscountCodeFormView.swift */; };
 		17E5DE5E2A3899E400C59B4A /* DiscountCodeFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5DE5D2A3899E400C59B4A /* DiscountCodeFormViewModel.swift */; };
+		17E73D452A3B759700B5D765 /* CollectionDeletionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E73D442A3B759700B5D765 /* CollectionDeletionModels.swift */; };
+		17E73D472A3B75A900B5D765 /* CollectionCreationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E73D462A3B75A900B5D765 /* CollectionCreationModels.swift */; };
+		17E73D492A3B75BE00B5D765 /* CollectionsGetAllModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E73D482A3B75BE00B5D765 /* CollectionsGetAllModels.swift */; };
+		17E73D4B2A3B75D000B5D765 /* CollectionUpdateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E73D4A2A3B75D000B5D765 /* CollectionUpdateModels.swift */; };
+		17E73D4D2A3BA78200B5D765 /* CollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E73D4C2A3BA78200B5D765 /* CollectionsCell.swift */; };
 		17F983C92A311F96005BECC0 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F983C82A311F96005BECC0 /* ProductCellViewModel.swift */; };
 		17F983CB2A3120D4005BECC0 /* ProductDeletionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */; };
 		31C23585F28F5F3AA1E089D1 /* Pods_EasyBuyAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D49AAD45F5423A46EC810B4 /* Pods_EasyBuyAdminTests.framework */; };
@@ -80,16 +85,16 @@
 /* Begin PBXFileReference section */
 		1704AF912A2C902B00481A64 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1704AF932A2C903800481A64 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
-		1704AF952A2C904400481A64 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
-		1704AF972A2C904E00481A64 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		1704AF952A2C904400481A64 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
+		1704AF972A2C904E00481A64 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		1704AF992A2C906000481A64 /* DiscountCodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesViewModel.swift; sourceTree = "<group>"; };
 		1704AF9B2A2C907D00481A64 /* DiscountCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesView.swift; sourceTree = "<group>"; };
 		1704AF9F2A2CA43A00481A64 /* ProductsQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductsQueries.graphql; sourceTree = "<group>"; };
 		1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductsMutations.graphql; sourceTree = "<group>"; };
 		1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiscountCodesQueries.graphql; sourceTree = "<group>"; };
 		1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiscountCodesMutations.graphql; sourceTree = "<group>"; };
-		1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryQueries.graphql; sourceTree = "<group>"; };
-		1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = InventoryMutations.graphql; sourceTree = "<group>"; };
+		1704AFA72A2CBDFA00481A64 /* CollectionsQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CollectionsQueries.graphql; sourceTree = "<group>"; };
+		1704AFA92A2CC01200481A64 /* CollectionsMutations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CollectionsMutations.graphql; sourceTree = "<group>"; };
 		1704AFAB2A2CC10200481A64 /* admin_schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_schema.json; sourceTree = "<group>"; };
 		1720FBD22A38C4C40002C777 /* DiscountCodeUpdateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeUpdateModels.swift; sourceTree = "<group>"; };
 		1720FBD42A38C5FA0002C777 /* AlertTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTypes.swift; sourceTree = "<group>"; };
@@ -124,6 +129,11 @@
 		17E5DE592A3872F200C59B4A /* DiscountCodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeCellViewModel.swift; sourceTree = "<group>"; };
 		17E5DE5B2A3899D000C59B4A /* DiscountCodeFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeFormView.swift; sourceTree = "<group>"; };
 		17E5DE5D2A3899E400C59B4A /* DiscountCodeFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeFormViewModel.swift; sourceTree = "<group>"; };
+		17E73D442A3B759700B5D765 /* CollectionDeletionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDeletionModels.swift; sourceTree = "<group>"; };
+		17E73D462A3B75A900B5D765 /* CollectionCreationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCreationModels.swift; sourceTree = "<group>"; };
+		17E73D482A3B75BE00B5D765 /* CollectionsGetAllModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsGetAllModels.swift; sourceTree = "<group>"; };
+		17E73D4A2A3B75D000B5D765 /* CollectionUpdateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUpdateModels.swift; sourceTree = "<group>"; };
+		17E73D4C2A3BA78200B5D765 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
 		17F983C82A311F96005BECC0 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDeletionModels.swift; sourceTree = "<group>"; };
 		4FB1DF3D032FCCC75D341691 /* Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyAdmin_EasyBuyAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				1704AF882A2C8EDB00481A64 /* Products */,
-				1704AF8A2A2C8EFD00481A64 /* Inventory */,
+				1704AF8A2A2C8EFD00481A64 /* Collections */,
 				1704AF892A2C8EF400481A64 /* Discount Codes */,
 			);
 			path = Presentation;
@@ -208,13 +218,14 @@
 			path = "Discount Codes";
 			sourceTree = "<group>";
 		};
-		1704AF8A2A2C8EFD00481A64 /* Inventory */ = {
+		1704AF8A2A2C8EFD00481A64 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				17E73D432A3B757500B5D765 /* Models */,
 				1704AF8F2A2C8F6700481A64 /* Views */,
 				1704AF8C2A2C8F5B00481A64 /* ViewModels */,
 			);
-			path = Inventory;
+			path = Collections;
 			sourceTree = "<group>";
 		};
 		1704AF8B2A2C8F5500481A64 /* ViewModels */ = {
@@ -230,7 +241,7 @@
 		1704AF8C2A2C8F5B00481A64 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1704AF972A2C904E00481A64 /* InventoryViewModel.swift */,
+				1704AF972A2C904E00481A64 /* CollectionsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -258,7 +269,8 @@
 		1704AF8F2A2C8F6700481A64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1704AF952A2C904400481A64 /* InventoryView.swift */,
+				1704AF952A2C904400481A64 /* CollectionsView.swift */,
+				17E73D4C2A3BA78200B5D765 /* CollectionsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,8 +292,8 @@
 				1704AFA12A2CA9A500481A64 /* ProductsMutations.graphql */,
 				1704AFA32A2CAFCE00481A64 /* DiscountCodesQueries.graphql */,
 				1704AFA52A2CBB3700481A64 /* DiscountCodesMutations.graphql */,
-				1704AFA72A2CBDFA00481A64 /* InventoryQueries.graphql */,
-				1704AFA92A2CC01200481A64 /* InventoryMutations.graphql */,
+				1704AFA72A2CBDFA00481A64 /* CollectionsQueries.graphql */,
+				1704AFA92A2CC01200481A64 /* CollectionsMutations.graphql */,
 				1704AFAB2A2CC10200481A64 /* admin_schema.json */,
 				174BB9992A2CE22A00C61AC8 /* GraphQLAPI.swift */,
 			);
@@ -409,8 +421,8 @@
 			children = (
 				174BB9A12A2D06FD00C61AC8 /* ProductsGetAllModels.swift */,
 				17D3D94F2A2E867A00565FD8 /* ProductCreationModels.swift */,
-				17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */,
 				1768C8232A37A19A0073B96D /* ProductUpdateModels.swift */,
+				17F983CA2A3120D4005BECC0 /* ProductDeletionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,9 +431,20 @@
 			isa = PBXGroup;
 			children = (
 				17E5DE552A38721F00C59B4A /* DiscountCodesGetAllModels.swift */,
-				1720FBD22A38C4C40002C777 /* DiscountCodeUpdateModels.swift */,
 				1720FBD82A38CC0D0002C777 /* DiscountCodeCreateModels.swift */,
+				1720FBD22A38C4C40002C777 /* DiscountCodeUpdateModels.swift */,
 				17774EDF2A39EEB400A628DC /* DiscountCodeDeletionModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		17E73D432A3B757500B5D765 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17E73D482A3B75BE00B5D765 /* CollectionsGetAllModels.swift */,
+				17E73D462A3B75A900B5D765 /* CollectionCreationModels.swift */,
+				17E73D4A2A3B75D000B5D765 /* CollectionUpdateModels.swift */,
+				17E73D442A3B759700B5D765 /* CollectionDeletionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -710,9 +733,12 @@
 				17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */,
 				174BB9AE2A2D23DB00C61AC8 /* ProductCell.swift in Sources */,
 				174BB9A82A2D1EA700C61AC8 /* Constants.swift in Sources */,
+				17E73D492A3B75BE00B5D765 /* CollectionsGetAllModels.swift in Sources */,
 				174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */,
-				1704AF982A2C904E00481A64 /* InventoryViewModel.swift in Sources */,
+				17E73D4D2A3BA78200B5D765 /* CollectionsCell.swift in Sources */,
+				1704AF982A2C904E00481A64 /* CollectionsViewModel.swift in Sources */,
 				174BB9A22A2D06FD00C61AC8 /* ProductsGetAllModels.swift in Sources */,
+				17E73D4B2A3B75D000B5D765 /* CollectionUpdateModels.swift in Sources */,
 				1704AFA62A2CBB3700481A64 /* DiscountCodesMutations.graphql in Sources */,
 				174BB99F2A2CE8A000C61AC8 /* NetworkManager.swift in Sources */,
 				1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */,
@@ -724,17 +750,19 @@
 				17D3D94C2A2E630200565FD8 /* ProductFormView.swift in Sources */,
 				17D3D94E2A2E7F1B00565FD8 /* ProductFormViewModel.swift in Sources */,
 				1768C8242A37A19A0073B96D /* ProductUpdateModels.swift in Sources */,
-				1704AF962A2C904400481A64 /* InventoryView.swift in Sources */,
+				1704AF962A2C904400481A64 /* CollectionsView.swift in Sources */,
 				17E5DE562A38721F00C59B4A /* DiscountCodesGetAllModels.swift in Sources */,
 				1704AF9C2A2C907D00481A64 /* DiscountCodesView.swift in Sources */,
-				1704AFAA2A2CC01200481A64 /* InventoryMutations.graphql in Sources */,
+				1704AFAA2A2CC01200481A64 /* CollectionsMutations.graphql in Sources */,
 				1704AFA02A2CA43A00481A64 /* ProductsQueries.graphql in Sources */,
 				1704AFA22A2CA9A500481A64 /* ProductsMutations.graphql in Sources */,
 				17D5C0B12A2BE0F200BAC8BC /* EasyBuyAdminApp.swift in Sources */,
+				17E73D472A3B75A900B5D765 /* CollectionCreationModels.swift in Sources */,
 				17E5DE5E2A3899E400C59B4A /* DiscountCodeFormViewModel.swift in Sources */,
-				1704AFA82A2CBDFA00481A64 /* InventoryQueries.graphql in Sources */,
+				1704AFA82A2CBDFA00481A64 /* CollectionsQueries.graphql in Sources */,
 				1720FBD92A38CC0D0002C777 /* DiscountCodeCreateModels.swift in Sources */,
 				17774EE02A39EEB400A628DC /* DiscountCodeDeletionModels.swift in Sources */,
+				17E73D452A3B759700B5D765 /* CollectionDeletionModels.swift in Sources */,
 				1704AF942A2C903800481A64 /* ProductsViewModel.swift in Sources */,
 				17F983CB2A3120D4005BECC0 /* ProductDeletionModels.swift in Sources */,
 				17E5DE582A3872E600C59B4A /* DiscountCodeCell.swift in Sources */,

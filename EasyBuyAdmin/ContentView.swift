@@ -15,10 +15,10 @@ struct ContentView: View {
                     Image(uiImage: UIImage(named: "products")!)
                     Text("Products")
                 }
-            InventoryView()
+            CollectionsView()
                 .tabItem {
-                    Image(uiImage: UIImage(named: "inventory")!)
-                    Text("Inventory")
+                    Image(uiImage: UIImage(named: "collections")!)
+                    Text("Collections")
                 }
             DiscountCodesView()
                 .tabItem {

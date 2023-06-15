@@ -13,14 +13,14 @@ struct ProductUpdateRoot: Codable {
     let extensions: Extensions?
 }
 
-// MARK: - DataClass (The response model returned)
+// MARK: - DataClassProductUpdate (The response model returned)
 struct DataClassProductUpdate: Codable {
     let productUpdate: ProductUpdate?
 }
 
 // MARK: - ProductCreate
 struct ProductUpdate: Codable {
-    let product: PurpleNode?
+    let product: ProductNode?
     let shop: Shop?
     let userErrors: [UserError]?
 }

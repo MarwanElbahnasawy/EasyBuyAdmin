@@ -7,24 +7,24 @@
 
 import Foundation
 
-// MARK: - AllDiscountCodesRoot
+// MARK: - AllDiscountCodesRoot (Not the response model returned)
 struct AllDiscountCodesRoot: Codable {
     let data: DataClassGetAllDiscountCodes?
     let extensions: Extensions?
 }
 
-// MARK: - DataClassGetAllDiscountCodes
+// MARK: - DataClassGetAllDiscountCodes (The response model returned)
 struct DataClassGetAllDiscountCodes: Codable {
     let codeDiscountNodes: CodeDiscountNodes?
 }
 
 // MARK: - CodeDiscountNodes
 struct CodeDiscountNodes: Codable {
-    let nodes: [CodeDiscountNodesNode]?
+    let nodes: [CodeDiscountNode]?
 }
 
 // MARK: - CodeDiscountNodesNode
-struct CodeDiscountNodesNode: Codable {
+struct CodeDiscountNode: Codable {
     let id: String?
     let codeDiscount: CodeDiscount?
 }

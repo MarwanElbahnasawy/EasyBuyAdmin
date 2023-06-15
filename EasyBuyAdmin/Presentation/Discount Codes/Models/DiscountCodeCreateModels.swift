@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - DiscountCodeCreateRoot
+// MARK: - DiscountCodeCreateRoot (Not the response model returned)
 struct DiscountCodeCreateRoot: Codable {
     let data: DataClassDiscountCodeCreate?
     let extensions: Extensions?
 }
 
-// MARK: - DataClassDiscountCodeCreate
+// MARK: - DataClassDiscountCodeCreate (The response model returned)
 struct DataClassDiscountCodeCreate: Codable {
     let discountCodeBasicCreate: DiscountCodeBasicCreate?
 }

@@ -28,7 +28,7 @@ class ProductFormViewModel: ObservableObject {
     
     let productTypes = ["ACCESSORIES", "SHOES", "Boots", "T-SHIRTS"]
     
-    init(product: PurpleNode? = nil) {
+    init(product: ProductNode? = nil) {
         if let product = product {
             productID = product.id!
             title = product.title ?? "Unknown"

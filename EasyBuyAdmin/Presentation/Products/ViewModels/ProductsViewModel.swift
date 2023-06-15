@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 
 class ProductsViewModel: ObservableObject {
-    @Published var products = [PurpleNode]()
+    @Published var products = [ProductNode]()
     
     func fetchAllProducts() {
         NetworkManager.shared.queryGraphQLRequest(query: GetAllProductsQuery(), responseModel: DataClassGetAllProducts.self) { result in
