@@ -35,7 +35,6 @@ class DiscountCodeFormViewModel: ObservableObject {
     }
     
     func addDiscountCode(completion: @escaping () -> Void) {
-        
         var newBasicCodeDiscount: DiscountCodeBasicInput
         
         if selectedDiscountCategory == DiscountCodeCategories.ALL_PRODUCTS.rawValue {
@@ -53,6 +52,7 @@ class DiscountCodeFormViewModel: ObservableObject {
             case .failure(let error):
                 self.alertTitle = "Error"
                 self.alertMessage = error.localizedDescription
+                completion()
             }
         }
     }
@@ -70,7 +70,6 @@ class DiscountCodeFormViewModel: ObservableObject {
     }
     
     func updateDiscountCode(id: String, completion: @escaping () -> Void) {
-        
         var newBasicCodeDiscount: DiscountCodeBasicInput
         
         if selectedDiscountCategory == DiscountCodeCategories.ALL_PRODUCTS.rawValue {
@@ -89,6 +88,7 @@ class DiscountCodeFormViewModel: ObservableObject {
             case .failure(let error):
                 self.alertTitle = "Error"
                 self.alertMessage = error.localizedDescription
+                completion()
             }
         }
     }
@@ -104,4 +104,12 @@ class DiscountCodeFormViewModel: ObservableObject {
             }
         }
     }
+    
+    func isValidDiscountPercentage(percentage: String) -> Bool {
+           if let intValue = Int(percentage) {
+               return intValue >= 1 && intValue <= 100
+           }
+           return false
+       }
+       
 }

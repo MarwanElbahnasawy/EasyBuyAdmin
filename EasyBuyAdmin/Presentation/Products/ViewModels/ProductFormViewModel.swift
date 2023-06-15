@@ -74,6 +74,7 @@ class ProductFormViewModel: ObservableObject {
             case .failure(let error):
                 self.alertTitle = "Error"
                 self.alertMessage = error.localizedDescription
+                completion()
             }
         }
     }
@@ -103,6 +104,7 @@ class ProductFormViewModel: ObservableObject {
             case .failure(let error):
                 self.alertTitle = "Error"
                 self.alertMessage = error.localizedDescription
+                completion()
             }
         }
     }

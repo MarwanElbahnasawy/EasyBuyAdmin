@@ -70,7 +70,7 @@ struct DiscountCodeContentView: View {
                     .clipped()
                     .frame(width: cellWidth, height: cellHeight)
                 Image(systemName: "minus.circle.fill")
-                    .offset(x: 0.35 * cellWidth, y: -(0.35 * cellHeight))
+                    .offset(x: 0.42 * cellWidth, y: -(0.35 * cellHeight))
                     .onTapGesture {
                         discountCodeCellViewModel.deleteDiscountCode(discountCodeID: discountCodeID) { result in
                             switch result {

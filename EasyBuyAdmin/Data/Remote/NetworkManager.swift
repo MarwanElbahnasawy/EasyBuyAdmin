@@ -47,7 +47,7 @@ final class NetworkManager: NetworkManaging {
             }
         }
     }
-
+    
     func performGraphQLRequest<T, K>(mutation: T, responseModel: K.Type, completion: @escaping ((Result<K, Error>) -> Void)) where T : GraphQLMutation, K : Decodable, K : Encodable {
         NetworkManager.shared.service.perform(mutation: mutation) { result in
             switch result {
@@ -55,8 +55,30 @@ final class NetworkManager: NetworkManaging {
                 do {
                     if let dataObject = apolloResponse.data?.jsonObject {
                         let data = try JSONSerialization.data(withJSONObject: dataObject, options: .fragmentsAllowed)
-                        let decode = try JSONDecoder().decode(responseModel, from: data)
-                        completion(.success(decode))
+                        let decodedData = try JSONDecoder().decode(responseModel, from: data)
+                        let userErrors: [UserError]?
+                        switch decodedData {
+                            case let data as DataClassProductCreation:
+                                userErrors = data.productCreate?.userErrors
+                            case let data as DataClassProductDeletion:
+                                userErrors = data.productDelete?.userErrors
+                            case let data as DataClassProductUpdate:
+                                userErrors = data.productUpdate?.userErrors
+                            case let data as DataClassDiscountCodeCreate:
+                                userErrors = data.discountCodeBasicCreate?.userErrors
+                            case let data as DataClassDiscountCodeUpdate:
+                                userErrors = data.discountCodeBasicUpdate?.userErrors
+                            case let data as DataClassDiscountCodeDeletion:
+                                userErrors = data.discountCodeDelete?.userErrors
+                            default:
+                                userErrors = nil
+                            }
+                        if let userErrors = userErrors, !userErrors.isEmpty {
+                            let errorMessages = userErrors.compactMap { $0.message }.joined(separator: ", ")
+                            completion(.failure(NSError(domain: "UserErrors", code: 400, userInfo: [NSLocalizedDescriptionKey: errorMessages])))
+                        } else {
+                            completion(.success(decodedData))
+                        }
                     }
                 } catch (let error) {
                     print(error)

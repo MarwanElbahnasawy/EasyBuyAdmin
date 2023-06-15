@@ -44,7 +44,7 @@ struct DiscountCodeFormView: View {
     private var isFormValid: Bool {
         !discountCodeFormViewModel.title.isEmpty &&
         !discountCodeFormViewModel.code.isEmpty &&
-        !discountCodeFormViewModel.discountPercentage.isEmpty
+        discountCodeFormViewModel.isValidDiscountPercentage(percentage: discountCodeFormViewModel.discountPercentage)
     }
     
     var body: some View {
