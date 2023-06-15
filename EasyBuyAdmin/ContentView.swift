@@ -18,7 +18,7 @@ struct ContentView: View {
             CollectionsView()
                 .tabItem {
                     Image(uiImage: UIImage(named: "collections")!)
-                    Text("Collections")
+                    Text("Categories")
                 }
             DiscountCodesView()
                 .tabItem {

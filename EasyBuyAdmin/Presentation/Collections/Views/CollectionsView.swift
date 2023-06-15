@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CollectionsView: View {
     @StateObject private var collectionsViewModel = CollectionsViewModel()
+    @State private var isAddProductButtonClicked = false
     
     var body: some View {
         NavigationView {
@@ -29,14 +30,20 @@ struct CollectionsView: View {
                     collectionsViewModel.fetchAllCollections()
                 }
             }
-            .navigationTitle("Products View")
+            .navigationTitle("Categories View")
             .onAppear {
                 collectionsViewModel.fetchAllCollections()
             }
             .navigationBarItems(trailing: Button(action: {
+                isAddProductButtonClicked = true
             }) {
                 Image(systemName: "plus")
             }
+            )
+            .background(
+                NavigationLink(destination: CollectionFormView(), isActive: $isAddProductButtonClicked) {
+                    EmptyView()
+                }
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
