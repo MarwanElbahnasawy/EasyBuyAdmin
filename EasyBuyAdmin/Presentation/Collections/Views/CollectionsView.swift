@@ -20,7 +20,9 @@ struct CollectionsView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
                         ForEach(collectionsViewModel.collections, id: \.id) { collection in
-                            CollectionCell(collection: collection, imageSide: imageSide)
+                            NavigationLink(destination: CollectionFormView(collection: collection)) {
+                                CollectionCell(collection: collection, imageSide: imageSide)
+                            }
                         }
                     }
                     .padding(.horizontal, horizontalPadding)

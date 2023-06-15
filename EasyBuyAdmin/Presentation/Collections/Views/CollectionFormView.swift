@@ -69,7 +69,19 @@ struct CollectionFormView: View {
                         }
                         .disabled(!isFormValid)
                     } else {
-                        
+                        Button {
+                            collectionFormViewModel.updateCollection(colelctionID: collection!.id!) {
+                                collectionFormViewModel.currentAlert = .addingOrUpdatingAlert
+                                showAlert = true
+                            }
+                        } label: {
+                            Text("Update Collection")
+                                .padding(12)
+                                .background(Color.black)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(12)
+                        }
+                        .disabled(!isFormValid)
                     }
 
                 } else {
@@ -85,7 +97,15 @@ struct CollectionFormView: View {
                                 showAlert = true
                             }
                     } else {
-                        
+                        Text("Update Collection")
+                            .padding(12)
+                            .background(Color.gray)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(12)
+                            .onTapGesture {
+                                collectionFormViewModel.currentAlert = .disabledAlert
+                                showAlert = true
+                            }
                     }
 
                 }

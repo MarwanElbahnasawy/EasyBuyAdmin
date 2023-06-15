@@ -64,6 +64,38 @@ class CollectionFormViewModel: ObservableObject {
         )
     }
     
+    func updateCollection(colelctionID: String, completion: @escaping () -> Void) {
+        
+        let newCollectionInput = CollectionInput(descriptionHtml: description, id: collectionID, image: ImageInput.init(src: collectionImageURLString),  title: title)
+        
+        updateCollection(collectionInput: newCollectionInput) { result in
+            switch result {
+            case .success:
+                self.alertTitle = "Success"
+                self.alertMessage = "Collection updated successfully"
+                completion()
+            case .failure(let error):
+                self.alertTitle = "Error"
+                self.alertMessage = error.localizedDescription
+                completion()
+            }
+        }
+    }
+    
+    private func updateCollection(collectionInput: CollectionInput, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        NetworkManager.shared.performGraphQLRequest(mutation: CollectionUpdateMutation(input: collectionInput), responseModel: DataClassCollectionUpdate.self, completion: { result in
+            switch result {
+            case .success:
+                NetworkManager.shared.service.store.clearCache()
+                completion(.success("Collection updated successfully"))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        )
+    }
+    
     func isValidImageURL(_ urlString: String) -> Bool {
         guard let url = URL(string: urlString) else {
             return false
