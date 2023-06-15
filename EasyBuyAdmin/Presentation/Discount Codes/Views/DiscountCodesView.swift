@@ -10,7 +10,10 @@ import SwiftUI
 struct DiscountCodesView: View {
     @StateObject private var discountsViewModel = DiscountCodesViewModel()
     @State private var isAddDiscountCodeButtonClicked = false
-    @State private var isDiscountCodeDeleted = false
+    @State var showDeletionAlert = false
+    @State private var selectedDiscountCodeID: String?
+    @StateObject private var discountCodeCellViewModel = DiscountCodeCellViewModel()
+    @State private var deletionAlert: DeletionAlertType = .confirmDeleteAlert
     
     var body: some View {
         NavigationView {
@@ -23,9 +26,10 @@ struct DiscountCodesView: View {
                     LazyVGrid(columns: [GridItem(.flexible())]) {
                         ForEach(discountsViewModel.discountCodeNodes, id: \.id) { discountCodeNode in
                             NavigationLink(destination: DiscountCodeFormView(discountCode: discountCodeNode.codeDiscount, discountCodeID: discountCodeNode.id)) {
-                                DiscountCodeCell(discountCode: discountCodeNode.codeDiscount!, discountCodeID: discountCodeNode.id!, cellWidth: cellWidth, cellHeight: cellHeight) {
-                                    discountsViewModel.fetchAllDiscountCodes()
-                                    isDiscountCodeDeleted = true
+                                DiscountCodeCell(discountCode: discountCodeNode.codeDiscount!, discountCodeID: discountCodeNode.id!, cellWidth: cellWidth, cellHeight: cellHeight) { selectedDiscountCodeID in
+                                    self.deletionAlert = .confirmDeleteAlert
+                                    showDeletionAlert = true
+                                    self.selectedDiscountCodeID = selectedDiscountCodeID
                                 }
                             }
                         }
@@ -36,8 +40,27 @@ struct DiscountCodesView: View {
                 .refreshable {
                     discountsViewModel.fetchAllDiscountCodes()
                 }
-                .alert(isPresented: $isDiscountCodeDeleted) {
-                    Alert(title: Text("Success"), message: Text("Discount code deleted successfully"), dismissButton: .default(Text("OK")))
+                .alert(isPresented: $showDeletionAlert) {
+                    switch deletionAlert {
+                    case .confirmDeleteAlert:
+                        return Alert(title: Text("Confirm Deletion"),
+                              message: Text("Are you sure you want to delete this discount code?"),
+                              primaryButton: .destructive(Text("Delete")) {
+                            discountCodeCellViewModel.deleteDiscountCode(discountCodeID: selectedDiscountCodeID ?? "") { result in
+                                switch result {
+                                case .success:
+                                    discountsViewModel.fetchAllDiscountCodes()
+                                    deletionAlert = .isDeletedAlert
+                                    showDeletionAlert = true
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        },
+                              secondaryButton: .cancel())
+                    case .isDeletedAlert:
+                    return Alert(title: Text("Success"), message: Text("Discount code deleted successfully"), dismissButton: .default(Text("OK")))
+                    }
                 }
             }
             .navigationTitle("Discount Codes View")

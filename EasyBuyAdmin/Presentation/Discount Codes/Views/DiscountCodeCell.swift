@@ -12,18 +12,18 @@ struct DiscountCodeCell: View {
     private let discountCodeID: String
     private let cellWidth: CGFloat
     private let cellHeight: CGFloat
-    var didDelete: () -> ()
+    var onDelete: (String) -> ()
     
-    init(discountCode: CodeDiscount, discountCodeID: String, cellWidth: CGFloat, cellHeight: CGFloat, didDelete: @escaping () -> ()) {
+    init(discountCode: CodeDiscount, discountCodeID: String, cellWidth: CGFloat, cellHeight: CGFloat, onDelete: @escaping (String) -> ()) {
         self.discountCode = discountCode
         self.discountCodeID = discountCodeID
         self.cellWidth = cellWidth
         self.cellHeight = cellHeight
-        self.didDelete = didDelete
+        self.onDelete = onDelete
     }
     
     var body: some View {
-        DiscountCodeContentView(discountCode: discountCode, discountCodeID: discountCodeID, cellWidth: cellWidth, cellHeight: cellHeight, didDelete: didDelete)
+        DiscountCodeContentView(discountCode: discountCode, discountCodeID: discountCodeID, cellWidth: cellWidth, cellHeight: cellHeight, onDelete: onDelete)
     }
 }
 
@@ -32,15 +32,15 @@ struct DiscountCodeContentView: View {
     private let discountCodeID: String
     private let cellWidth: CGFloat
     private let cellHeight: CGFloat
-    private var didDelete: () -> ()
+    var onDelete: (String) -> ()
     @StateObject private var discountCodeCellViewModel = DiscountCodeCellViewModel()
     
-    init(discountCode: CodeDiscount, discountCodeID: String, cellWidth: CGFloat, cellHeight: CGFloat, didDelete: @escaping () -> ()) {
+    init(discountCode: CodeDiscount, discountCodeID: String, cellWidth: CGFloat, cellHeight: CGFloat, onDelete: @escaping (String) -> ()) {
         self.discountCode = discountCode
         self.discountCodeID = discountCodeID
         self.cellWidth = cellWidth
         self.cellHeight = cellHeight
-        self.didDelete = didDelete
+        self.onDelete = onDelete
     }
     
     private var discountCategoryTitle: String {
@@ -72,14 +72,7 @@ struct DiscountCodeContentView: View {
                 Image(systemName: "minus.circle.fill")
                     .offset(x: 0.42 * cellWidth, y: -(0.35 * cellHeight))
                     .onTapGesture {
-                        discountCodeCellViewModel.deleteDiscountCode(discountCodeID: discountCodeID) { result in
-                            switch result {
-                            case .success:
-                                didDelete()
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
+                        onDelete(discountCodeID)
                     }
             }
             Text(discountCode.title ?? "No Title available")

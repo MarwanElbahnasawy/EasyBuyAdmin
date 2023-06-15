@@ -20,7 +20,7 @@ class ProductFormViewModel: ObservableObject {
     @Published var productImageURLString: String = ""
     @Published var selectedCollectionTitle = "Home page"
     @Published var tags = Array(repeating: "", count: 4)
-    @Published var currentAlert: AlertType = .disabledAlert
+    @Published var currentAlert: AddingOrUpdatingAlertType = .disabledAlert
     
     @Published var isProductBeingUpdated = false
     

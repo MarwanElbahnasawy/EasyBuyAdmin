@@ -10,10 +10,10 @@ import SwiftUI
 struct ProductCell: View {
     let product: ProductNode
     let imageSide: CGFloat
-    var didDelete: () -> ()
+    var onDelete: (ProductNode) -> ()
     
     var body: some View {
-        ProductContentView(product: product, imageSide: imageSide, didDelete: didDelete)
+        ProductContentView(product: product, imageSide: imageSide, onDelete: onDelete)
     }
 }
 
@@ -21,7 +21,7 @@ struct ProductContentView: View {
     @StateObject private var productCellViewModel = ProductCellViewModel()
     let product: ProductNode
     let imageSide: CGFloat
-    var didDelete: () -> ()
+    var onDelete: (ProductNode) -> ()
     
     var body: some View {
             VStack {
@@ -45,14 +45,7 @@ struct ProductContentView: View {
                     Image(systemName: "minus.circle.fill")
                         .offset(x: 0.35 * imageSide, y: -(0.35 * imageSide))
                         .onTapGesture {
-                            productCellViewModel.deleteProduct(productID: product.id ?? "") { result in
-                                switch result {
-                                case .success:
-                                    didDelete()
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                }
-                            }
+                            onDelete(product)
                         }
                 }
                 

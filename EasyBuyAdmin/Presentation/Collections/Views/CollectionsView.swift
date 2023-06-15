@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CollectionsView: View {
     @StateObject private var collectionsViewModel = CollectionsViewModel()
-    @State private var isAddProductButtonClicked = false
+    @State private var isAddCollectionButtonClicked = false
+    @State var showDeletionAlert = false
+    @State private var selectedCollection: CollectionNode?
+    @StateObject private var collectionCellViewModel = CollectionCellViewModel()
+    @State private var deletionAlert: DeletionAlertType = .confirmDeleteAlert
     
     var body: some View {
         NavigationView {
@@ -21,7 +25,12 @@ struct CollectionsView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
                         ForEach(collectionsViewModel.collections, id: \.id) { collection in
                             NavigationLink(destination: CollectionFormView(collection: collection)) {
-                                CollectionCell(collection: collection, imageSide: imageSide)
+                                CollectionCell(collection: collection, imageSide: imageSide) { selectedCollection in
+                                    self.deletionAlert = .confirmDeleteAlert
+                                    showDeletionAlert = true
+                                    self.selectedCollection = selectedCollection
+                                }
+                                
                             }
                         }
                     }
@@ -31,19 +40,41 @@ struct CollectionsView: View {
                 .refreshable {
                     collectionsViewModel.fetchAllCollections()
                 }
+                .alert(isPresented: $showDeletionAlert) {
+                    switch deletionAlert {
+                    case .confirmDeleteAlert:
+                        return Alert(title: Text("Confirm Deletion"),
+                              message: Text("Are you sure you want to delete this collection?"),
+                              primaryButton: .destructive(Text("Delete")) {
+                            collectionCellViewModel.deleteCollection(collectionID: selectedCollection?.id ?? "") { result in
+                                switch result {
+                                case .success:
+                                    collectionsViewModel.fetchAllCollections()
+                                    deletionAlert = .isDeletedAlert
+                                    showDeletionAlert = true
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        },
+                              secondaryButton: .cancel())
+                    case .isDeletedAlert:
+                    return Alert(title: Text("Success"), message: Text("Collection deleted successfully"), dismissButton: .default(Text("OK")))
+                    }
+                }
             }
-            .navigationTitle("Categories View")
+            .navigationTitle("Collections View")
             .onAppear {
                 collectionsViewModel.fetchAllCollections()
             }
             .navigationBarItems(trailing: Button(action: {
-                isAddProductButtonClicked = true
+                isAddCollectionButtonClicked = true
             }) {
                 Image(systemName: "plus")
             }
             )
             .background(
-                NavigationLink(destination: CollectionFormView(), isActive: $isAddProductButtonClicked) {
+                NavigationLink(destination: CollectionFormView(), isActive: $isAddCollectionButtonClicked) {
                     EmptyView()
                 }
             )

@@ -10,7 +10,10 @@ import SwiftUI
 struct ProductsView: View {
     @StateObject private var productsViewModel = ProductsViewModel()
     @State private var isAddProductButtonClicked = false
-    @State private var isProductDeleted = false
+    @State var showDeletionAlert = false
+    @State private var selectedProduct: ProductNode?
+    @StateObject private var productCellViewModel = ProductCellViewModel()
+    @State private var deletionAlert: DeletionAlertType = .confirmDeleteAlert
     
     var body: some View {
         NavigationView {
@@ -22,9 +25,10 @@ struct ProductsView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
                         ForEach(productsViewModel.products, id: \.id) { product in
                             NavigationLink(destination: ProductFormView(product: product)) {
-                                ProductCell(product: product, imageSide: imageSide) {
-                                    productsViewModel.fetchAllProducts()
-                                    isProductDeleted = true
+                                ProductCell(product: product, imageSide: imageSide) { selectedProduct in
+                                    self.deletionAlert = .confirmDeleteAlert
+                                    showDeletionAlert = true
+                                    self.selectedProduct = selectedProduct
                                 }
                             }
                         }
@@ -35,8 +39,27 @@ struct ProductsView: View {
                 .refreshable {
                     productsViewModel.fetchAllProducts()
                 }
-                .alert(isPresented: $isProductDeleted) {
-                    Alert(title: Text("Success"), message: Text("Product deleted successfully"), dismissButton: .default(Text("OK")))
+                .alert(isPresented: $showDeletionAlert) {
+                    switch deletionAlert {
+                    case .confirmDeleteAlert:
+                        return Alert(title: Text("Confirm Deletion"),
+                              message: Text("Are you sure you want to delete this product?"),
+                              primaryButton: .destructive(Text("Delete")) {
+                            productCellViewModel.deleteProduct(productID: selectedProduct?.id ?? "") { result in
+                                switch result {
+                                case .success:
+                                    productsViewModel.fetchAllProducts()
+                                    deletionAlert = .isDeletedAlert
+                                    showDeletionAlert = true
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        },
+                              secondaryButton: .cancel())
+                    case .isDeletedAlert:
+                    return Alert(title: Text("Success"), message: Text("Product deleted successfully"), dismissButton: .default(Text("OK")))
+                    }
                 }
             }
             .navigationTitle("Products View")

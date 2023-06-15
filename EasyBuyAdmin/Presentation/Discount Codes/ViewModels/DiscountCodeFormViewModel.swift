@@ -15,7 +15,7 @@ class DiscountCodeFormViewModel: ObservableObject {
     @Published var code: String = ""
     @Published var discountPercentage: String = ""
     @Published var selectedDiscountCategory: String = DiscountCodeCategories.ALL_PRODUCTS.rawValue
-    @Published var currentAlert: AlertType = .disabledAlert
+    @Published var currentAlert: AddingOrUpdatingAlertType = .disabledAlert
     @Published var isDiscountCodeBeingUpdated = false
     var shortSummary: String = "Summary automatically generated after discount code creation"
     let discountCodeID: String?

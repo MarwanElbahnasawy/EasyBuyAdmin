@@ -17,7 +17,7 @@ class CollectionFormViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var description: String = ""
     @Published var collectionImageURLString: String = ""
-    @Published var currentAlert: AlertType = .disabledAlert
+    @Published var currentAlert: AddingOrUpdatingAlertType = .disabledAlert
     
     @Published var isCollectionBeingUpdated = false
     

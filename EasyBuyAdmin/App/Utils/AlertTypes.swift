@@ -6,6 +6,11 @@
 //
 
 import Foundation
-enum AlertType {
+
+enum AddingOrUpdatingAlertType {
     case disabledAlert, addingOrUpdatingAlert
+}
+
+enum DeletionAlertType {
+    case confirmDeleteAlert, isDeletedAlert
 }
