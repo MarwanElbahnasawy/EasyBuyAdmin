@@ -9,6 +9,18 @@ import Foundation
 
 class DiscountCodesViewModel: ObservableObject {
     @Published var discountCodeNodes = [CodeDiscountNode]()
+    @Published var searchText = ""
+    
+    var filteredDiscountCodeNodes: [CodeDiscountNode] {
+        if searchText.isEmpty {
+            return discountCodeNodes
+        } else {
+            return discountCodeNodes.filter { discountCodeNode in
+                guard let title = discountCodeNode.codeDiscount?.title else { return false }
+                return title.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
     
     func fetchAllDiscountCodes() {
         NetworkManager.shared.queryGraphQLRequest(query: GetAllDiscountCodesQuery(), responseModel: DataClassGetAllDiscountCodes.self) { result in
