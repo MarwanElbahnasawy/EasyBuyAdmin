@@ -10,16 +10,20 @@ import Foundation
 class DiscountCodesViewModel: ObservableObject {
     @Published var discountCodeNodes = [CodeDiscountNode]()
     @Published var searchText = ""
+    @Published var discountPercentage: Double = 0
     
     var filteredDiscountCodeNodes: [CodeDiscountNode] {
-        if searchText.isEmpty {
-            return discountCodeNodes
-        } else {
             return discountCodeNodes.filter { discountCodeNode in
                 guard let title = discountCodeNode.codeDiscount?.title else { return false }
-                return title.lowercased().contains(searchText.lowercased())
+                let isTitleMatch = searchText.isEmpty || title.lowercased().contains(searchText.lowercased())
+                if let shortSummary = discountCodeNode.codeDiscount?.shortSummary,
+                let discountPercentageString = shortSummary.split(separator: "%").first.map({ String($0) }),
+                let percentageValue = Double(discountPercentageString) {
+                    return isTitleMatch && discountPercentage <= percentageValue
+                } else {
+                    return isTitleMatch
+                }
             }
-        }
     }
     
     func fetchAllDiscountCodes() {

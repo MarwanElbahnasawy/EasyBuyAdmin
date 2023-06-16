@@ -24,6 +24,12 @@ struct DiscountCodesView: View {
                 let horizontalPadding = screenWidth * 0.05
                 VStack (spacing: 8) {
                     SearchBar(text: $discountsViewModel.searchText)
+                    VStack(alignment: .leading) {
+                        Text("Minimum Discount: \(Int(discountsViewModel.discountPercentage))%")
+                            .padding(EdgeInsets(top: 2, leading: 16, bottom: 6, trailing: 8))
+                        Slider(value: $discountsViewModel.discountPercentage, in: 0...100, step: 1)
+                            .padding(.horizontal)
+                    }
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible())]) {
                             ForEach(discountsViewModel.filteredDiscountCodeNodes, id: \.id) { discountCodeNode in
