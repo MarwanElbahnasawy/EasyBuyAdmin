@@ -15,7 +15,7 @@ query getAllProducts {
                 amount
             }
         }
-        images(first: 1){
+        images(first: 4){
             edges{
                 node{
                     url

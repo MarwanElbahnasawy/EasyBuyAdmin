@@ -40,7 +40,7 @@ struct ProductContentView: View {
                         .frame(width: imageSide, height: imageSide)
                         
                         .background(Color.white)
-                        .cornerRadius(30)
+                        .cornerRadius(imageSide/8)
                     }
                     Image(systemName: "minus.circle.fill")
                         .offset(x: 0.35 * imageSide, y: -(0.35 * imageSide))

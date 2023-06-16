@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductFormView: View {
     @StateObject private var productFormViewModel = ProductFormViewModel()
     @State private var showAlert = false
+    @State private var numberOfVisibleTextFields: Int = 1
     
     private let product: ProductNode?
     private let width70percent = UIScreen.main.bounds.width * 0.7
@@ -22,7 +23,9 @@ struct ProductFormView: View {
     private var isFormValid: Bool {
         !productFormViewModel.title.isEmpty &&
         productFormViewModel.isValidPrice(productFormViewModel.price) &&
-        productFormViewModel.isValidImageURL(productFormViewModel.productImageURLString)
+        productFormViewModel.productImageURLStrings.prefix(numberOfVisibleTextFields).allSatisfy { urlString in
+            productFormViewModel.isValidImageURL(urlString)
+        }
     }
     
     var body: some View {
@@ -42,7 +45,7 @@ struct ProductFormView: View {
                         }
                         .frame(width: width70percent, height: width70percent)
                         .background(Color.white)
-                        .cornerRadius(40)
+                        .cornerRadius(width70percent/8)
                     }
                 }
                 VStack(spacing: 20) {
@@ -55,13 +58,42 @@ struct ProductFormView: View {
                     TextField("Price($)*", text: $productFormViewModel.price)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
-                    TextField("Product Image URL(jpg / jpeg / png)*", text: $productFormViewModel.productImageURLString)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
+                        TextFieldWithPlusAndMinusButtons(
+                            index: index,
+                            textFieldText: $productFormViewModel.productImageURLStrings[index],
+                            addTextField: { numberOfVisibleTextFields += 1 },
+                            removeTextField: {
+                                productFormViewModel.productImageURLStrings[index] = ""
+                                numberOfVisibleTextFields -= 1
+                            },
+                            showPlusButton: index < 3 && index + 1 == numberOfVisibleTextFields,
+                            showMinusButton: index > 0 && index + 1 == numberOfVisibleTextFields
+                        )
+                    }
+                    
+                }
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                    ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
+                        if let url = URL(string: productFormViewModel.productImageURLStrings[index]), productFormViewModel.isValidImageURL(productFormViewModel.productImageURLStrings[index]) {
+                            AsyncImage(url: url) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipped()
+                                    .frame(width: width70percent*0.6, height: width70percent*0.6)
+                                    .background(Color.white)
+                                    .cornerRadius(width70percent/10)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                        }
+                    }
                 }
                 HStack {
                     Text("Product Type:")
                     Picker("Product Type", selection: $productFormViewModel.productTypeIndex) {
-                        ForEach(0..<productFormViewModel.productTypes.count) { index in
+                        ForEach(0..<productFormViewModel.productTypes.count, id: \.self) { index in
                             Text(productFormViewModel.productTypes[index])
                         }
                     }
@@ -71,7 +103,7 @@ struct ProductFormView: View {
                 HStack {
                     Text("Collection:")
                     Picker("Collection", selection: $productFormViewModel.selectedCollectionTitle) {
-                        ForEach(0..<Constants.collections.keys.count) { index in
+                        ForEach(0..<Constants.collections.keys.count, id: \.self) { index in
                             Text(Array(Constants.collections.keys)[index])
                                 .tag(Array(Constants.collections.keys)[index])
                         }
@@ -83,13 +115,13 @@ struct ProductFormView: View {
                     .font(.system(size: 18))
                 VStack() {
                     HStack {
-                        ForEach(0..<productFormViewModel.tags.count/2) { index in
+                        ForEach(0..<productFormViewModel.tags.count/2, id: \.self) { index in
                             TextField("Tag \(index + 1)", text: $productFormViewModel.tags[index])
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                     }
                     HStack {
-                        ForEach(productFormViewModel.tags.count/2..<productFormViewModel.tags.count) { index in
+                        ForEach(productFormViewModel.tags.count/2..<productFormViewModel.tags.count, id: \.self) { index in
                             TextField("Tag \(index + 1)", text: $productFormViewModel.tags[index])
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
@@ -161,6 +193,11 @@ struct ProductFormView: View {
                 case .addingOrUpdatingAlert:
                     return Alert(title: Text(productFormViewModel.alertTitle), message: Text(productFormViewModel.alertMessage), dismissButton: .default(Text("OK")))
                 }
+            }
+        }
+        .onAppear {
+            if let product = product, let edges = product.images?.edges {
+                numberOfVisibleTextFields = max(edges.count, 1)
             }
         }
         .background(Color(hex: "f7f7f7"))

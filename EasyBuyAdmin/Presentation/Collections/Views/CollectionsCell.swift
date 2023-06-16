@@ -40,7 +40,7 @@ struct CellContentView: View {
                     .frame(width: imageSide, height: imageSide)
                     
                     .background(Color.white)
-                    .cornerRadius(30)
+                    .cornerRadius(imageSide/8)
                 }
                 Image(systemName: "minus.circle.fill")
                     .offset(x: 0.4 * imageSide, y: -(0.4 * imageSide))

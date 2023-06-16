@@ -55,7 +55,7 @@ struct DiscountCodeFormView: View {
                         Rectangle()
                             .fill(Color.white)
                             .frame(width: width90percent, height: width90percent * 0.4)
-                            .cornerRadius(16)
+                            .cornerRadius(width90percent/10)
                         Image(selectedDiscountCategory)
                             .resizable()
                             .aspectRatio(contentMode: .fit)

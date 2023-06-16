@@ -5552,7 +5552,7 @@ public final class GetAllProductsQuery: GraphQLQuery {
                 amount
               }
             }
-            images(first: 1) {
+            images(first: 4) {
               __typename
               edges {
                 __typename
@@ -5703,7 +5703,7 @@ public final class GetAllProductsQuery: GraphQLQuery {
               GraphQLField("description", type: .nonNull(.scalar(String.self))),
               GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
               GraphQLField("priceRangeV2", type: .nonNull(.object(PriceRangeV2.selections))),
-              GraphQLField("images", arguments: ["first": 1], type: .nonNull(.object(Image.selections))),
+              GraphQLField("images", arguments: ["first": 4], type: .nonNull(.object(Image.selections))),
               GraphQLField("collections", arguments: ["first": 5], type: .nonNull(.object(Collection.selections))),
               GraphQLField("tags", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
             ]

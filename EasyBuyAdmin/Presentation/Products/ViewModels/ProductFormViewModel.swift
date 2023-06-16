@@ -11,17 +11,15 @@ import Apollo
 class ProductFormViewModel: ObservableObject {
     @Published var alertTitle = ""
     @Published var alertMessage = ""
-    
     @Published var title: String = ""
     @Published var vendor: String = ""
     @Published var productTypeIndex: Int = 0
     @Published var description: String = ""
     @Published var price: String = ""
-    @Published var productImageURLString: String = ""
+    @Published var productImageURLStrings: [String] = Array.init(repeating: "", count: 4)
     @Published var selectedCollectionTitle = "Home page"
     @Published var tags = Array(repeating: "", count: 4)
     @Published var currentAlert: AddingOrUpdatingAlertType = .disabledAlert
-    
     @Published var isProductBeingUpdated = false
     
     private var productID: String?
@@ -36,7 +34,15 @@ class ProductFormViewModel: ObservableObject {
             productTypeIndex = productTypes.firstIndex(of: product.productType?.rawValue ?? "ACCESSORIES") ?? 0
             description = product.description ?? "No description"
             price = product.priceRangeV2?.maxVariantPrice?.amount ?? "0"
-            productImageURLString = product.images?.edges?[0].node?.url ?? "https://t4.ftcdn.net/jpg/03/00/32/13/360_F_300321387_gPEMsHdZPAWO2HfqfwEXUfy5MwPvq8AM.jpg"
+            if let productImageEdges = product.images?.edges {
+                for (index,edge) in productImageEdges.enumerated() {
+                    if index < 4 {
+                        self.productImageURLStrings[index] = edge.node?.url ?? "https://t4.ftcdn.net/jpg/03/00/32/13/360_F_300321387_gPEMsHdZPAWO2HfqfwEXUfy5MwPvq8AM.jpg"
+                    } else {
+                        break
+                    }
+                }
+            }
             if let collectionEdges = product.collections?.edges {
                 for (index,edge) in collectionEdges.enumerated() {
                     if let collectionTitle = edge.node?.title, [Constants.MEN, Constants.WOMEN, Constants.KID].contains(collectionTitle) || index == collectionEdges.count - 1 {
@@ -63,7 +69,8 @@ class ProductFormViewModel: ObservableObject {
     
     func addProduct(completion: @escaping () -> Void) {
         
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: [ImageInput.init(src: productImageURLString)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        let imageInputs = productImageURLStrings.filter { isValidImageURL($0) } .map { ImageInput(src: $0) }
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: imageInputs, variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
         
         createProduct(productInput: newProductInput) { result in
             switch result {
@@ -93,7 +100,8 @@ class ProductFormViewModel: ObservableObject {
     
     func updateProduct(productID: String, completion: @escaping () -> Void) {
         
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: self.productID!,  images: [ImageInput.init(src: productImageURLString)], variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        let imageInputs = productImageURLStrings.filter { isValidImageURL($0) } .map { ImageInput(src: $0) }
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: self.productID!,  images: imageInputs, variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
         
         updateProduct(productInput: newProductInput) { result in
             switch result {
@@ -139,7 +147,6 @@ class ProductFormViewModel: ObservableObject {
             return true
         }
         return false
-        
     }
 }
 

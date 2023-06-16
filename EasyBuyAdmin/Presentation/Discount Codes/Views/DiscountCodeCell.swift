@@ -63,7 +63,7 @@ struct DiscountCodeContentView: View {
                 Rectangle()
                     .fill(Color.white)
                     .frame(width: cellWidth, height: cellHeight)
-                    .cornerRadius(16)
+                    .cornerRadius(cellWidth/10)
                 Image(discountCategoryTitle)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

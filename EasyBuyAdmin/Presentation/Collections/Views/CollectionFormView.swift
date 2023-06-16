@@ -27,23 +27,6 @@ struct CollectionFormView: View {
     var body: some View {
         ScrollView{
             VStack(spacing: 20) {
-                if collectionFormViewModel.isCollectionBeingUpdated {
-                    if let imageUrlString = collection?.image?.url ,
-                       let url = URL(string: imageUrlString) {
-                        AsyncImage(url: url) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipped()
-                                .frame(width: width70percent, height: width70percent)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: width70percent, height: width70percent)
-                        .background(Color.white)
-                        .cornerRadius(40)
-                    }
-                }
                 VStack(spacing: 20) {
                     TextField("Title*", text: $collectionFormViewModel.title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -51,6 +34,19 @@ struct CollectionFormView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Collection Image URL(jpg / jpeg / png)*", text: $collectionFormViewModel.collectionImageURLString)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                    if let url = URL(string: collectionFormViewModel.collectionImageURLString), collectionFormViewModel.isValidImageURL(collectionFormViewModel.collectionImageURLString) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipped()
+                                .frame(width: width70percent, height: width70percent)
+                                .background(Color.white)
+                                .cornerRadius(width70percent/6)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                    }
                 }
                 if isFormValid {
                     Spacer()
