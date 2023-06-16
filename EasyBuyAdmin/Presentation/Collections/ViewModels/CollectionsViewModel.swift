@@ -9,6 +9,19 @@ import Foundation
 
 class CollectionsViewModel: ObservableObject {
     @Published var collections = [CollectionNode]()
+    @Published var searchText = ""
+    
+    var filteredCollections: [CollectionNode] {
+        if searchText.isEmpty {
+            return collections
+        } else {
+            return collections.filter { collection in
+                guard let title = collection.title else { return false }
+                return title.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
     func fetchAllCollections() {
         NetworkManager.shared.queryGraphQLRequest(query: GetAllCollectionsQuery(), responseModel: DataClassGetAllCollections.self) { result in
             switch result {

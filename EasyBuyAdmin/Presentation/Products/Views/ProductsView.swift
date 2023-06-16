@@ -24,7 +24,6 @@ struct ProductsView: View {
                 VStack (spacing: 8) {
                     SearchBar(text: $productsViewModel.searchText)
                     ScrollView {
-                        
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
                             ForEach(productsViewModel.filteredProducts, id: \.id) { product in
                                 NavigationLink(destination: ProductFormView(product: product)) {
