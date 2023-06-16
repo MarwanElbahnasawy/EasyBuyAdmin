@@ -167,18 +167,3 @@ struct DiscountCodeFormView: View {
         .background(Color(hex: "f7f7f7"))
     }
 }
-    struct CheckmarkView: View {
-        let label: String
-        let isSelected: Bool
-        let action: () -> Void
-        
-        var body: some View {
-            HStack {
-                Image(systemName: isSelected ? "checkmark.square" : "square")
-                    .onTapGesture(perform: action)
-                Text(label)
-                    .font(.body)
-                Spacer()
-            }
-        }
-    }
