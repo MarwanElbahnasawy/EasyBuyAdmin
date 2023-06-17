@@ -15,7 +15,8 @@ class DiscountCodesViewModel: ObservableObject {
     var filteredDiscountCodeNodes: [CodeDiscountNode] {
             return discountCodeNodes.filter { discountCodeNode in
                 guard let title = discountCodeNode.codeDiscount?.title else { return false }
-                let isTitleMatch = searchText.isEmpty || title.lowercased().contains(searchText.lowercased())
+                let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+                let isTitleMatch = trimmedSearchText.isEmpty || title.lowercased().contains(searchText.lowercased())
                 if let shortSummary = discountCodeNode.codeDiscount?.shortSummary,
                 let discountPercentageString = shortSummary.split(separator: "%").first.map({ String($0) }),
                 let percentageValue = Double(discountPercentageString) {

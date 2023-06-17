@@ -20,7 +20,7 @@ struct DiscountCodesView: View {
             GeometryReader { geometry in
                 let screenWidth = geometry.size.width
                 let cellWidth = screenWidth * 0.9
-                let cellHeight = cellWidth * 0.4
+                let cellHeight = cellWidth * 0.35
                 let horizontalPadding = screenWidth * 0.05
                 VStack (spacing: 8) {
                     SearchBar(text: $discountsViewModel.searchText)

@@ -13,9 +13,10 @@ class ProductsViewModel: ObservableObject {
     @Published var searchText = ""
     
     var filteredProducts: [ProductNode] {
-        if searchText.isEmpty {
-            return products
-        } else {
+        let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+           if trimmedSearchText.isEmpty {
+               return products
+           } else {
             return products.filter { product in
                 guard let title = product.title else { return false }
                 let parts = title.split(separator: "|")
