@@ -12,9 +12,10 @@ class CollectionsViewModel: ObservableObject {
     @Published var searchText = ""
     
     var filteredCollections: [CollectionNode] {
-        let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-           if trimmedSearchText.isEmpty {
+           if searchText.isEmpty {
                return collections
+           } else if searchText == " " {
+               return []
            } else {
             return collections.filter { collection in
                 guard let title = collection.title else { return false }
