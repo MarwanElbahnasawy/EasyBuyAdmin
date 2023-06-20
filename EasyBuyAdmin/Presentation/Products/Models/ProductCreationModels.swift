@@ -25,4 +25,44 @@ struct ProductCreate: Codable {
     let userErrors: [UserError]?
 }
 
+// MARK: - PublishItemRoot
+struct PublishItemRoot: Codable {
+    let data: PublishItemDataClass?
+    let extensions: Extensions?
+}
+
+// MARK: - PublishItemDataClass
+struct PublishItemDataClass: Codable {
+    let publishablePublishToCurrentChannel: PublishablePublishToCurrentChannel?
+}
+
+// MARK: - PublishablePublishToCurrentChannel
+struct PublishablePublishToCurrentChannel: Codable {
+    let publishable: Publishable?
+    let shop: Shop?
+    let userErrors: [UserError]?
+}
+
+// MARK: - Publishable
+struct Publishable: Codable {
+    let availablePublicationCount, publicationCount: Int?
+}
+
+// MARK: - UnpublishItemRoot
+struct UnpublishItemRoot: Codable {
+    let data: UnpublishItemDataClass?
+    let extensions: Extensions?
+}
+
+// MARK: - UnpublishItemDataClass
+struct UnpublishItemDataClass: Codable {
+    let publishableUnpublishToCurrentChannel: PublishableUnpublishToCurrentChannel?
+}
+
+// MARK: - PublishableUnpublishToCurrentChannel
+struct PublishableUnpublishToCurrentChannel: Codable {
+    let publishable: Publishable?
+    let shop: Shop?
+    let userErrors: [UserError]?
+}
 

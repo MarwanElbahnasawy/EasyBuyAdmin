@@ -54,3 +54,35 @@ mutation productDelete($input: ProductDeleteInput!) {
     }
   }
 }
+
+mutation publishablePublishToCurrentChannel($id: ID!) {
+  publishablePublishToCurrentChannel(id: $id) {
+    publishable {
+      availablePublicationCount
+      publicationCount
+    }
+    shop {
+      publicationCount
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation publishableUnpublishToCurrentChannel($id: ID!) {
+  publishableUnpublishToCurrentChannel(id: $id) {
+    publishable {
+      availablePublicationCount
+      publicationCount
+    }
+    shop {
+      publicationCount
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

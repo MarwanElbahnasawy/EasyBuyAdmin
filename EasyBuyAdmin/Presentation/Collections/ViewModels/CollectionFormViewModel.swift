@@ -54,9 +54,11 @@ class CollectionFormViewModel: ObservableObject {
     private func createCollection(collectionInput: CollectionInput, completion: @escaping (Result<String, Error>) -> Void) {
         NetworkManager.shared.performGraphQLRequest(mutation: CollectionCreateMutation(input: collectionInput), responseModel: DataClassCollectionCreate.self, completion: { result in
             switch result {
-            case .success:
-                NetworkManager.shared.service.store.clearCache()
-                completion(.success("Collection created successfully"))
+            case .success(let successResult):
+                self.publishCollectionToStore(collectionID: (successResult.collectionCreate?.collection?.id)!) { result in
+                    NetworkManager.shared.service.store.clearCache()
+                    completion(.success("Collection created successfully"))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -86,14 +88,27 @@ class CollectionFormViewModel: ObservableObject {
         
         NetworkManager.shared.performGraphQLRequest(mutation: CollectionUpdateMutation(input: collectionInput), responseModel: DataClassCollectionUpdate.self, completion: { result in
             switch result {
-            case .success:
-                NetworkManager.shared.service.store.clearCache()
-                completion(.success("Collection updated successfully"))
+            case .success(let successResult):
+                self.publishCollectionToStore(collectionID: (successResult.collectionUpdate?.collection?.id)!) { result in
+                    NetworkManager.shared.service.store.clearCache()
+                    completion(.success("Collection updated successfully"))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
         }
         )
+    }
+    
+    private func publishCollectionToStore(collectionID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        NetworkManager.shared.performGraphQLRequest(mutation: PublishablePublishToCurrentChannelMutation(id: collectionID), responseModel: PublishItemDataClass.self) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func isValidImageURL(_ urlString: String) -> Bool {

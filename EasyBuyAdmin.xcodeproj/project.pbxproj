@@ -679,7 +679,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./GraphQL/*.graphql --localSchemaFile=\"GraphQL/admin_schema.json\" GraphQL/GraphQLAPI.swift\n";
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./Data/GraphQL/*.graphql --localSchemaFile=\"Data/GraphQL/admin_schema.json\" Data/GraphQL/GraphQLAPI.swift\n";
 		};
 		20DBA974BE64F3C169AE45F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

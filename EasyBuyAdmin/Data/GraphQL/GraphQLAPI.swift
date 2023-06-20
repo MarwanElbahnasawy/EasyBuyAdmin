@@ -5525,6 +5525,558 @@ public final class ProductDeleteMutation: GraphQLMutation {
   }
 }
 
+public final class PublishablePublishToCurrentChannelMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation publishablePublishToCurrentChannel($id: ID!) {
+      publishablePublishToCurrentChannel(id: $id) {
+        __typename
+        publishable {
+          __typename
+          availablePublicationCount
+          publicationCount
+        }
+        shop {
+          __typename
+          publicationCount
+        }
+        userErrors {
+          __typename
+          field
+          message
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "publishablePublishToCurrentChannel"
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("publishablePublishToCurrentChannel", arguments: ["id": GraphQLVariable("id")], type: .object(PublishablePublishToCurrentChannel.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(publishablePublishToCurrentChannel: PublishablePublishToCurrentChannel? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "publishablePublishToCurrentChannel": publishablePublishToCurrentChannel.flatMap { (value: PublishablePublishToCurrentChannel) -> ResultMap in value.resultMap }])
+    }
+
+    /// Publishes a resource to current channel. If the resource is a product, then it's visible in the channel only if the product status is `active`. Products that are sold exclusively on subscription (`requiresSellingPlan: true`) can be published only on online stores.
+    public var publishablePublishToCurrentChannel: PublishablePublishToCurrentChannel? {
+      get {
+        return (resultMap["publishablePublishToCurrentChannel"] as? ResultMap).flatMap { PublishablePublishToCurrentChannel(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "publishablePublishToCurrentChannel")
+      }
+    }
+
+    public struct PublishablePublishToCurrentChannel: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["PublishablePublishToCurrentChannelPayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("publishable", type: .object(Publishable.selections)),
+          GraphQLField("shop", type: .nonNull(.object(Shop.selections))),
+          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(publishable: Publishable? = nil, shop: Shop, userErrors: [UserError]) {
+        self.init(unsafeResultMap: ["__typename": "PublishablePublishToCurrentChannelPayload", "publishable": publishable.flatMap { (value: Publishable) -> ResultMap in value.resultMap }, "shop": shop.resultMap, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Resource that has been published.
+      public var publishable: Publishable? {
+        get {
+          return (resultMap["publishable"] as? ResultMap).flatMap { Publishable(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "publishable")
+        }
+      }
+
+      /// The user's shop.
+      public var shop: Shop {
+        get {
+          return Shop(unsafeResultMap: resultMap["shop"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "shop")
+        }
+      }
+
+      /// The list of errors that occurred from executing the mutation.
+      public var userErrors: [UserError] {
+        get {
+          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
+        }
+      }
+
+      public struct Publishable: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Collection", "Product"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("availablePublicationCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("publicationCount", type: .nonNull(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public static func makeCollection(availablePublicationCount: Int, publicationCount: Int) -> Publishable {
+          return Publishable(unsafeResultMap: ["__typename": "Collection", "availablePublicationCount": availablePublicationCount, "publicationCount": publicationCount])
+        }
+
+        public static func makeProduct(availablePublicationCount: Int, publicationCount: Int) -> Publishable {
+          return Publishable(unsafeResultMap: ["__typename": "Product", "availablePublicationCount": availablePublicationCount, "publicationCount": publicationCount])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The number of publications a resource is published to without feedback errors.
+        public var availablePublicationCount: Int {
+          get {
+            return resultMap["availablePublicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "availablePublicationCount")
+          }
+        }
+
+        /// The number of publications a resource is published on.
+        public var publicationCount: Int {
+          get {
+            return resultMap["publicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "publicationCount")
+          }
+        }
+      }
+
+      public struct Shop: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Shop"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("publicationCount", type: .nonNull(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(publicationCount: Int) {
+          self.init(unsafeResultMap: ["__typename": "Shop", "publicationCount": publicationCount])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The number of publications for the shop.
+        public var publicationCount: Int {
+          get {
+            return resultMap["publicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "publicationCount")
+          }
+        }
+      }
+
+      public struct UserError: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserError"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
+            GraphQLField("message", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(field: [String]? = nil, message: String) {
+          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? {
+          get {
+            return resultMap["field"] as? [String]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "field")
+          }
+        }
+
+        /// The error message.
+        public var message: String {
+          get {
+            return resultMap["message"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "message")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class PublishableUnpublishToCurrentChannelMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation publishableUnpublishToCurrentChannel($id: ID!) {
+      publishableUnpublishToCurrentChannel(id: $id) {
+        __typename
+        publishable {
+          __typename
+          availablePublicationCount
+          publicationCount
+        }
+        shop {
+          __typename
+          publicationCount
+        }
+        userErrors {
+          __typename
+          field
+          message
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "publishableUnpublishToCurrentChannel"
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("publishableUnpublishToCurrentChannel", arguments: ["id": GraphQLVariable("id")], type: .object(PublishableUnpublishToCurrentChannel.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(publishableUnpublishToCurrentChannel: PublishableUnpublishToCurrentChannel? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "publishableUnpublishToCurrentChannel": publishableUnpublishToCurrentChannel.flatMap { (value: PublishableUnpublishToCurrentChannel) -> ResultMap in value.resultMap }])
+    }
+
+    /// Unpublishes a resource from the current channel. If the resource is a product, then it's visible in the channel only if the product status is `active`.
+    public var publishableUnpublishToCurrentChannel: PublishableUnpublishToCurrentChannel? {
+      get {
+        return (resultMap["publishableUnpublishToCurrentChannel"] as? ResultMap).flatMap { PublishableUnpublishToCurrentChannel(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "publishableUnpublishToCurrentChannel")
+      }
+    }
+
+    public struct PublishableUnpublishToCurrentChannel: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["PublishableUnpublishToCurrentChannelPayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("publishable", type: .object(Publishable.selections)),
+          GraphQLField("shop", type: .nonNull(.object(Shop.selections))),
+          GraphQLField("userErrors", type: .nonNull(.list(.nonNull(.object(UserError.selections))))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(publishable: Publishable? = nil, shop: Shop, userErrors: [UserError]) {
+        self.init(unsafeResultMap: ["__typename": "PublishableUnpublishToCurrentChannelPayload", "publishable": publishable.flatMap { (value: Publishable) -> ResultMap in value.resultMap }, "shop": shop.resultMap, "userErrors": userErrors.map { (value: UserError) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Resource that has been unpublished.
+      public var publishable: Publishable? {
+        get {
+          return (resultMap["publishable"] as? ResultMap).flatMap { Publishable(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "publishable")
+        }
+      }
+
+      /// The user's shop.
+      public var shop: Shop {
+        get {
+          return Shop(unsafeResultMap: resultMap["shop"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "shop")
+        }
+      }
+
+      /// The list of errors that occurred from executing the mutation.
+      public var userErrors: [UserError] {
+        get {
+          return (resultMap["userErrors"] as! [ResultMap]).map { (value: ResultMap) -> UserError in UserError(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: UserError) -> ResultMap in value.resultMap }, forKey: "userErrors")
+        }
+      }
+
+      public struct Publishable: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Collection", "Product"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("availablePublicationCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("publicationCount", type: .nonNull(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public static func makeCollection(availablePublicationCount: Int, publicationCount: Int) -> Publishable {
+          return Publishable(unsafeResultMap: ["__typename": "Collection", "availablePublicationCount": availablePublicationCount, "publicationCount": publicationCount])
+        }
+
+        public static func makeProduct(availablePublicationCount: Int, publicationCount: Int) -> Publishable {
+          return Publishable(unsafeResultMap: ["__typename": "Product", "availablePublicationCount": availablePublicationCount, "publicationCount": publicationCount])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The number of publications a resource is published to without feedback errors.
+        public var availablePublicationCount: Int {
+          get {
+            return resultMap["availablePublicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "availablePublicationCount")
+          }
+        }
+
+        /// The number of publications a resource is published on.
+        public var publicationCount: Int {
+          get {
+            return resultMap["publicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "publicationCount")
+          }
+        }
+      }
+
+      public struct Shop: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Shop"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("publicationCount", type: .nonNull(.scalar(Int.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(publicationCount: Int) {
+          self.init(unsafeResultMap: ["__typename": "Shop", "publicationCount": publicationCount])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The number of publications for the shop.
+        public var publicationCount: Int {
+          get {
+            return resultMap["publicationCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "publicationCount")
+          }
+        }
+      }
+
+      public struct UserError: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserError"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("field", type: .list(.nonNull(.scalar(String.self)))),
+            GraphQLField("message", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(field: [String]? = nil, message: String) {
+          self.init(unsafeResultMap: ["__typename": "UserError", "field": field, "message": message])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? {
+          get {
+            return resultMap["field"] as? [String]
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "field")
+          }
+        }
+
+        /// The error message.
+        public var message: String {
+          get {
+            return resultMap["message"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "message")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllProductsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

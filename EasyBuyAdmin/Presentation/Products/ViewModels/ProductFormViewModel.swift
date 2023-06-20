@@ -70,7 +70,9 @@ class ProductFormViewModel: ObservableObject {
     func addProduct(completion: @escaping () -> Void) {
         
         let imageInputs = productImageURLStrings.filter { isValidImageURL($0) } .map { ImageInput(src: $0) }
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: imageInputs, variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], images: imageInputs, options: ["Size"], variants: [ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["S"], price: price), ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["M"], price: price), ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["L"], price: price)], status: ProductStatus.active)
+        
         
         createProduct(productInput: newProductInput) { result in
             switch result {
@@ -86,12 +88,14 @@ class ProductFormViewModel: ObservableObject {
         }
     }
     
-    private func createProduct(productInput: ProductInput, completion: @escaping (Result<String, Error>) -> Void) {
+    private func createProduct(productInput: ProductInput, completion: @escaping (Result<Void, Error>) -> Void) {
         NetworkManager.shared.performGraphQLRequest(mutation: ProductCreateMutation(input: productInput), responseModel: DataClassProductCreation.self) { result in
             switch result {
-            case .success:
-                NetworkManager.shared.service.store.clearCache()
-                completion(.success("Product created successfully"))
+            case .success(let successResult):
+                self.publishProductToStore(productID: (successResult.productCreate?.product?.id)!) { result in
+                    NetworkManager.shared.service.store.clearCache()
+                    completion(.success(()))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -101,7 +105,7 @@ class ProductFormViewModel: ObservableObject {
     func updateProduct(productID: String, completion: @escaping () -> Void) {
         
         let imageInputs = productImageURLStrings.filter { isValidImageURL($0) } .map { ImageInput(src: $0) }
-        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: self.productID!,  images: imageInputs, variants: [ProductVariantInput(price: price)], status: ProductStatus.active)
+        let newProductInput = ProductInput(descriptionHtml: description, productType: productTypes[productTypeIndex], tags: tags.filter { !$0.isEmpty }, title: title, vendor: vendor, collectionsToJoin: [Constants.collections[selectedCollectionTitle] ?? "gid://shopify/Collection/447403131187"], id: self.productID!, images: imageInputs, options: ["Size"], variants: [ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["S"], price: price), ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["M"], price: price), ProductVariantInput(inventoryQuantities: [InventoryLevelInput(availableQuantity: 10, locationId: "gid://shopify/Location/84786610483")], options: ["L"], price: price)], status: ProductStatus.active)
         
         updateProduct(productInput: newProductInput) { result in
             switch result {
@@ -121,9 +125,22 @@ class ProductFormViewModel: ObservableObject {
         
         NetworkManager.shared.performGraphQLRequest(mutation: ProductUpdateMutation(input: productInput), responseModel: DataClassProductUpdate.self) { result in
             switch result {
+            case .success(let successResult):
+                self.publishProductToStore(productID: (successResult.productUpdate?.product?.id)!) { result in
+                    NetworkManager.shared.service.store.clearCache()
+                    completion(.success("Product updated successfully"))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func publishProductToStore(productID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        NetworkManager.shared.performGraphQLRequest(mutation: PublishablePublishToCurrentChannelMutation(id: productID), responseModel: PublishItemDataClass.self) { result in
+            switch result {
             case .success:
-                NetworkManager.shared.service.store.clearCache()
-                completion(.success("Product updated successfully"))
+                completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }
