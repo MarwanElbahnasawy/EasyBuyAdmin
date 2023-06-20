@@ -8,25 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var networkChecker = NetworkChecker()
+    
     var body: some View {
-        TabView {
-            ProductsView()
-                .tabItem {
-                    Image(uiImage: UIImage(named: "products")!)
-                    Text("Products")
-                }
-            CollectionsView()
-                .tabItem {
-                    Image(uiImage: UIImage(named: "collections")!)
-                    Text("Collections")
-                }
-            DiscountCodesView()
-                .tabItem {
-                    Image(uiImage: UIImage(named: "discount_codes")!)
-                    Text("Discount Codes")
-                }
+        ZStack {
+            TabView {
+                ProductsView()
+                    .tabItem {
+                        Image(uiImage: UIImage(named: "products")!)
+                        Text("Products")
+                    }
+                CollectionsView()
+                    .tabItem {
+                        Image(uiImage: UIImage(named: "collections")!)
+                        Text("Collections")
+                    }
+                DiscountCodesView()
+                    .tabItem {
+                        Image(uiImage: UIImage(named: "discount_codes")!)
+                        Text("Discount Codes")
+                    }
+            }
+            .accentColor(.black)
+            if !networkChecker.reachable {
+                Color.white.edgesIgnoringSafeArea(.all)
+                Image("nointernet")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
         }
-        .accentColor(.black)
     }
 }
 
