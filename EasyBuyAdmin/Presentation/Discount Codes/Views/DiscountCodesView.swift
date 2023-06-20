@@ -73,7 +73,7 @@ struct DiscountCodesView: View {
                 }
                 .background(Color(hex: "f7f7f7"))
             }
-            .navigationTitle("Discount Codes View")
+            .navigationTitle("Discount Codes")
             .onAppear {
                 discountsViewModel.fetchAllDiscountCodes()
             }

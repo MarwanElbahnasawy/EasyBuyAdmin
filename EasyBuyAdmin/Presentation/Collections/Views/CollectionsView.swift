@@ -67,7 +67,7 @@ struct CollectionsView: View {
                 }
                 .background(Color(hex: "f7f7f7"))
             }
-            .navigationTitle("Collections View")
+            .navigationTitle("Collections")
             .onAppear {
                 collectionsViewModel.fetchAllCollections()
             }

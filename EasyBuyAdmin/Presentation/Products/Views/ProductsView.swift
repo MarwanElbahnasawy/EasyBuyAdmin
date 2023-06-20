@@ -66,7 +66,7 @@ struct ProductsView: View {
                 }
                 .background(Color(hex: "f7f7f7"))
             }
-            .navigationTitle("Products View")
+            .navigationTitle("Products")
             .onAppear {
                 productsViewModel.fetchAllProducts()
             }

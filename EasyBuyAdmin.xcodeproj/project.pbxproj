@@ -129,6 +129,7 @@
 		17A5F8D12A3CA3A500882772 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		17A5F8D32A3CC4BE00882772 /* TextFieldWithPlusAnndMinusButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPlusAnndMinusButtons.swift; sourceTree = "<group>"; };
 		17B4C58E2A4203860065A72B /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
+		17B4C5902A42276D0065A72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17D3D94B2A2E630200565FD8 /* ProductFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFormView.swift; sourceTree = "<group>"; };
 		17D3D94D2A2E7F1B00565FD8 /* ProductFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFormViewModel.swift; sourceTree = "<group>"; };
 		17D3D94F2A2E867A00565FD8 /* ProductCreationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCreationModels.swift; sourceTree = "<group>"; };
@@ -424,6 +425,7 @@
 		17D5C0AF2A2BE0F200BAC8BC /* EasyBuyAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				17B4C5902A42276D0065A72B /* Info.plist */,
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
 				17D5C0E62A2BE6A300BAC8BC /* App */,
@@ -1007,6 +1009,7 @@
 				DEVELOPMENT_TEAM = CV64V222GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyBuyAdmin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1038,6 +1041,7 @@
 				DEVELOPMENT_TEAM = CV64V222GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyBuyAdmin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
