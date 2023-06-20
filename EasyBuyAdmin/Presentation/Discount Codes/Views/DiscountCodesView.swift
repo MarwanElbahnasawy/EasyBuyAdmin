@@ -16,80 +16,85 @@ struct DiscountCodesView: View {
     @State private var deletionAlert: DeletionAlertType = .confirmDeleteAlert
     
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                let screenWidth = geometry.size.width
-                let cellWidth = screenWidth * 0.9
-                let cellHeight = cellWidth * 0.35
-                let horizontalPadding = screenWidth * 0.05
-                VStack (spacing: 8) {
-                    SearchBar(text: $discountsViewModel.searchText)
-                    VStack(alignment: .leading) {
-                        Text("Minimum Discount: \(Int(discountsViewModel.discountPercentage))%")
-                            .padding(EdgeInsets(top: 2, leading: 16, bottom: 6, trailing: 8))
-                        Slider(value: $discountsViewModel.discountPercentage, in: 0...100, step: 1)
-                            .padding(.horizontal)
+        ZStack {
+            if(discountsViewModel.isLoading){
+                LottieCustomView(lottieFile: "loading")
+                    .onAppear {
+                        discountsViewModel.fetchAllDiscountCodes()
                     }
-                    ScrollView {
-                        LazyVGrid(columns: [GridItem(.flexible())]) {
-                            ForEach(discountsViewModel.filteredDiscountCodeNodes, id: \.id) { discountCodeNode in
-                                NavigationLink(destination: DiscountCodeFormView(discountCode: discountCodeNode.codeDiscount, discountCodeID: discountCodeNode.id)) {
-                                    DiscountCodeCell(discountCode: discountCodeNode.codeDiscount!, discountCodeID: discountCodeNode.id!, cellWidth: cellWidth, cellHeight: cellHeight) { selectedDiscountCodeID in
-                                        self.deletionAlert = .confirmDeleteAlert
-                                        showDeletionAlert = true
-                                        self.selectedDiscountCodeID = selectedDiscountCodeID
+            }else{
+                NavigationView {
+                    GeometryReader { geometry in
+                        let screenWidth = geometry.size.width
+                        let cellWidth = screenWidth * 0.9
+                        let cellHeight = cellWidth * 0.35
+                        let horizontalPadding = screenWidth * 0.05
+                        VStack (spacing: 8) {
+                            SearchBar(text: $discountsViewModel.searchText)
+                            VStack(alignment: .leading) {
+                                Text("Minimum Discount: \(Int(discountsViewModel.discountPercentage))%")
+                                    .padding(EdgeInsets(top: 2, leading: 16, bottom: 6, trailing: 8))
+                                Slider(value: $discountsViewModel.discountPercentage, in: 0...100, step: 1)
+                                    .padding(.horizontal)
+                            }
+                            ScrollView {
+                                LazyVGrid(columns: [GridItem(.flexible())]) {
+                                    ForEach(discountsViewModel.filteredDiscountCodeNodes, id: \.id) { discountCodeNode in
+                                        NavigationLink(destination: DiscountCodeFormView(discountCode: discountCodeNode.codeDiscount, discountCodeID: discountCodeNode.id)) {
+                                            DiscountCodeCell(discountCode: discountCodeNode.codeDiscount!, discountCodeID: discountCodeNode.id!, cellWidth: cellWidth, cellHeight: cellHeight) { selectedDiscountCodeID in
+                                                self.deletionAlert = .confirmDeleteAlert
+                                                showDeletionAlert = true
+                                                self.selectedDiscountCodeID = selectedDiscountCodeID
+                                            }
+                                        }
                                     }
+                                }
+                                .padding(.horizontal, horizontalPadding)
+                            }
+                            .background(Color(hex: "f7f7f7"))
+                            .refreshable {
+                                discountsViewModel.fetchAllDiscountCodes()
+                            }
+                            .alert(isPresented: $showDeletionAlert) {
+                                switch deletionAlert {
+                                case .confirmDeleteAlert:
+                                    return Alert(title: Text("Confirm Deletion"),
+                                                 message: Text("Are you sure you want to delete this discount code?"),
+                                                 primaryButton: .destructive(Text("Delete")) {
+                                        discountCodeCellViewModel.deleteDiscountCode(discountCodeID: selectedDiscountCodeID ?? "") { result in
+                                            switch result {
+                                            case .success:
+                                                discountsViewModel.fetchAllDiscountCodes()
+                                                deletionAlert = .isDeletedAlert
+                                                showDeletionAlert = true
+                                            case .failure(let error):
+                                                print(error.localizedDescription)
+                                            }
+                                        }
+                                    },
+                                                 secondaryButton: .cancel())
+                                case .isDeletedAlert:
+                                    return Alert(title: Text("Success"), message: Text("Discount code deleted successfully"), dismissButton: .default(Text("OK")))
                                 }
                             }
                         }
-                        .padding(.horizontal, horizontalPadding)
+                        .background(Color(hex: "f7f7f7"))
                     }
-                    .background(Color(hex: "f7f7f7"))
-                    .refreshable {
-                        discountsViewModel.fetchAllDiscountCodes()
+                    .navigationTitle("Discount Codes")
+                    .navigationBarItems(trailing: Button(action: {
+                        isAddDiscountCodeButtonClicked = true
+                    }) {
+                        Image(systemName: "plus")
                     }
-                    .alert(isPresented: $showDeletionAlert) {
-                        switch deletionAlert {
-                        case .confirmDeleteAlert:
-                            return Alert(title: Text("Confirm Deletion"),
-                                         message: Text("Are you sure you want to delete this discount code?"),
-                                         primaryButton: .destructive(Text("Delete")) {
-                                discountCodeCellViewModel.deleteDiscountCode(discountCodeID: selectedDiscountCodeID ?? "") { result in
-                                    switch result {
-                                    case .success:
-                                        discountsViewModel.fetchAllDiscountCodes()
-                                        deletionAlert = .isDeletedAlert
-                                        showDeletionAlert = true
-                                    case .failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            },
-                                         secondaryButton: .cancel())
-                        case .isDeletedAlert:
-                            return Alert(title: Text("Success"), message: Text("Discount code deleted successfully"), dismissButton: .default(Text("OK")))
+                    )
+                    .background(
+                        NavigationLink(destination: DiscountCodeFormView(), isActive: $isAddDiscountCodeButtonClicked) {
+                            EmptyView()
                         }
-                    }
+                    )
                 }
-                .background(Color(hex: "f7f7f7"))
+                .navigationViewStyle(StackNavigationViewStyle())
             }
-            .navigationTitle("Discount Codes")
-            .onAppear {
-                discountsViewModel.fetchAllDiscountCodes()
-            }
-            .navigationBarItems(trailing: Button(action: {
-                isAddDiscountCodeButtonClicked = true
-            }) {
-                Image(systemName: "plus")
-            }
-            )
-            .background(
-                NavigationLink(destination: DiscountCodeFormView(), isActive: $isAddDiscountCodeButtonClicked) {
-                    EmptyView()
-                }
-            )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
-    
 }

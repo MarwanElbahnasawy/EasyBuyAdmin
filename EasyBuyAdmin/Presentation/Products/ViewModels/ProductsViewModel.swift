@@ -11,6 +11,7 @@ import Apollo
 class ProductsViewModel: ObservableObject {
     @Published var products = [ProductNode]()
     @Published var searchText = ""
+    @Published var isLoading: Bool = true
     
     var filteredProducts: [ProductNode] {
         if searchText.isEmpty {
@@ -39,6 +40,7 @@ class ProductsViewModel: ObservableObject {
                     let products = productEdges.compactMap { $0.node }
                     DispatchQueue.main.async {
                         self.products = products
+                        self.isLoading = false
                     }
                 }
             case .failure(let error):

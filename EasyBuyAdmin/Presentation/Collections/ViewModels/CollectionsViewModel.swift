@@ -10,6 +10,7 @@ import Foundation
 class CollectionsViewModel: ObservableObject {
     @Published var collections = [CollectionNode]()
     @Published var searchText = ""
+    @Published var isLoading: Bool = true
     
     var filteredCollections: [CollectionNode] {
            if searchText.isEmpty {
@@ -32,6 +33,7 @@ class CollectionsViewModel: ObservableObject {
                     let collections = collectionEdges.compactMap { $0.node }
                     DispatchQueue.main.async {
                         self.collections = collections
+                        self.isLoading = false
                     }
                 }
             case .failure(let error):

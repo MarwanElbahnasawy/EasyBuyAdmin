@@ -43,6 +43,8 @@
 		17A5F8D22A3CA3A500882772 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5F8D12A3CA3A500882772 /* SearchBar.swift */; };
 		17A5F8D42A3CC4BF00882772 /* TextFieldWithPlusAnndMinusButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5F8D32A3CC4BE00882772 /* TextFieldWithPlusAnndMinusButtons.swift */; };
 		17B4C58F2A4203870065A72B /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4C58E2A4203860065A72B /* NetworkChecker.swift */; };
+		17B4C5932A423AE50065A72B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 17B4C5922A423AE50065A72B /* loading.json */; };
+		17B4C5952A423B870065A72B /* LottieCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4C5942A423B870065A72B /* LottieCustomView.swift */; };
 		17D3D94C2A2E630200565FD8 /* ProductFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3D94B2A2E630200565FD8 /* ProductFormView.swift */; };
 		17D3D94E2A2E7F1B00565FD8 /* ProductFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3D94D2A2E7F1B00565FD8 /* ProductFormViewModel.swift */; };
 		17D3D9502A2E867A00565FD8 /* ProductCreationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3D94F2A2E867A00565FD8 /* ProductCreationModels.swift */; };
@@ -130,6 +132,8 @@
 		17A5F8D32A3CC4BE00882772 /* TextFieldWithPlusAnndMinusButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPlusAnndMinusButtons.swift; sourceTree = "<group>"; };
 		17B4C58E2A4203860065A72B /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
 		17B4C5902A42276D0065A72B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		17B4C5922A423AE50065A72B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		17B4C5942A423B870065A72B /* LottieCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieCustomView.swift; sourceTree = "<group>"; };
 		17D3D94B2A2E630200565FD8 /* ProductFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFormView.swift; sourceTree = "<group>"; };
 		17D3D94D2A2E7F1B00565FD8 /* ProductFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFormViewModel.swift; sourceTree = "<group>"; };
 		17D3D94F2A2E867A00565FD8 /* ProductCreationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCreationModels.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 			children = (
 				17A5F8D12A3CA3A500882772 /* SearchBar.swift */,
 				17A5F8D32A3CC4BE00882772 /* TextFieldWithPlusAnndMinusButtons.swift */,
+				17B4C5942A423B870065A72B /* LottieCustomView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -398,6 +403,14 @@
 				176299DB2A3DDD3B0013492B /* MockNetworkManagerMethods.swift */,
 			);
 			path = "Mock NetworkManager methods and responses";
+			sourceTree = "<group>";
+		};
+		17B4C5912A423AD10065A72B /* Lottie Files */ = {
+			isa = PBXGroup;
+			children = (
+				17B4C5922A423AE50065A72B /* loading.json */,
+			);
+			path = "Lottie Files";
 			sourceTree = "<group>";
 		};
 		17D5C0A42A2BE0F200BAC8BC = {
@@ -474,6 +487,7 @@
 		17D5C0E72A2BE6AD00BAC8BC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				17B4C5912A423AD10065A72B /* Lottie Files */,
 				17D5C0B42A2BE0F400BAC8BC /* Assets.xcassets */,
 				17D5C0B62A2BE0F400BAC8BC /* Preview Content */,
 			);
@@ -648,6 +662,7 @@
 			files = (
 				17D5C0B82A2BE0F400BAC8BC /* Preview Assets.xcassets in Resources */,
 				1704AFAC2A2CC10200481A64 /* admin_schema.json in Resources */,
+				17B4C5932A423AE50065A72B /* loading.json in Resources */,
 				17D5C0B52A2BE0F400BAC8BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,6 +824,7 @@
 				1704AFA42A2CAFCF00481A64 /* DiscountCodesQueries.graphql in Sources */,
 				17E5DE5A2A3872F200C59B4A /* DiscountCodeCellViewModel.swift in Sources */,
 				17E73D512A3BB49800B5D765 /* CollectionCellViewModel.swift in Sources */,
+				17B4C5952A423B870065A72B /* LottieCustomView.swift in Sources */,
 				17F983C92A311F96005BECC0 /* ProductCellViewModel.swift in Sources */,
 				1704AF9A2A2C906000481A64 /* DiscountCodesViewModel.swift in Sources */,
 				17E73D532A3BB4A400B5D765 /* CollectionFormViewModel.swift in Sources */,

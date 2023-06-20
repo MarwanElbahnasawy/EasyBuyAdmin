@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct ProductsView: View {
     @StateObject private var productsViewModel = ProductsViewModel()
@@ -16,72 +17,82 @@ struct ProductsView: View {
     @State private var deletionAlert: DeletionAlertType = .confirmDeleteAlert
     
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                let screenWidth = geometry.size.width
-                let imageSide = screenWidth * 0.44
-                let horizontalPadding = screenWidth * 0.04
-                VStack (spacing: 8) {
-                    SearchBar(text: $productsViewModel.searchText)
-                    ScrollView {
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
-                            ForEach(productsViewModel.filteredProducts, id: \.id) { product in
-                                NavigationLink(destination: ProductFormView(product: product)) {
-                                    ProductCell(product: product, imageSide: imageSide) { selectedProduct in
-                                        self.deletionAlert = .confirmDeleteAlert
-                                        showDeletionAlert = true
-                                        self.selectedProduct = selectedProduct
+        ZStack {
+            if(productsViewModel.isLoading){
+                LottieCustomView(lottieFile: "loading")
+                    .onAppear {
+                        productsViewModel.fetchAllProducts()
+                    }
+            }else{
+                NavigationView {
+                    GeometryReader { geometry in
+                        let screenWidth = geometry.size.width
+                        let imageSide = screenWidth * 0.44
+                        let horizontalPadding = screenWidth * 0.04
+                        VStack (spacing: 8) {
+                            SearchBar(text: $productsViewModel.searchText)
+                            ScrollView {
+                                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: horizontalPadding) {
+                                    ForEach(productsViewModel.filteredProducts, id: \.id) { product in
+                                        NavigationLink(destination: ProductFormView(product: product)) {
+                                            ProductCell(product: product, imageSide: imageSide) { selectedProduct in
+                                                self.deletionAlert = .confirmDeleteAlert
+                                                showDeletionAlert = true
+                                                self.selectedProduct = selectedProduct
+                                            }
+                                        }
                                     }
+                                }
+                                .padding(.horizontal, horizontalPadding)
+                            }
+                            .background(Color(hex: "f7f7f7"))
+                            .refreshable {
+                                productsViewModel.fetchAllProducts()
+                            }
+                            .alert(isPresented: $showDeletionAlert) {
+                                switch deletionAlert {
+                                case .confirmDeleteAlert:
+                                    return Alert(title: Text("Confirm Deletion"),
+                                                 message: Text("Are you sure you want to delete this product?"),
+                                                 primaryButton: .destructive(Text("Delete")) {
+                                        productCellViewModel.deleteProduct(productID: selectedProduct?.id ?? "") { result in
+                                            switch result {
+                                            case .success:
+                                                productsViewModel.fetchAllProducts()
+                                                deletionAlert = .isDeletedAlert
+                                                showDeletionAlert = true
+                                            case .failure(let error):
+                                                print(error.localizedDescription)
+                                            }
+                                        }
+                                    },
+                                                 secondaryButton: .cancel())
+                                case .isDeletedAlert:
+                                    return Alert(title: Text("Success"), message: Text("Product deleted successfully"), dismissButton: .default(Text("OK")))
                                 }
                             }
                         }
-                        .padding(.horizontal, horizontalPadding)
+                        .background(Color(hex: "f7f7f7"))
                     }
-                    .background(Color(hex: "f7f7f7"))
-                    .refreshable {
-                        productsViewModel.fetchAllProducts()
+                    .navigationTitle("Products")
+                    .navigationBarItems(trailing: Button(action: {
+                        isAddProductButtonClicked = true
+                    }) {
+                        Image(systemName: "plus")
                     }
-                    .alert(isPresented: $showDeletionAlert) {
-                        switch deletionAlert {
-                        case .confirmDeleteAlert:
-                            return Alert(title: Text("Confirm Deletion"),
-                                  message: Text("Are you sure you want to delete this product?"),
-                                  primaryButton: .destructive(Text("Delete")) {
-                                productCellViewModel.deleteProduct(productID: selectedProduct?.id ?? "") { result in
-                                    switch result {
-                                    case .success:
-                                        productsViewModel.fetchAllProducts()
-                                        deletionAlert = .isDeletedAlert
-                                        showDeletionAlert = true
-                                    case .failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            },
-                                  secondaryButton: .cancel())
-                        case .isDeletedAlert:
-                        return Alert(title: Text("Success"), message: Text("Product deleted successfully"), dismissButton: .default(Text("OK")))
+                    )
+                    .background(
+                        NavigationLink(destination: ProductFormView(), isActive: $isAddProductButtonClicked) {
+                            EmptyView()
                         }
-                    }
+                    )
                 }
-                .background(Color(hex: "f7f7f7"))
+                .navigationViewStyle(StackNavigationViewStyle())
             }
-            .navigationTitle("Products")
-            .onAppear {
-                productsViewModel.fetchAllProducts()
-            }
-            .navigationBarItems(trailing: Button(action: {
-                isAddProductButtonClicked = true
-            }) {
-                Image(systemName: "plus")
-            }
-            )
-            .background(
-                NavigationLink(destination: ProductFormView(), isActive: $isAddProductButtonClicked) {
-                    EmptyView()
-                }
-            )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        
+        
     }
 }
+
+

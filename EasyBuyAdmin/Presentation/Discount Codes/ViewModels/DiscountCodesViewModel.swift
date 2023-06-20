@@ -11,6 +11,7 @@ class DiscountCodesViewModel: ObservableObject {
     @Published var discountCodeNodes = [CodeDiscountNode]()
     @Published var searchText = ""
     @Published var discountPercentage: Double = 0
+    @Published var isLoading: Bool = true
     
     var filteredDiscountCodeNodes: [CodeDiscountNode] {
         if searchText == " " {
@@ -40,6 +41,7 @@ class DiscountCodesViewModel: ObservableObject {
                 if let codeDiscountNodes = data.codeDiscountNodes?.nodes {
                     DispatchQueue.main.async {
                         self.discountCodeNodes = codeDiscountNodes
+                        self.isLoading = false
                     }
                 }
             case .failure(let error):
