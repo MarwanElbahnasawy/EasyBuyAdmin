@@ -17,7 +17,9 @@ struct ContentView: View {
                     .tabItem {
                         Image(uiImage: UIImage(named: "products")!)
                         Text("Products")
+                            
                     }
+                    .foregroundColor(Color.black)
                 CollectionsView()
                     .tabItem {
                         Image(uiImage: UIImage(named: "collections")!)

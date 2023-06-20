@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProductFormView: View {
     @StateObject private var productFormViewModel = ProductFormViewModel()
@@ -53,43 +54,19 @@ struct ProductFormView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Vendor", text: $productFormViewModel.vendor)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("Description", text: $productFormViewModel.description)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Price($)*", text: $productFormViewModel.price)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
-                    ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
-                        TextFieldWithPlusAndMinusButtons(
-                            index: index,
-                            textFieldText: $productFormViewModel.productImageURLStrings[index],
-                            addTextField: { numberOfVisibleTextFields += 1 },
-                            removeTextField: {
-                                productFormViewModel.productImageURLStrings[index] = ""
-                                numberOfVisibleTextFields -= 1
-                            },
-                            showPlusButton: index < 3 && index + 1 == numberOfVisibleTextFields,
-                            showMinusButton: index > 0 && index + 1 == numberOfVisibleTextFields
-                        )
-                    }
+                    Text("Description")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    TextEditor(text: $productFormViewModel.description)
+                        .frame(minHeight: 32)
+                        .background(Color.white)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray.opacity(0.2), lineWidth: 1))
+                    
                     
                 }
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                    ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
-                        if let url = URL(string: productFormViewModel.productImageURLStrings[index]), productFormViewModel.isValidImageURL(productFormViewModel.productImageURLStrings[index]) {
-                            AsyncImage(url: url) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipped()
-                                    .frame(width: width70percent*0.6, height: width70percent*0.6)
-                                    .background(Color.white)
-                                    .cornerRadius(width70percent/10)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                        }
-                    }
-                }
+                
                 HStack {
                     Text("Product Type:")
                     Picker("Product Type", selection: $productFormViewModel.productTypeIndex) {
@@ -127,6 +104,33 @@ struct ProductFormView: View {
                         }
                     }
                 }
+                ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
+                    TextFieldWithPlusAndMinusButtons(
+                        index: index,
+                        textFieldText: $productFormViewModel.productImageURLStrings[index],
+                        addTextField: { numberOfVisibleTextFields += 1 },
+                        removeTextField: {
+                            productFormViewModel.productImageURLStrings[index] = ""
+                            numberOfVisibleTextFields -= 1
+                        },
+                        showPlusButton: index < 3 && index + 1 == numberOfVisibleTextFields,
+                        showMinusButton: index > 0 && index + 1 == numberOfVisibleTextFields
+                    )
+                }
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                                ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
+                                    if let url = URL(string: productFormViewModel.productImageURLStrings[index]), productFormViewModel.isValidImageURL(productFormViewModel.productImageURLStrings[index]) {
+                                        KFImage(url)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipped()
+                                            .frame(width: width70percent*0.6, height: width70percent*0.6)
+                                            .background(Color.white)
+                                            .cornerRadius(width70percent/10)
+                                    }
+                                }
+                            }
+            
                 if isFormValid {
                     Spacer()
                     if !productFormViewModel.isProductBeingUpdated {
@@ -200,6 +204,9 @@ struct ProductFormView: View {
                 numberOfVisibleTextFields = max(edges.count, 1)
             }
         }
+        .refreshable(action: {
+            
+        })
         .background(Color(hex: "f7f7f7"))
     }
 }
