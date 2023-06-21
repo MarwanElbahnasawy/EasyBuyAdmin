@@ -160,7 +160,7 @@ class ProductFormViewModel: ObservableObject {
     }
     
     func isValidPrice(_ price: String) -> Bool {
-        if let priceValue = Double(price), priceValue > 0 && priceValue <= 1_000_000 {
+        if let priceValue = Double(price), priceValue > 0 && priceValue <= 50_000 {
             return true
         }
         return false

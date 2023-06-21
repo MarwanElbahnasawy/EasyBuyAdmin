@@ -38,6 +38,10 @@
 		176299DC2A3DDD3B0013492B /* MockNetworkManagerMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176299DB2A3DDD3B0013492B /* MockNetworkManagerMethods.swift */; };
 		176299DE2A3DDF9E0013492B /* MockNetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176299DD2A3DDF9E0013492B /* MockNetworkManagerTest.swift */; };
 		1768C8242A37A19A0073B96D /* ProductUpdateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1768C8232A37A19A0073B96D /* ProductUpdateModels.swift */; };
+		177044262A4380C9000AC7EA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177044252A4380C9000AC7EA /* LoginViewModel.swift */; };
+		177044282A4380D0000AC7EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177044272A4380D0000AC7EA /* LoginView.swift */; };
+		1770442A2A43811D000AC7EA /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177044292A43811D000AC7EA /* InputView.swift */; };
+		1770442C2A438245000AC7EA /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770442B2A438245000AC7EA /* AppViewModel.swift */; };
 		17774EE02A39EEB400A628DC /* DiscountCodeDeletionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17774EDF2A39EEB400A628DC /* DiscountCodeDeletionModels.swift */; };
 		17A5F8D02A3CA38600882772 /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5F8CF2A3CA38600882772 /* CheckmarkView.swift */; };
 		17A5F8D22A3CA3A500882772 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5F8D12A3CA3A500882772 /* SearchBar.swift */; };
@@ -126,6 +130,10 @@
 		176299DB2A3DDD3B0013492B /* MockNetworkManagerMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerMethods.swift; sourceTree = "<group>"; };
 		176299DD2A3DDF9E0013492B /* MockNetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerTest.swift; sourceTree = "<group>"; };
 		1768C8232A37A19A0073B96D /* ProductUpdateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUpdateModels.swift; sourceTree = "<group>"; };
+		177044252A4380C9000AC7EA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		177044272A4380D0000AC7EA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		177044292A43811D000AC7EA /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		1770442B2A438245000AC7EA /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		17774EDF2A39EEB400A628DC /* DiscountCodeDeletionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeDeletionModels.swift; sourceTree = "<group>"; };
 		17A5F8CF2A3CA38600882772 /* CheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 		17A5F8D12A3CA3A500882772 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 		1704AF872A2C8ED000481A64 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				177044222A438074000AC7EA /* Login */,
 				1704AF882A2C8EDB00481A64 /* Products */,
 				1704AF8A2A2C8EFD00481A64 /* Collections */,
 				1704AF892A2C8EF400481A64 /* Discount Codes */,
@@ -405,6 +414,32 @@
 			path = "Mock NetworkManager methods and responses";
 			sourceTree = "<group>";
 		};
+		177044222A438074000AC7EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				177044232A43807B000AC7EA /* Views */,
+				177044242A438085000AC7EA /* ViewModels */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		177044232A43807B000AC7EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				177044272A4380D0000AC7EA /* LoginView.swift */,
+				177044292A43811D000AC7EA /* InputView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		177044242A438085000AC7EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				177044252A4380C9000AC7EA /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		17B4C5912A423AD10065A72B /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +476,7 @@
 				17B4C5902A42276D0065A72B /* Info.plist */,
 				17D5C0B02A2BE0F200BAC8BC /* EasyBuyAdminApp.swift */,
 				17D5C0B22A2BE0F200BAC8BC /* ContentView.swift */,
+				1770442B2A438245000AC7EA /* AppViewModel.swift */,
 				17D5C0E62A2BE6A300BAC8BC /* App */,
 				174BB99C2A2CE88200C61AC8 /* Data */,
 				1704AF872A2C8ED000481A64 /* Presentation */,
@@ -810,11 +846,13 @@
 			files = (
 				174BB9B02A2D299E00C61AC8 /* Extensions.swift in Sources */,
 				17D5C0B32A2BE0F200BAC8BC /* ContentView.swift in Sources */,
+				1770442C2A438245000AC7EA /* AppViewModel.swift in Sources */,
 				174BB9AE2A2D23DB00C61AC8 /* ProductCell.swift in Sources */,
 				174BB9A82A2D1EA700C61AC8 /* Constants.swift in Sources */,
 				17E73D492A3B75BE00B5D765 /* CollectionsGetAllModels.swift in Sources */,
 				17B4C58F2A4203870065A72B /* NetworkChecker.swift in Sources */,
 				174BB99A2A2CE22A00C61AC8 /* GraphQLAPI.swift in Sources */,
+				177044262A4380C9000AC7EA /* LoginViewModel.swift in Sources */,
 				17E73D4D2A3BA78200B5D765 /* CollectionsCell.swift in Sources */,
 				1704AF982A2C904E00481A64 /* CollectionsViewModel.swift in Sources */,
 				174BB9A22A2D06FD00C61AC8 /* ProductsGetAllModels.swift in Sources */,
@@ -855,9 +893,11 @@
 				17D3D9502A2E867A00565FD8 /* ProductCreationModels.swift in Sources */,
 				17A5F8D22A3CA3A500882772 /* SearchBar.swift in Sources */,
 				174BB9AA2A2D1ED500C61AC8 /* TokenInterceptor.swift in Sources */,
+				177044282A4380D0000AC7EA /* LoginView.swift in Sources */,
 				17E5DE5C2A3899D000C59B4A /* DiscountCodeFormView.swift in Sources */,
 				1720FBD52A38C5FA0002C777 /* AlertTypes.swift in Sources */,
 				174BB9A52A2D1E3600C61AC8 /* NetworkManaging.swift in Sources */,
+				1770442A2A43811D000AC7EA /* InputView.swift in Sources */,
 				1720FBD32A38C4C40002C777 /* DiscountCodeUpdateModels.swift in Sources */,
 				1704AF922A2C902B00481A64 /* ProductsView.swift in Sources */,
 			);

@@ -35,18 +35,13 @@ struct ProductFormView: View {
                 if productFormViewModel.isProductBeingUpdated {
                     if let imageUrlString = product?.images?.edges?.first?.node?.url,
                        let url = URL(string: imageUrlString) {
-                        AsyncImage(url: url) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipped()
-                                .frame(width: width70percent, height: width70percent)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: width70percent, height: width70percent)
-                        .background(Color.white)
-                        .cornerRadius(width70percent/8)
+                        KFImage(url)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipped()
+                            .frame(width: width70percent, height: width70percent)
+                            .background(Color.white)
+                            .cornerRadius(width70percent/8)
                     }
                 }
                 VStack(spacing: 20) {
@@ -54,7 +49,7 @@ struct ProductFormView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("Vendor", text: $productFormViewModel.vendor)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("Price($)*", text: $productFormViewModel.price)
+                    TextField("Price in $ (maximum: $50k)*", text: $productFormViewModel.price)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                     Text("Description")
@@ -63,8 +58,6 @@ struct ProductFormView: View {
                         .frame(minHeight: 32)
                         .background(Color.white)
                         .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray.opacity(0.2), lineWidth: 1))
-                    
-                    
                 }
                 
                 HStack {
@@ -108,29 +101,31 @@ struct ProductFormView: View {
                     TextFieldWithPlusAndMinusButtons(
                         index: index,
                         textFieldText: $productFormViewModel.productImageURLStrings[index],
-                        addTextField: { numberOfVisibleTextFields += 1 },
-                        removeTextField: {
-                            productFormViewModel.productImageURLStrings[index] = ""
-                            numberOfVisibleTextFields -= 1
+                        addTextField: {
+                            productFormViewModel.productImageURLStrings.append("")
+                            numberOfVisibleTextFields += 1
                         },
-                        showPlusButton: index < 3 && index + 1 == numberOfVisibleTextFields,
-                        showMinusButton: index > 0 && index + 1 == numberOfVisibleTextFields
+                        removeTextField: {
+                            numberOfVisibleTextFields -= 1
+                            productFormViewModel.productImageURLStrings.remove(at: index)
+                        },
+                        isLastTextField: index == numberOfVisibleTextFields - 1
                     )
                 }
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                                ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
-                                    if let url = URL(string: productFormViewModel.productImageURLStrings[index]), productFormViewModel.isValidImageURL(productFormViewModel.productImageURLStrings[index]) {
-                                        KFImage(url)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .clipped()
-                                            .frame(width: width70percent*0.6, height: width70percent*0.6)
-                                            .background(Color.white)
-                                            .cornerRadius(width70percent/10)
-                                    }
-                                }
-                            }
-            
+                    ForEach(0..<numberOfVisibleTextFields, id: \.self) { index in
+                        if let url = URL(string: productFormViewModel.productImageURLStrings[index]), productFormViewModel.isValidImageURL(productFormViewModel.productImageURLStrings[index]) {
+                            KFImage(url)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipped()
+                                .frame(width: width70percent*0.6, height: width70percent*0.6)
+                                .background(Color.white)
+                                .cornerRadius(width70percent/10)
+                        }
+                    }
+                }
+                
                 if isFormValid {
                     Spacer()
                     if !productFormViewModel.isProductBeingUpdated {
@@ -162,7 +157,7 @@ struct ProductFormView: View {
                         }
                         .disabled(!isFormValid)
                     }
-
+                    
                 } else {
                     Spacer()
                     if !productFormViewModel.isProductBeingUpdated {
@@ -186,7 +181,7 @@ struct ProductFormView: View {
                                 showAlert = true
                             }
                     }
-
+                    
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
