@@ -79,6 +79,9 @@ struct DiscountCodesView: View {
                             }
                         }
                         .background(Color(hex: "f7f7f7"))
+                        .onAppear {
+                            discountsViewModel.fetchAllDiscountCodes()
+                        }
                     }
                     .navigationTitle("Discount Codes")
                     .navigationBarItems(trailing: Button(action: {

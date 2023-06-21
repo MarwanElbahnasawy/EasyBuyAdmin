@@ -73,6 +73,9 @@ struct ProductsView: View {
                             }
                         }
                         .background(Color(hex: "f7f7f7"))
+                        .onAppear {
+                            productsViewModel.fetchAllProducts()
+                        }
                     }
                     .navigationTitle("Products")
                     .navigationBarItems(trailing: Button(action: {

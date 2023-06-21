@@ -73,6 +73,9 @@ struct CollectionsView: View {
                             }
                         }
                         .background(Color(hex: "f7f7f7"))
+                        .onAppear {
+                            collectionsViewModel.fetchAllCollections()
+                        }
                     }
                     .navigationTitle("Collections")
                     .navigationBarItems(trailing: Button(action: {
