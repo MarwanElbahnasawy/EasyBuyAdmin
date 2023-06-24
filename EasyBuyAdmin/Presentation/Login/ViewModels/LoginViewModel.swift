@@ -19,7 +19,7 @@ class LoginViewModel: ObservableObject {
     }
 
     func isValidInput() -> Bool {
-        return email == "marwan@gmail.com" && password == "123456"
+        return email == "admin@gmail.com" && password == "PleaseDontDeleteOrModifyOldProductsOrCollectionsOrDiscounts:)"
     }
 
     func signIn() {
